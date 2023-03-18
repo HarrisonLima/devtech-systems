@@ -1,0 +1,56 @@
+.dashboard {
+  float: left;
+  font-size: 20px;
+  width: 66.66666%;
+}
+
+.dashboard__content {
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-bottom: 1px solid #dedede;
+}
+
+.dashboard__content i {
+  font-size: 18px;
+}
+
+.dasboard__paineis {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  width: 1000px;
+}
+
+.dashboard__paineis--default {
+  background-color: #1d4350;
+  color: #fff;
+  padding: 30px;
+  margin-right: 5px;
+  height: 125px;
+  width: 325px;
+}
+
+.dashboard__paineis--default h3{
+  font-size: 18px;
+}
+
+.dashboard__chart--graph{
+  max-width: 500px;
+}
+
+.dashboard__chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-left: 50px;
+  width: 1000px;
+}
+.dashboard__chart--graph{
+  background-color: #fff;
+  border: 7px solid #dedede;
+  border-width: 1px;
+}

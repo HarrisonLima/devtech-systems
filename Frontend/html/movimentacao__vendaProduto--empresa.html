@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/fb57ddc8bd.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="../css/default/default.css" />
+    <link rel="stylesheet" href="../css/default/default__menu.css" />
+    <link rel="stylesheet" href="../css/default/default__movimentacao.css" />
+    <link
+      rel="stylesheet"
+      href="../css/movimentacao/movimentacao__vendaProduto.css"
+    />
+
+    <title>Garage 817</title>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a href="./home.html"
+        >GARAGE 817
+        <i class="fa-solid fa-gear"></i>
+        <i class="fa-solid fa-wrench"></i>
+      </a>
+    </header>
+    <main>
+      <div class="menu">
+        <div class="menu__top">
+          <div>
+            <img title="roxy-profile" src="../img/roxy-profile.webp" />
+          </div>
+          <div>
+            <h2>Bem vindo(a), <strong>Roxy</strong></h2>
+            <div class="menu__top--icons">
+              <button type="button" title="logoff">
+                <a href="./login.html" title="loginlink"
+                  ><i class="fa fa-arrow-right-from-bracket"></i
+                ></a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="menu__bottom">
+          <h1>Menu</h1>
+          <div class="menu__bottom--elements">
+            <div>
+              <div>
+                <button type="button">Cadastros</button>
+                <div class="submenu__bottom--elements">
+                  <a href="./cadastro__cliente.html">Cliente</a><br />
+                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+                  <a href="./cadastro__peca.html">Peça</a><br />
+                  <a href="./cadastro__produto.html">Produto</a><br />
+                  <a href="./cadastro__usuario.html">Usuário</a><br />
+                  <a href="./cadastro__servico.html">Serviço</a><br />
+                  <a href="./cadastro__veiculo.html">Veículo</a><br />
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="button">Relatórios</button>
+              <div class="submenu__bottom--elements">
+                <a href="./relatorio__cliente.html">Cliente</a><br />
+                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+                <a href="./relatorio__peca.html">Peça</a><br />
+                <a href="./relatorio__produto.html">Produto</a><br />
+                <a href="./relatorio__usuario.html">Usuário</a><br />
+                <a href="./relatorio__servico.html">Serviço</a><br />
+                <a href="./relatorio__veiculo.html">Veículo</a><br />
+              </div>
+            </div>
+            <div>
+              <button type="button">Movimentações</button>
+              <div class="submenu__bottom--elements">
+                <a href="./movimentacao__emitirOrcamento.html"
+                  >Emitir Orçamento</a
+                ><br />
+                <a href="./movimentacao__emitirPedido.html"
+                  >Emitir pedido</a
+                ><br />
+                <a href="./movimentacao__vendaProduto.html"
+                  >Venda Produto</a
+                ><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="movimentacao">
+        <div class="movimentacao__content">
+          <div>
+            <i class="fa-solid fa-basket-shopping"></i>
+            Venda de produto
+          </div>
+          <div class="radio__tipoCliente">
+            <input
+              type="radio"
+              id="radio__clientepf"
+              name="radio"
+              title="radio_clientepf"
+              value="pf"
+              />
+              <label for="radio__passeio">Pessoa Física</label>
+              <input
+              type="radio"
+              id="radio__clientepj"
+              name="radio"
+              title="radio_clientepj"
+              value="pj"
+              checked
+            />
+            <label for="radio__utilitario">Pessoa Jurídica</label>
+          </div>
+          <div>
+            <h2>Informações do cliente</h2>
+          </div>
+          <form>
+            <div class="form__cliente--informacoes">
+              <div>
+                <h3>Cliente</h3>
+                <input
+                  type="text"
+                  id="nomeCliente"
+                  class="movimentacao__input--xbig"
+                  placeholder="Digite o nome do cliente"
+                />
+              </div>
+              <div>
+                <h3>CNPJ</h3>
+                <input
+                  type="text"
+                  id="cnpj"
+                  class="movimentacao__input--cnpj"
+                  placeholder="00.000.000/0000-00"
+                  maxlength="18"
+                />
+              </div>
+            </div>
+          </form>
+
+          <div class="title__listagemProdutos">
+            <h2>Listagem produtos</h2>
+            <div class="form__pesquisar--produto">
+              <input type="text"id="pesquisarProduto" class="movimentacao__input--xbig" placeholder="Buscar produto"/>
+              <div class="icon__search">
+                <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="icon__check">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+            </div>
+          </div>
+          <form>
+            <div id="form__Itens" class="form__itens">
+              <div>
+                <h3>Qtde</h3>
+                <input
+                  type="number"
+                  id="quantidadeproduto"
+                  class="movimentacao__input--small"
+                  placeholder="01"
+                  disabled
+                />
+              </div>
+              <div>
+                <h3>Produto</h3>
+                <input
+                  type="text"
+                  id="produto"
+                  class="movimentacao__input--big "
+                  placeholder="Digite o nome do produto"
+                  disabled
+                />
+              </div>
+              <div>
+                <h3>UN</h3>
+                <input
+                  type="text"
+                  id="unidademedida"
+                  class="movimentacao__input--small"
+                  placeholder="un"
+                  disabled
+                />
+              </div>
+              <div>
+                <h3>Marca</h3>
+                <input
+                  type="text"
+                  id="marca"
+                  class="movimentacao__input"
+                  placeholder="Digite a marca do produto"
+                  disabled
+                />
+              </div>
+              <div>
+                <h3>Valor</h3>
+                <input
+                  type="number"
+                  id="valorProduto"
+                  class="movimentacao__input"
+                  placeholder="R$ 0,00"
+                  disabled
+                />
+              </div>
+              <div>
+                <h3>Descrição</h3>
+                <input
+                  type="text"
+                  id="descricaoProduto"
+                  class="movimentacao__input"
+                  placeholder="Digite a descrição"
+                  disabled
+                />
+              </div>
+              <div class="movimentacao__button">
+                <i id="button__adicionar" class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="movimentacao__button">
+                <i id="button__retirar" class="fa-solid fa-circle-xmark"></i>
+              </div>
+            </div>
+          </form>
+          <div class="buttons">
+            <button
+            id="button" 
+              class="button__form--finalizarVenda"
+            >
+              Finalizar
+            </button>
+            <button id="button__cancelar" class="button__form--cancelar">
+              Cancelar
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+
+    <script src="../js/button/button__cancelar.js"></script>
+    <script src="../js/button/button__adicionar.js"></script>
+    <script src="../js/components/radio__cliente--movimentacao.js"></script>
+
+  </body>
+</html>

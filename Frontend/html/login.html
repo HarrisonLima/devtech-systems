@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../css/login/login.css" />
+
+    <title>Garage 817</title>
+  </head>
+  <body>
+    <img title="logo" class="logo" src="../img/picwish.png" />
+    <main>
+      <h1>Login</h1>
+
+      <form onsubmit="return false;">
+        <div class="input__form">
+          <input
+            type="text"
+            id="login__input--usuario"
+            class="w3-input"
+            placeholder="Usuário"
+            onkeypress="valid()"
+          />
+        </div>
+        <div class="input__form">
+          <input
+            type="password"
+            id="login__input--senha"
+            class="w3-input"
+            placeholder="Senha"
+            onkeypress="valid()"
+          />
+        </div>
+        <div class="checkbox">
+          <input id="checkboxvisible" title="checkbox" type="checkbox" onclick="statusVisible()" >Mostrar senha
+        </div>
+        <div class="w3-center w3-margin-top">
+          <nav>
+            <button type="submit" id="login__button" onclick="login()" class="button__entrar" disabled>
+              Entrar
+            </button>
+          </nav>
+        </div>
+      </form>
+    </main>
+    <footer></footer>
+    <script src="../js/button/button__login.js"></script>
+  </body>
+</html>

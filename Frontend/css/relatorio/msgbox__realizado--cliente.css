@@ -1,0 +1,42 @@
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    margin-top: 10%;
+    text-align: center;
+} 
+
+main {
+    border: 1px solid #DFDFDF;
+    height: 300px;
+    padding: 50px;
+    width: 400px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    width: auto;
+}
+
+.button__cadastrar{
+    background-color: #1d4350;   
+    border: 7px solid #1d4350;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size:16px;
+    margin-top: 5%;
+    transition: 0.2s;
+    width: 150px;
+}
+
+.button__cadastrar:hover {
+    background-color: #dedede;
+    border: 7px solid #dedede;
+    border-radius: 10px;
+    color: #1d4350;
+    cursor:pointer;
+    transition: 0.2s;
+}

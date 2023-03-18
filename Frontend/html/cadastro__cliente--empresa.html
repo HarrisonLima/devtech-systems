@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/fb57ddc8bd.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="../css/default/default.css" />
+    <link rel="stylesheet" href="../css/default/default__cadastro.css" />
+    <link rel="stylesheet" href="../css/default/default__menu.css" />
+    <link rel="stylesheet" href="../css/cadastro/cadastro__empresa.css" />
+    <title>Garage 817</title>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a href="./home.html"
+        >GARAGE 817
+        <i class="fa-solid fa-gear"></i>
+        <i class="fa-solid fa-wrench"></i>
+      </a>
+    </header>
+    <main>
+      <div class="menu">
+        <div class="menu__top">
+          <div>
+            <img title="roxy-profile" src="../img/roxy-profile.webp" />
+          </div>
+          <div>
+            <h2>Bem vindo(a), <strong>Roxy</strong></h2>
+            <div class="menu__top--icons">
+              <button type="button" title="logoff">
+                <a href="./login.html" title="loginlink"
+                  ><i class="fa fa-arrow-right-from-bracket"></i
+                ></a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="menu__bottom">
+          <h1>Menu</h1>
+          <div class="menu__bottom--elements">
+            <div>
+              <div>
+                <button type="button">Cadastros</button>
+                <div class="submenu__bottom--elements">
+                  <a href="./cadastro__cliente.html">Cliente</a><br />
+                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+                  <a href="./cadastro__peca.html">Peça</a><br />
+                  <a href="./cadastro__produto.html">Produto</a><br />
+                  <a href="./cadastro__usuario.html">Usuário</a><br />
+                  <a href="./cadastro__servico.html">Serviço</a><br />
+                  <a href="./cadastro__veiculo.html">Veículo</a><br />
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="button">Relatórios</button>
+              <div class="submenu__bottom--elements">
+                <a href="./relatorio__cliente.html">Cliente</a><br />
+                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+                <a href="./relatorio__peca.html">Peça</a><br />
+                <a href="./relatorio__produto.html">Produto</a><br />
+                <a href="./relatorio__usuario.html">Usuário</a><br />
+                <a href="./relatorio__servico.html">Serviço</a><br />
+                <a href="./relatorio__veiculo.html">Veículo</a><br />
+              </div>
+            </div>
+            <div>
+              <button type="button">Movimentações</button>
+              <div class="submenu__bottom--elements">
+                <a href="./movimentacao__emitirOrcamento.html"
+                  >Emitir Orçamento</a
+                ><br />
+                <a href="./movimentacao__emitirPedido.html"
+                  >Emitir pedido</a
+                ><br />
+                <a href="./movimentacao__vendaProduto.html"
+                  >Venda Produto</a
+                ><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cadastro">
+        <div class="cadastro__content">
+          <div>
+            <i class="fa-solid fa-building"></i>
+            Cadastro de cliente
+          </div>
+          <div class="radio__tipoCliente">
+            <input
+              type="radio"
+              id="radio__clientepf"
+              name="radio"
+              title="radio_clientepf"
+              value="pf"
+              />
+              <label for="radio__passeio">Pessoa Física</label>
+              <input
+              type="radio"
+              id="radio__clientepj"
+              name="radio"
+              title="radio_clientepj"
+              value="pj"
+              checked
+            />
+            <label for="radio__utilitario">Pessoa Jurídica</label>
+          </div>
+          <div>
+            <h2>Informações da empresa</h2>
+          </div>
+
+          <form>
+            <div class="form__empresa--informacoes">
+              <div>
+                <h3>Razão social</h3>
+                <input
+                  type="text"
+                  id="razaoSocial"
+                  class="cadastro__input--razaosocial"
+                  placeholder="Digite o nome completo"
+                />
+              </div>
+              <div>
+                <h3>Nome fantasia</h3>
+                <input
+                  type="text"
+                  id="nomeFantasia"
+                  class="cadastro__input--nomefantasia"
+                  placeholder="Digite o nome fantasia"
+                />
+              </div>
+            </div>
+            <div class="form__empresa--dados">
+              <div>
+                <h3>CNPJ</h3>
+                <input
+                  type="text"
+                  id="cnpj"
+                  class="cadastro__input--cnpj"
+                  autocomplete="off"
+                  placeholder="00.000.000/0000-00"
+                  maxlength="18"
+                />
+              </div>
+              <div>
+                <h3>Inscrição estadual</h3>
+                <input
+                  type="text"
+                  id="inscricaoEstadual"
+                  class="cadastro__input--inscricaoEstadual"
+                  autocomplete="off"
+                  placeholder="Digite a inscrição estadual"
+                  maxlength="14"
+                />
+              </div>
+              <div>
+                <h3>Inscrição municipal</h3>
+                <input
+                  type="text"
+                  id="inscricaoMunicipal"
+                  class="cadastro__input--inscricaoMunicipal"
+                  autocomplete="off"
+                  placeholder="Digite a inscrição municipal"
+                  maxlength="11"
+                />
+              </div>
+            </div>
+          <div>
+            <h2 id="informacoes__contato">Informações de contato</h2>
+          </div>
+          <form class="form__contato">
+            <div class="form__contato--dados">
+              <div>
+                <h3>CEP</h3>
+                <input
+                  type="text"
+                  id="cep"
+                  class="cadastro__input--cep"
+                  placeholder="00.000-000"
+                  maxlength="10"
+                />
+              </div>
+              <div>
+                <h3>Número</h3>
+                <input
+                  type="number"
+                  id="numeroEndereco"
+                  class="cadastro__input--numero"
+                  placeholder="Nº 999"
+                />
+              </div>
+              <div>
+                <h3>Complemento</h3>
+                <input
+                  type="text"
+                  id="complementoEndereco"
+                  class="cadastro__input--complemento"
+                  placeholder="Complemento de endereço"
+                />
+              </div>
+            </div>
+            <div class="form__contato--localizacao">
+              <div>
+                <h3>Cidade</h3>
+                <input
+                  type="text"
+                  id="cidade"
+                  class="cadastro__input--cidade"
+                  placeholder="Digite o nome da cidade"
+                />
+              </div>
+              <div>
+                <h3>UF</h3>
+                <input
+                  type="text"
+                  id="uf"
+                  class="cadastro__input--uf"
+                  placeholder="UF"
+                  maxlength="2"
+                />
+              </div>
+              <div>
+                <h3>Logradouro</h3>
+                <input
+                  type="text"
+                  id="logradouro"
+                  class="cadastro__input--logradouro"
+                  placeholder="Digite o endereço"
+                />
+              </div>
+            </div>
+            <div class="form__contato--pessoal">
+              <div>
+                <h3>E-mail</h3>
+                <input
+                  type="email"
+                  id="email"
+                  class="cadastro__input--email"
+                  placeholder="exemploemail@gmail.com"
+                />
+              </div>
+              <div>
+                <h3>DDD</h3>
+                <input
+                  type="number"
+                  id="ddd"
+                  class="cadastro__input--uf"
+                  placeholder="(44)"
+                  maxlength="4"
+                />
+              </div>
+              <div>
+                <h3>Telefone</h3>
+                <input
+                  type="text"
+                  id="telefone"
+                  class="cadastro__input--fone"
+                  placeholder="9.9999-9999"
+                  maxlength="10"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="buttons">
+            <button id="button__cadastrar--clientepj" class="button__form--cadastrar">
+                Cadastrar
+            </button>
+            <button id="button__cancelar" class="button__form--cancelar">
+              Cancelar
+            </button>
+            <button id="button__limpar--clientepj"  class="button__form--limpar">Limpar</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+
+
+    <script src="../js/button/cadastrar/cadastrar__clientepj.js"></script>
+    <script src="../js/button/button__cancelar.js"></script>
+    <script src="../js/button/limpar/limpar__clientepj.js"></script>
+    <script src="../js/mascara/mascara__cep.js"></script>
+    <script src="../js/mascara/mascara__cnpj.js"></script>
+    <script src="../js/components/radio__cliente--cadastro.js"></script>
+  </body>
+</html>

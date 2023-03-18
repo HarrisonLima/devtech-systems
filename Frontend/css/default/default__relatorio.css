@@ -1,0 +1,117 @@
+.just__line {
+  border-bottom: 1px solid #dedede;
+  padding: 0%;
+  width: 1000px;
+}
+
+.radio__tipoCliente {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.form__search {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  width: 850px;
+}
+
+.relatorio {
+  border-bottom-width: 100%;
+  float: left;
+  font-size: 20px;
+  padding: 25px;
+  width: 66.66666%;
+}
+
+.relatorio__input {
+  font-size: 16px;
+  width: 200px;
+}
+
+.relatorio__input--small {
+  font-size: 16px;
+  width: 60px;
+}
+
+.relatorio__input--medium {
+  font-size: 16px;
+  width: 100px;
+}
+
+.relatorio__search--content {
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.relatorio__search--content i {
+  font-size: 18px;
+}
+
+.relatorio__search--content h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.relatorio__search--content h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.button__search {
+  background-color: #1d4350;
+  border: 0.5px solid #1d4350;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 35px;
+  margin-top: 40px;
+  width: 125px;
+}
+
+.relatorio__search--results {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#tabela__clientespf,
+#tabela__clientespj,
+#tabela__fornecedores,
+#tabela__produtos,
+#tabela__pecas,
+#tabela__servicos,
+#tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj {
+  align-items: center;
+  display: flexbox;
+  justify-content: center;
+  justify-items: center;
+  width: 500px;
+}
+
+#tabela__clientespf,
+#tabela__clientespj,
+#tabela__fornecedores,
+#tabela__produtos,
+#tabela__pecas,
+#tabela__servicos,
+#tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj thead {
+  font-size: 16px;
+  width: 100%;
+}
+
+#tabela__clientespf,
+#tabela__clientespj,
+#tabela__fornecedores,
+#tabela__produtos,
+#tabela__pecas,
+#tabela__servicos,
+#tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj td {
+  font-size: 14px;
+}

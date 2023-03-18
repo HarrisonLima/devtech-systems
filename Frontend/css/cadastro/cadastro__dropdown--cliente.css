@@ -1,0 +1,71 @@
+.dropdown__cadastro--cliente{
+    display: flex;
+    font-size: 16px;
+    height: 30px;
+    position: relative;
+    width: 150px;
+}
+
+.dropdown__cadastro--cliente input::placeholder{
+    color:#000000;
+    font-size: 16px;
+}
+
+.dropdown__cadastro--cliente::before{
+    border: 1.5px solid rgb(118, 118, 118);
+    border-top: 1.5px solid #fff;
+    border-right: 1.5px solid #fff;
+    content: '';
+    height: 8px;
+    position: absolute;
+    pointer-events: none;
+    right: 20px;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    top: 10px;
+    width: 8px;
+    z-index: 10000;
+}
+
+.dropdown__cadastro--cliente.active::before{
+    background-color: #ebebeb;
+    border-top: 1.5px solid #ebebeb;
+    border-right: 1.5px solid #ebebeb;
+    top: 12px;
+    transform: rotate(-225deg);
+}
+
+.dropdown__cadastro--cliente input{
+    border: 1.5px solid rgb(118, 118, 118);
+    cursor: pointer;
+    left: 0;
+    outline: none;
+    top: 0;
+    width: 100%;
+}
+.dropdown__cadastro--cliente.active input{
+    background-color: #ebebeb;
+}
+
+.dropdown__option{
+    background-color: #ffffff;
+    border: 1.5px solid rgb(118, 118, 118);
+    display: none;
+    position: absolute;
+    top: 40px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.dropdown__cadastro--cliente.active .dropdown__option{
+    display: block;
+}
+
+.dropdown__option div{
+    cursor: pointer;
+    padding: 4px;
+}
+
+.dropdown__option div:hover{
+    background-color: #ebebeb;
+}

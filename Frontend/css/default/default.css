@@ -1,0 +1,19 @@
+.topbar {
+    background-color: #1d4350   ;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.topbar i {
+    font-size: 18px;
+}
+
+.topbar a{
+    text-decoration: none;
+}
+
+body {
+    background-color: #f7f7f7;
+    font-family: "Segoe UI",Arial,sans-serif;
+}

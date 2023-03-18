@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css” integrity=”sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T” crossorigin=”anonymous”>
+    <link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <script
+      src="https://kit.fontawesome.com/fb57ddc8bd.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="../css/default/default.css" />
+    <link rel="stylesheet" href="../css/default/default__cadastro.css" />
+    <link rel="stylesheet" href="../css/default/default__menu.css" />
+    <link rel="stylesheet" href="../css/cadastro/cadastro__usuario.css" />
+    <link rel="stylesheet" href="../css/cadastro/cadastro__dropdown--usuario.css" />
+    
+
+    <title>Garage 817</title>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a href="./home.html"
+        >GARAGE 817
+        <i class="fa-solid fa-gear"></i>
+        <i class="fa-solid fa-wrench"></i>
+      </a>
+    </header>
+    <main>
+      <div class="menu">
+        <div class="menu__top">
+          <div>
+            <img title="roxy-profile" src="../img/roxy-profile.webp" />
+          </div>
+          <div>
+            <h2>Bem vindo(a), <strong>Roxy</strong></h2>
+            <div class="menu__top--icons">
+              <button type="button" title="logoff">
+                <a href="./login.html" title="loginlink"
+                  ><i class="fa fa-arrow-right-from-bracket"></i
+                ></a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="menu__bottom">
+          <h1>Menu</h1>
+          <div class="menu__bottom--elements">
+            <div>
+              <div>
+                <button type="button">Cadastros</button>
+                <div class="submenu__bottom--elements">
+                  <a href="./cadastro__cliente.html">Cliente</a><br />
+                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+                  <a href="./cadastro__peca.html">Peça</a><br />
+                  <a href="./cadastro__produto.html">Produto</a><br />
+                  <a href="./cadastro__usuario.html">Usuário</a><br />
+                  <a href="./cadastro__servico.html">Serviço</a><br />
+                  <a href="./cadastro__veiculo.html">Veículo</a><br />
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="button">Relatórios</button>
+              <div class="submenu__bottom--elements">
+                <a href="./relatorio__cliente.html">Cliente</a><br />
+                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+                <a href="./relatorio__peca.html">Peça</a><br />
+                <a href="./relatorio__produto.html">Produto</a><br />
+                <a href="./relatorio__usuario.html">Usuário</a><br />
+                <a href="./relatorio__servico.html">Serviço</a><br />
+                <a href="./relatorio__veiculo.html">Veículo</a><br />
+              </div>
+            </div>
+            <div>
+              <button type="button">Movimentações</button>
+              <div class="submenu__bottom--elements">
+                <a href="./movimentacao__emitirOrcamento.html"
+                  >Emitir Orçamento</a
+                ><br />
+                <a href="./movimentacao__emitirPedido.html"
+                  >Emitir pedido</a
+                ><br />
+                <a href="./movimentacao__vendaProduto.html"
+                  >Venda Produto</a
+                ><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cadastro">
+        <div class="cadastro__content">
+          <div>
+            <i class="fa-solid fa-user-gear"></i>
+            Cadastro de usuário
+          </div>
+          <div>
+            <h2>Informações do usuário</h2>
+          </div>
+
+          <form>
+            <div class="form__usuario--informacoes">
+              <div>
+                <h3>Usuário</h3>
+                <input
+                  type="text"
+                  id="usuario"
+                  class="cadastro__input--usuario"
+                  placeholder="Digite o nome do usuáro"
+                />
+              </div>
+              <div>
+                <h3>Senha</h3>
+                <input
+                  type="password"
+                  id="password__cadastro--usuario"
+                  class="cadastro__input--senha"
+                  placeholder="*********"
+                />
+                  <i class="bi bi-eye-slash" 
+                  id="togglePassword" onclick="statusVisibleChange()"></i>
+              </div>
+              <div id="dropdown" class="dropdown">
+                  <input type="text" id="dropdown__textBox" class="dropdwn__textBox" placeholder="Perfil de acesso" readonly>
+                <div class="dropdown__option">
+                  <div onclick="dropdownSelect('Administrador')">
+                    Administrador
+                  </div>
+                  <div onclick="dropdownSelect('Funcionário')">
+                    Funcionário
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="buttons">
+            <button id="button__cadastrar--usuario" class="button__form--cadastrar">
+                Cadastrar
+            </button>
+            <button
+              id="button__cancelar"
+              class="button__form--cancelar"
+            >
+              Cancelar
+            </button>
+            <button id="button__limpar--usuario" class="button__form--limpar">Limpar</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    
+    <script src="../js/button/cadastrar/cadastrar__usuario.js"></script>
+    <script src="../js/button/button__cancelar.js"></script>
+    <script src="../js/button/button__eye.js"></script>
+    <script src="../js/button/limpar/limpar__usuario.js"></script>
+    <script src="../js/components/dropdown__perfilacesso.js"></script>
+
+  </body>
+</html>

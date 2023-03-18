@@ -1,0 +1,95 @@
+.radio__tipoVeiculo{
+  align-items: center;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 450px;
+}
+
+.radio__tipoVeiculo h3 {
+  font-size: 16px;
+}
+
+.form__veiculo--especificacao{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 850px;
+}
+
+.cadastro__input--marca {
+  font-size: 16px;
+  width: 300px;
+}
+
+.cadastro__input--ano {
+  font-size: 16px;
+  width: 135px;
+}
+
+.cadastro__input--cor {
+  font-size: 16px;
+  width: 200px;
+}
+
+.cadastro__input--passageiros {
+  font-size: 16px;
+  width: 135px;
+}
+
+.form__veiculo--informacoes{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 840px;
+}
+
+.cadastro__input--modelo {
+  font-size: 16px;
+  width: 300px;
+}
+
+.cadastro__input--renavam {
+  font-size: 16px;
+  width: 135px;
+}
+
+.cadastro__input--fabricante {
+  font-size: 16px;
+  width: 200px;
+}
+
+.cadastro__input--placa {
+  font-size: 16px;
+  width: 135px;
+}
+
+.form__veiculo--proprietario{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 615px;
+}
+
+.cadastro__input--proprietario {
+  font-size: 16px;
+  width: 300px;
+}
+
+.cadastro__input--cpf {
+  font-size: 16px;
+  width: 135px;
+}
+
+.cadastro__input--cnh {
+  font-size: 16px;
+  width: 135px;
+}
+
+.buttons{
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  margin-top: 100px;
+  width: 400px;
+}

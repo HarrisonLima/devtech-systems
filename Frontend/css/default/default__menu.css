@@ -1,0 +1,83 @@
+.menu {
+  background-color: #ffffff;
+  float: left;
+  width: 300px;
+  height: 100vh;
+  border-right: 1px solid #dedede;
+}
+
+.menu__top {
+  border-bottom: 1px solid #dedede;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu__top img {
+  margin-right: 100%;
+  width: 50px;
+}
+
+.menu__top h2 {
+  font-size: 15px;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.menu__top--icons {
+  margin-bottom: 15px;
+  margin-top: -18px;
+}
+
+.menu__top--icons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 0px;
+  padding-top: 7px;
+  margin-right: 2px;
+}
+
+.menu__bottom {
+  font-family: "Segoe UI", Arial, sans-serif;
+  padding-left: 35px;
+}
+
+.menu__bottom h1 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.menu__bottom--elements {
+  font-size: 15px;
+}
+
+.menu__bottom--elements button {
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 0.5px solid #c9c9c9;
+  cursor: default;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 0px;
+  padding-top: 7px;
+  text-align: left;
+  text-decoration: none;
+  width: 175px;
+}
+
+.menu__bottom--elements i {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.submenu__bottom--elements a {
+  font-weight: 400;
+  padding-left: 30px;
+  text-decoration: none;
+}

@@ -1,0 +1,76 @@
+.form__orcamento--informacoes {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 575px;
+}
+
+.movimentacao__input--proprietario {
+  font-size: 16px;
+  width: 350px;
+}
+
+.movimentacao__input--placa {
+  font-size: 16px;
+  width: 200px;
+}
+
+.form__orcamento--itens {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 875px;
+}
+
+.movimentacao__input--codigo {
+  font-size: 16px;
+  width: 125px;
+}
+.movimentacao__input--item {
+  font-size: 16px;
+  width: 200px;
+}
+
+.movimentacao__input--valor {
+  font-size: 16px;
+  width: 150px;
+}
+
+.movimentacao__input--quantidade {
+  font-size: 16px;
+  width: 150px;
+}
+
+.movimentacao__input--observacao {
+  font-size: 16px;
+  width: 200px;
+}
+
+.movimentacao__button {
+  display: flex;
+  margin-left: 900px;
+  position: absolute;
+}
+
+.movimentacao__button--addItem {
+  background-color: #1d4350;
+  border: 0.5px solid #1d4350;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  height: 35px;
+  width: 125px;
+}
+
+.movimentacao__input--valorFinalOrcamento {
+  margin-top: 30px;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 400px;
+}

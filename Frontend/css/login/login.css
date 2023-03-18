@@ -1,0 +1,75 @@
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    margin-top: 10%;
+    text-align: center;
+} 
+
+.logo { 
+    display: flex;
+    height: 250px;
+    width: 300px;
+}
+
+main {
+    border: 1px solid #DFDFDF;
+    height: 400px;
+    padding: 50px;
+    width: 400px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: auto;
+}
+
+.input__form {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.button__entrar:enabled {
+    background-color: #1d4350;   
+    border: 7px solid #1d4350;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size:16px;
+    margin-top: 10%;
+    transition: 0.2s;
+    width: 100px;
+}
+
+.button__entrar:disabled {
+    background-color: #dedede;   
+    border: 7px solid #dedede;
+    border-radius: 10px;
+    color: #000000;
+    font-size:16px;
+    margin-top: 10%;
+    transition: 0.2s;
+    width: 100px;
+}
+
+.button__entrar:hover {
+    background-color: #dedede;
+    border: 7px solid #dedede;
+    border-radius: 10px;
+    color: #1d4350;
+    cursor:pointer;
+    transition: 0.2s;
+}
+
+.checkbox{
+    display: flex;
+}
+
+#checkboxvisible{
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 15px;
+}
