@@ -22,7 +22,9 @@ function event__buttonCadastrar__CadastraClientepf() {
   var inputEmail = document.getElementById("email");
   var inputDdd = document.getElementById("ddd");
   var inputTelefone = document.getElementById("telefone");
+  var loader = document.getElementById("loader")
 
+  
   if (
     inputNome.value == "" ||
     inputCpf.value == "" ||
@@ -41,7 +43,9 @@ function event__buttonCadastrar__CadastraClientepf() {
     alert(
       "Não foi possível realizar o cadastro! Verifique novamente se todos os campos foram preenchidos corretamente!"
     );
-  } else {
+  } else {        
+    loader.classList.add("show-loader");    
+    
     const payload = {
       nome: inputNome.value,
       cpf: inputCpf.value,
@@ -66,6 +70,7 @@ function event__buttonCadastrar__CadastraClientepf() {
     })
       .then((data) => data.json())
       .then((data) => {
+        loader.classList.add("close-loader");
         window.location.href = "../html/msgbox__cadastroconcluido.html";
       });
   }

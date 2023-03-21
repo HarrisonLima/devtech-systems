@@ -1,10 +1,10 @@
 const { cadastrarClientepjRepository, buscarClientespjRepository } = require("../repositories/clientepjRepository");
 
-async function cadastrarClientepj(razaoSocial, nomeFantasia, cnpj, inscricaoEstadual, inscricaoMunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone){
-    if (!razaoSocial || !nomeFantasia || !cnpj || !cep || !numero || !cidade || !uf || !logradouro || !email || !ddd || !telefone) {
-        console.error(`Você precisa informar razaoSocial, nomeFantasia, cnpj, inscricaoEstadual, inscricaoMunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone`)
+async function cadastrarClientepj(razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone){
+    if (!razaosocial || !nomefantasia || !cnpj || !cep || !numero || !cidade || !uf || !logradouro || !email || !ddd || !telefone) {
+        console.error(`Você precisa informar razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone`)
     }
-    return cadastrarClientepjRepository(razaoSocial, nomeFantasia, cnpj, inscricaoEstadual, inscricaoMunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone);
+    return cadastrarClientepjRepository(razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone);
 }
 
 async function buscarClientespj() {

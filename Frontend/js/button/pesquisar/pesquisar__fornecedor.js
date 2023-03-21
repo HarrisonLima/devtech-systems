@@ -1,11 +1,21 @@
 const buttonPesquisarFornecedores = document.getElementById(
   "button__pesquisar--fornecedor"
 );
+const buttonExportar = document.getElementById("button__exportar--pdf");
+
+buttonExportar.style.display = 'none';
 
 buttonPesquisarFornecedores.addEventListener("click", (event) => {
   event.preventDefault();
   updateRegistros();
+  statusButtonExportar();
 });
+
+function statusButtonExportar() {
+  buttonExportar.disabled = false;
+  buttonExportar.style.display = 'block';
+}
+
 
 function getFornecedores(url) {
   let request = new XMLHttpRequest();
@@ -24,11 +34,6 @@ function adicionaLinha(fornecedor) {
   tdRazaoSocial = document.createElement("td");
   tdNomeFantasia = document.createElement("td");
   tdCnpj = document.createElement("td");
-  tdInscricaoEstadual = document.createElement("td");
-  tdInscricaoMunicipal = document.createElement("td");
-  tdCep= document.createElement("td");
-  tdNumero = document.createElement("td");
-  tdComplemento = document.createElement("td");
   tdCidade = document.createElement("td");
   tdUf = document.createElement("td");
   tdLogradouro = document.createElement("td");
@@ -37,13 +42,9 @@ function adicionaLinha(fornecedor) {
   tdTelefone = document.createElement("td");
 
   tdId.innerHTML = fornecedor.id;
-  tdRazaoSocial.innerHTML = fornecedor.razaoSocial;
+  tdRazaoSocial.innerHTML = fornecedor.razaosocial;
+  tdNomeFantasia.innerHTML = fornecedor.nomefantasia;
   tdCnpj.innerHTML = fornecedor.cnpj;
-  tdInscricaoEstadual.innerHTML = fornecedor.inscricaoEstadual;
-  tdInscricaoMunicipal.innerHTML = fornecedor.inscricaoMunicipal;
-  tdCep.innerHTML = fornecedor.cep;
-  tdNumero.innerHTML = fornecedor.numero;
-  tdComplemento.innerHTML = fornecedor.Complemento;
   tdCidade.innerHTML = fornecedor.cidade;
   tdUf.innerHTML = fornecedor.uf;
   tdLogradouro.innerHTML = fornecedor.logradouro;
@@ -53,12 +54,8 @@ function adicionaLinha(fornecedor) {
 
   linha.appendChild(tdId);
   linha.appendChild(tdRazaoSocial);
+  linha.appendChild(tdNomeFantasia);
   linha.appendChild(tdCnpj);
-  linha.appendChild(tdInscricaoEstadual);
-  linha.appendChild(tdInscricaoMunicipal);
-  linha.appendChild(tdCep);
-  linha.appendChild(tdNumero);
-  linha.appendChild(tdComplemento);
   linha.appendChild(tdCidade);
   linha.appendChild(tdUf);
   linha.appendChild(tdLogradouro);
@@ -73,11 +70,8 @@ function criaColunas(Column) {
   const elementRow = document.createElement("tr");
   const elementColumnId = document.createElement("th");
   const elementColumnRazaoSocial = document.createElement("th");
+  const elementColumnNomeFantasia = document.createElement("th");
   const elementColumnCnpj = document.createElement("th");
-  const elementColumninscricaoEstadual = document.createElement("th");
-  const elementColumninscricaoMunicipal = document.createElement("th");
-  const elementColumnCep = document.createElement("th");
-  const elementColumnNumero= document.createElement("th");
   const elementColumnCidade = document.createElement("th");
   const elementColumnUf = document.createElement("th");
   const elementColumnLogradouro = document.createElement("th");
@@ -87,11 +81,8 @@ function criaColunas(Column) {
 
   elementColumnId.innerHTML = "ID";
   elementColumnRazaoSocial.innerHTML = "Razão Social";
+  elementColumnNomeFantasia.innerHTML = "Nome Fantasia";
   elementColumnCnpj.innerHTML = "CNPJ";
-  elementColumninscricaoEstadual.innerHTML = "Inscrição Estadual";
-  elementColumninscricaoMunicipal.innerHTML = "Inscrição Municipal";
-  elementColumnCep.innerHTML = "CEP";
-  elementColumnNumero.innerHTML = "Número";
   elementColumnCidade.innerHTML = "Cidade";
   elementColumnUf.innerHTML = "UF";
   elementColumnLogradouro.innerHTML = "Logradouro";
@@ -101,11 +92,8 @@ function criaColunas(Column) {
 
   elementRow.appendChild(elementColumnId);
   elementRow.appendChild(elementColumnRazaoSocial);
+  elementRow.appendChild(elementColumnNomeFantasia);
   elementRow.appendChild(elementColumnCnpj);
-  elementRow.appendChild(elementColumninscricaoEstadual);
-  elementRow.appendChild(elementColumninscricaoMunicipal);
-  elementRow.appendChild(elementColumnCep);
-  elementRow.appendChild(elementColumnNumero);
   elementRow.appendChild(elementColumnCidade);
   elementRow.appendChild(elementColumnUf);
   elementRow.appendChild(elementColumnLogradouro);

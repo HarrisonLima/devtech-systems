@@ -1,12 +1,19 @@
 const buttonPesquisarPecas = document.getElementById(
   "button__pesquisar--peca"
 );
+const buttonExportar = document.getElementById("button__exportar--pdf");
+buttonExportar.style.display = 'none';
 
 buttonPesquisarPecas.addEventListener("click", (event) => {
   event.preventDefault();
   updateRegistros();
-  formatTable();
+  statusButtonExportar();
 });
+
+function statusButtonExportar() {
+  buttonExportar.disabled = false;
+  buttonExportar.style.display = 'block';
+}
 
 function getPecas(url) {
   let request = new XMLHttpRequest();
@@ -68,9 +75,4 @@ function updateRegistros() {
     let linha = adicionaLinha(element);
     tabela.appendChild(linha);
   });
-}
-
-function formatTable() {
-  tabela.style.border = "1px solid #000000";
-  content.style.border = "1px solid #000000";
 }

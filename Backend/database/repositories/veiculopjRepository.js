@@ -3,30 +3,30 @@ const db = require("../postgres");
 async function cadastrarVeiculopjRepository(
   tipo,
   marca,
-  anoFabricacao,
+  anofabricacao,
   cor,
-  numeroPassageiro,
+  numeropassageiro,
   modelo,
   renavam,
   fabricante,
   placa,
-  nomeProprietario,
+  nomeproprietario,
   cnpj
 ) {
   try {
     const query =
-      "INSERT INTO veiculopj (tipo, marca, anoFabricacao, cor, numeroPassageiro, modelo, renavam, fabricante, placa, nomeProprietario, cnpj) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *";
+      "INSERT INTO veiculopj (tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cnpj) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *";
     const values = [
       tipo,
       marca,
-      anoFabricacao,
+      anofabricacao,
       cor,
-      numeroPassageiro,
+      numeropassageiro,
       modelo,
       renavam,
       fabricante,
       placa,
-      nomeProprietario,
+      nomeproprietario,
       cnpj
     ];
 
@@ -49,14 +49,14 @@ async function buscarVeiculospjRepository() {
           id: veiculo.id,
           tipo: veiculo.tipo,
           marca: veiculo.marca,
-          anoFabricacao: veiculo.anoFabricacao,
+          anofabricacao: veiculo.anofabricacao,
           cor: veiculo.cor,
-          numeroPassageiro: veiculo.numeroPassageiro,
+          numeropassageiro: veiculo.numeropassageiro,
           modelo: veiculo.modelo,
           renavam: veiculo.renavam,
           fabricante: veiculo.fabricante,
           placa: veiculo.placa,
-          nomeProprietario: veiculo.nomeProprietario,
+          nomeproprietario: veiculo.nomeproprietario,
           cnpj: veiculo.cnpj
         };
       });

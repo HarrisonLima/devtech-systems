@@ -1,11 +1,11 @@
 const db = require("../postgres");
 
 async function cadastrarClientepjRepository(
-  razaoSocial,
-  nomeFantasia,
+  razaosocial,
+  nomefantasia,
   cnpj,
-  inscricaoEstadual,
-  inscricaoMunicipal,
+  inscricaoestadual,
+  inscricaomunicipal,
   cep,
   numero,
   complemento,
@@ -18,13 +18,13 @@ async function cadastrarClientepjRepository(
 ) {
   try {
     const query =
-      "INSERT INTO clientepj (razaoSocial, nomeFantasia, cnpj, inscricaoEstadual, inscricaoMunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *";
+      "INSERT INTO clientepj (razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *";
     const values = [
-      razaoSocial,
-      nomeFantasia,
+      razaosocial,
+      nomefantasia,
       cnpj,
-      inscricaoEstadual,
-      inscricaoMunicipal,
+      inscricaoestadual,
+      inscricaomunicipal,
       cep,
       numero,
       complemento,
@@ -53,11 +53,11 @@ async function buscarClientespjRepository() {
       return res.rows.map((cliente) => {
         return {
           id: cliente.id,
-          razaoSocial: cliente.razaoSocial,
-          nomeFantasia: cliente.nomeFantasia,
+          razaosocial: cliente.razaosocial,
+          nomefantasia: cliente.nomefantasia,
           cnpj: cliente.cnpj,
-          inscricaoEstadual: cliente.inscricaoEstadual,
-          inscricaoMunicipal: cliente.inscricaoMunicipal,
+          inscricaoestadual: cliente.inscricaoestadual,
+          inscricaomunicipal: cliente.inscricaomunicipal,
           cep: cliente.cep,
           numero: cliente.numero,
           complemento: cliente.complemento,

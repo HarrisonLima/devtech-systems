@@ -41,11 +41,11 @@ function event__buttonCadastrar__Cadastrafornecedor() {
     );
   } else {
     const payload = {
-      razaoSocial: inputRazaoSocial.value,
-      nomeFantasia: inputNomeFantasia.value,
+      razaosocial: inputRazaoSocial.value,
+      nomefantasia: inputNomeFantasia.value,
       cnpj: inputCnpj.value,
-      inscricaoEstadual: inputInscricaoEstadual.value,
-      inscricaoMunicipal: inputInscricaoMunicipal.value,
+      inscricaoestadual: inputInscricaoEstadual.value,
+      inscricaomunicipal: inputInscricaoMunicipal.value,
       cep: inputCep.value,
       numero: inputNumeroEndereco.value,
       complemento: inputComplemento.value,

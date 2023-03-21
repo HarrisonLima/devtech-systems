@@ -1,6 +1,5 @@
 .movimentacao {
     float: left;
-    font-size: 20px;
     width: 66.66666%;
   }
   
@@ -60,4 +59,51 @@
     cursor: pointer;
     height: 35px;
     width: 125px;
+  }
+
+  .basket__table {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+    
+  .basket__table > div {
+    width: 100%;
+  }
+  
+  .basket__table >div > table {
+    table-layout: fixed;
+    width: 100%;
+    border: 1px solid #1d4350;
+    text-align: center;
+  }
+  .basket__table >div > table > tr{
+    text-align: center;
+  }
+  .basket__table > div >table > thead{  
+    background-color: #02201f;
+    color: #ffffff;
+  }
+  
+  .basket__table > div >table > tr:nth-child(even) {
+    background-color: #d1d4d4;
+  }
+  .basket__table > div >table > tr > td{
+    padding: 5px;
+    word-wrap: break-word;  
+  }
+  .basket__table--trash-icon{
+    color: rgb(241, 86, 86);
+    cursor: pointer;
+  }
+  .basket__table--edit-icon{
+    color: #1d4350;
+    cursor: pointer;
+  }
+
+  .basket__table--align{   
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-around;
   }

@@ -149,10 +149,9 @@
                   type="number"
                   id="quantidadeproduto"
                   class="movimentacao__input--small"
-                  placeholder="01"
-                  disabled
-                />
-              </div>
+                  value="1"
+                  />
+                </div>
               <div>
                 <h3>Produto</h3>
                 <input
@@ -160,7 +159,6 @@
                   id="produto"
                   class="movimentacao__input--big "
                   placeholder="Digite o nome do produto"
-                  disabled
                 />
               </div>
               <div>
@@ -170,7 +168,6 @@
                   id="unidademedida"
                   class="movimentacao__input--small"
                   placeholder="un"
-                  disabled
                 />
               </div>
               <div>
@@ -180,17 +177,15 @@
                   id="marca"
                   class="movimentacao__input"
                   placeholder="Digite a marca do produto"
-                  disabled
                 />
               </div>
               <div>
                 <h3>Valor</h3>
                 <input
                   type="number"
-                  id="valorProduto"
+                  id="valorproduto"
                   class="movimentacao__input"
-                  placeholder="R$ 0,00"
-                  disabled
+                  value="99.99"
                 />
               </div>
               <div>
@@ -200,7 +195,6 @@
                   id="descricaoProduto"
                   class="movimentacao__input"
                   placeholder="Digite a descrição"
-                  disabled
                 />
               </div>
               <div class="movimentacao__button">
@@ -211,9 +205,31 @@
               </div>
             </div>
           </form>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+          <div class="basket__table">
+            <div>
+              <table id="table__produtos">
+                <thead>
+                  <th>Qtde</th>
+                  <th>Produto</th>
+                  <th>UN</th>
+                  <th>Marca</th>
+                  <th>Valor</th>
+                  <th>Descrição</th>
+                  <th>Ações</th>
+                </thead>            
+                <tbody id="basket__table__tbody">                             
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
           <div class="buttons">
             <button
-            id="button" 
+            id="button__finalizar" 
               class="button__form--finalizarVenda"
             >
               Finalizar
@@ -228,6 +244,8 @@
     </main>
     <footer></footer>
 
+
+    <script src="../js/validacao/input__produto.js"></script>
     <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/button__adicionar.js"></script>
 

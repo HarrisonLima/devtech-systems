@@ -1,12 +1,20 @@
 const buttonPesquisarServicos = document.getElementById(
   "button__pesquisar--servico"
 );
+const buttonExportar = document.getElementById("button__exportar--pdf");
+
+buttonExportar.style.display = 'none';
 
 buttonPesquisarServicos.addEventListener("click", (event) => {
   event.preventDefault();
   updateRegistros();
-  formatTable();
+  statusButtonExportar();
 });
+
+function statusButtonExportar() {
+  buttonExportar.disabled = false;
+  buttonExportar.style.display = 'block';
+}
 
 function getServicos(url) {
   let request = new XMLHttpRequest();
@@ -69,9 +77,3 @@ function updateRegistros() {
     tabela.appendChild(linha);
   });
 }
-
-function formatTable() {
-  tabela.style.border = "1px solid #000000";
-  content.style.border = "1px solid #000000";
-}
-

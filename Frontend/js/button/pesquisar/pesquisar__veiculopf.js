@@ -1,11 +1,20 @@
 const buttonPesquisarVeiculospf = document.getElementById(
   "button__pesquisar--veiculopf"
 );
+const buttonExportar = document.getElementById("button__exportar--pdf");
+
+buttonExportar.style.display = 'none';
 
 buttonPesquisarVeiculospf.addEventListener("click", (event) => {
   event.preventDefault();
   updateRegistros();
+  statusButtonExportar();
 });
+
+function statusButtonExportar() {
+  buttonExportar.disabled = false;
+  buttonExportar.style.display = 'block';
+}
 
 function getVeiculospf(url) {
   let request = new XMLHttpRequest();
@@ -36,9 +45,9 @@ function adicionaLinha(veiculo) {
   tdId.innerHTML = veiculo.id;
   tdTipo.innerHTML = veiculo.tipo;
   tdMarca.innerHTML = veiculo.marca;
-  tdAnoFabricacao.innerHTML = veiculo.anoFabricacao;
+  tdAnoFabricacao.innerHTML = veiculo.anofabricacao;
   tdCor.innerHTML = veiculo.cor;
-  tdNumeroPassageiro.innerHTML = veiculo.numeroPassageiro;
+  tdNumeroPassageiro.innerHTML = veiculo.numeropassageiro;
   tdModelo.innerHTML = veiculo.modelo;
   tdRenavam.innerHTML = veiculo.renavam;
   tdFabricante.innerHTML = veiculo.fabricante;
@@ -78,17 +87,17 @@ function criaColunas(Column) {
   const elementColumnCpf = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
-  elementColumnTipo.innerHTML = "Tipo veículo";
+  elementColumnTipo.innerHTML = "Tipo";
   elementColumnMarca.innerHTML = "Marca";
-  elementColumnAnoFabricacao.innerHTML = "Ano Fabricação";
+  elementColumnAnoFabricacao.innerHTML = "Ano";
   elementColumnCor.innerHTML = "Cor";
-  elementColumnNumeroPassageiro.innerHTML = "Número Passageiros";
+  elementColumnNumeroPassageiro.innerHTML = "Núm. Passag.";
   elementColumnModelo.innerHTML = "Modelo";
   elementColumnRenavam.innerHTML = "Renavam";
   elementColumnFabricante.innerHTML = "Fabricante";
   elementColumnPlaca.innerHTML = "Placa";
   elementColumnProprietario.innerHTML = "Proprietário";
-  elementColumnCpf.innerHTML = "CNPJ";
+  elementColumnCpf.innerHTML = "CPF";
 
   elementRow.appendChild(elementColumnId);
   elementRow.appendChild(elementColumnTipo);

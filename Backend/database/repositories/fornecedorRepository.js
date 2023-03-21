@@ -1,11 +1,11 @@
 const db = require("../postgres");
 
 async function cadastrarFornecedorRepository(
-  razaoSocial,
-  nomeFantasia,
+  razaosocial,
+  nomefantasia,
   cnpj,
-  inscricaoEstadual,
-  inscricaoMunicipal,
+  inscricaoestadual,
+  inscricaomunicipal,
   cep,
   numero,
   complemento,
@@ -18,13 +18,13 @@ async function cadastrarFornecedorRepository(
 ) {
   try {
     const query =
-      "INSERT INTO fornecedor (razaoSocial, nomeFantasia, cnpj, inscricaoEstadual, inscricaoMunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *";
+      "INSERT INTO fornecedor (razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *";
     const values = [
-      razaoSocial,
-      nomeFantasia,
+      razaosocial,
+      nomefantasia,
       cnpj,
-      inscricaoEstadual,
-      inscricaoMunicipal,
+      inscricaoestadual,
+      inscricaomunicipal,
       cep,
       numero,
       complemento,
@@ -53,11 +53,11 @@ async function buscarFornecedoresRepository() {
       return res.rows.map((fornecedor) => {
         return {
           id: fornecedor.id,
-          razaoSocial: fornecedor.razaoSocial,
-          nomeFantasia: fornecedor.nomeFantasia,
+          razaosocial: fornecedor.razaosocial,
+          nomefantasia: fornecedor.nomefantasia,
           cnpj: fornecedor.cnpj,
-          inscricaoEstadual: fornecedor.inscricaoEstadual,
-          inscricaoMunicipal: fornecedor.inscricaoMunicipal,
+          inscricaoestadual: fornecedor.inscricaoestadual,
+          inscricaomunicipal: fornecedor.inscricaomunicipal,
           cep: fornecedor.cep,
           numero: fornecedor.numero,
           complemento: fornecedor.complemento,

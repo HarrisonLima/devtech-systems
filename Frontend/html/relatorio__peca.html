@@ -142,15 +142,24 @@
       <div class="relatorio__search--results">
         <div>
           <table id="tabela__pecas">
+            <thead id="header"></thead>
             <tbody>
-              <th id="header"></th>
               <tr id="content"></tr>
             </tbody>
           </table>
         </div>
       </div>
-      <script src="../js/button/pesquisar/pesquisar__peca.js"></script>
-    </main>
+      <div>
+        <button id="button__exportar--pdf" class="button__export--pdf" disabled>
+            Exportar PDF
+        </button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+    <script src="../js/button/exportar__pdf/exportar__peca.js"></script>
+    <script src="../js/button/pesquisar/pesquisar__peca.js"></script>
+    
+  </main>
     <footer></footer>
   </body>
 </html>

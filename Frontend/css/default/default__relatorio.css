@@ -72,6 +72,19 @@
   width: 125px;
 }
 
+.button__export--pdf {
+  background-color: #b61414;
+  border: 0.5px solid #b61414;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 35px;
+  margin-left: 50px;
+  margin-top: 40px;
+  width: 125px;
+}
+
 .relatorio__search--results {
   align-items: center;
   display: flex;
@@ -79,6 +92,32 @@
   padding-top: 25px;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+
+.relatorio__search--results > div {
+  width: 100%;
+}
+
+.relatorio__search--results >div > table {
+  table-layout: fixed;
+  width: 100%;
+}
+.relatorio__search--results >div > table > tr{
+  text-align: center;
+}
+.relatorio__search--results > div >table > thead{  
+  background-color: #161818;
+  color: #ffffff;
+}
+
+.relatorio__search--results > div >table > tr:nth-child(even) {
+  background-color: #f1f1da;
+}
+.relatorio__search--results > div >table > tr > td{
+  padding: 5px;
+  word-wrap: break-word;
+
 }
 
 #tabela__clientespf,
@@ -92,7 +131,6 @@
   display: flexbox;
   justify-content: center;
   justify-items: center;
-  width: 500px;
 }
 
 #tabela__clientespf,
@@ -115,3 +153,4 @@
 #tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj td {
   font-size: 14px;
 }
+
