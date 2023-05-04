@@ -21,7 +21,7 @@ function generate() {
   };
   var y = 20;
   doc.setLineWidth(2);
-  doc.text(200, (y = y + 30), "Lista de Peças");
+  doc.text(200, (y = y + 30), "Lista de Produtos");
   doc.autoTable({
     html: "#tabela__usuarios",
     startY: 70,

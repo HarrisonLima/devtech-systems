@@ -50,7 +50,7 @@ app.post("/api/cadastro/peca", (req, res) => {
       return res.send(data)
     })
     .catch(() => {
-     return res.status(500)
+     return res.status(500) 
     })
 })
 

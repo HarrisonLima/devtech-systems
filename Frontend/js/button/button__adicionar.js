@@ -1,12 +1,12 @@
 var basket = [];
 
-var button__cancelar = document.getElementById('button__cancelar');
-var button__finalizar = document.getElementById('button__finalizar');
-var table = document.getElementById('table__produtos');
+var button__cancelar = document.getElementById("button__cancelar");
+var button__finalizar = document.getElementById("button__finalizar");
+var table = document.getElementById("table__produtos");
 
-button__cancelar.style.display = 'none';
-button__finalizar.style.display = 'none';
-table.style.display = 'none';
+button__cancelar.style.display = "none";
+button__finalizar.style.display = "none";
+table.style.display = "none";
 
 const button__adicionar = document.getElementById("button__adicionar");
 var inputQtde = document.getElementById("quantidadeproduto");
@@ -15,6 +15,7 @@ var inputUn = document.getElementById("unidademedida");
 var inputMarca = document.getElementById("marca");
 var inputValorProduto = document.getElementById("valorproduto");
 var inputDescricaoProduto = document.getElementById("descricaoProduto");
+var inputSubtotal = document.getElementById("subtotal");
 
 button__adicionar.addEventListener("click", () => {
   push__basket();
@@ -30,10 +31,12 @@ function push__basket() {
   ) {
     document.getElementById("table__produtos").style.display = "table";
     createTable();
-    button__cancelar.style.display = 'block';
-    button__finalizar.style.display = 'block';
-    table.style.display = 'table';
+    button__cancelar.style.display = "block";
+    button__finalizar.style.display = "block";
+    table.style.display = "table";
 
+    var valortotalproduto;
+    var subtotal = inputSubtotal.textContent;
     var qtde = inputQtde.value;
     var produto = inputProduto.value;
     var un = inputUn.value;
@@ -51,14 +54,21 @@ function push__basket() {
     };
 
     basket.push(produto);
-
     console.log(basket);
 
-    inputQtde.value = "";
+    valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
+    subtotal = Number(subtotal) + valortotalproduto;
+
+    inputSubtotal.textContent = parseFloat(subtotal);
+    inputSubtotal.value = subtotal.toFixed(2).toString();
+
+    console.log(subtotal);
+
+    inputQtde.value = 1;
     inputProduto.value = "";
     inputUn.value = "";
     inputMarca.value = "";
-    inputValorProduto.value = "";
+    inputValorProduto.value = 1.00;
     inputDescricaoProduto.value = "";
   }
 }
@@ -116,6 +126,17 @@ function createTable() {
     inputValorProduto.value = valorProduto;
     inputDescricaoProduto.value = descricaoProduto;
 
+    console(basket)
     row.remove();
+    basket.splice(i, 1);
+    console(basket)
   };
+}
+
+function updateSubtotal(){
+  var qtde = basket[0]
+  var valorProduto = basket[4]
+  var valortotalproduto = qtde * valorProduto;
+
+
 }

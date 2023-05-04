@@ -85,11 +85,9 @@
                 <a href="./movimentacao__emitirOrcamento.html"
                   >Emitir Orçamento</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
+                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
                 ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -132,7 +130,12 @@
           <div class="title__listagemProdutos">
             <h2>Listagem produtos</h2>
             <div class="form__pesquisar--produto">
-              <input type="text"id="pesquisarProduto" class="movimentacao__input--xbig" placeholder="Buscar produto"/>
+              <input
+                type="text"
+                id="pesquisarProduto"
+                class="movimentacao__input--xbig"
+                placeholder="Buscar produto"
+              />
               <div class="icon__search">
                 <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
               </div>
@@ -150,14 +153,15 @@
                   id="quantidadeproduto"
                   class="movimentacao__input--small"
                   value="1"
-                  />
-                </div>
+                  placeholder="1"
+                />
+              </div>
               <div>
                 <h3>Produto</h3>
                 <input
                   type="text"
                   id="produto"
-                  class="movimentacao__input--big "
+                  class="movimentacao__input--big"
                   placeholder="Digite o nome do produto"
                 />
               </div>
@@ -185,7 +189,9 @@
                   type="number"
                   id="valorproduto"
                   class="movimentacao__input"
-                  value="99.99"
+                  placeholder="1,00"
+                  value="1.00"
+                  step="0.01"
                 />
               </div>
               <div>
@@ -205,7 +211,7 @@
               </div>
             </div>
           </form>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
           <div class="basket__table">
             <div>
@@ -218,20 +224,19 @@
                   <th>Valor</th>
                   <th>Descrição</th>
                   <th>Ações</th>
-                </thead>            
-                <tbody id="basket__table__tbody">                             
-                </tbody>
+                </thead>
+                <tbody id="basket__table__tbody"></tbody>
               </table>
             </div>
           </div>
 
-
+          <div class="subtotal">
+            <h3>Subtotal</h3>
+            <input type="number" id="subtotal" placeholder="0.00" step="0.01"/>
+          </div>
 
           <div class="buttons">
-            <button
-            id="button__finalizar" 
-              class="button__form--finalizarVenda"
-            >
+            <button id="button__finalizar" class="button__form--finalizarVenda">
               Finalizar
             </button>
             <button id="button__cancelar" class="button__form--cancelar">
@@ -239,15 +244,12 @@
             </button>
           </div>
         </div>
-        </div>
       </div>
     </main>
     <footer></footer>
 
-
     <script src="../js/validacao/input__produto.js"></script>
     <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/button__adicionar.js"></script>
-
   </body>
 </html>
