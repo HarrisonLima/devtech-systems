@@ -2,10 +2,12 @@ var basket = [];
 
 var button__cancelar = document.getElementById("button__cancelar");
 var button__finalizar = document.getElementById("button__finalizar");
+var button__clear = document.getElementById("trash-icon");
 var table = document.getElementById("table__produtos");
 
 button__cancelar.style.display = "none";
 button__finalizar.style.display = "none";
+button__clear.style.display = "none";
 table.style.display = "none";
 
 const button__adicionar = document.getElementById("button__adicionar");
@@ -21,28 +23,34 @@ button__adicionar.addEventListener("click", () => {
   push__basket();
 });
 
+button__clear.addEventListener("click", () => {
+  clear__basket();
+  button__clear.style.display = "none";
+});
+
 function push__basket() {
   if (
-    inputQtde.value != "" &&
+    inputQtde.value > 0 &&
     inputProduto.value != "" &&
     inputUn.value != "" &&
     inputMarca.value != "" &&
-    inputValorProduto.value != ""
+    inputValorProduto.value > 0
   ) {
     document.getElementById("table__produtos").style.display = "table";
     createTable();
     button__cancelar.style.display = "block";
     button__finalizar.style.display = "block";
+    button__clear.style.display = "inline";
     table.style.display = "table";
 
-    var valortotalproduto;
-    var subtotal = inputSubtotal.textContent;
     var qtde = inputQtde.value;
     var produto = inputProduto.value;
     var un = inputUn.value;
     var marca = inputMarca.value;
     var valorProduto = inputValorProduto.value;
     var descricaoProduto = inputDescricaoProduto.value;
+    var valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
+    valortotalproduto = valortotalproduto.toFixed(2);
 
     var produto = {
       qtde: qtde,
@@ -50,25 +58,20 @@ function push__basket() {
       un: un,
       marca: marca,
       valorProduto: valorProduto,
+      valortotalproduto: valortotalproduto,
       descricaoProduto: descricaoProduto,
     };
 
     basket.push(produto);
     console.log(basket);
 
-    valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
-    subtotal = Number(subtotal) + valortotalproduto;
-
-    inputSubtotal.textContent = parseFloat(subtotal);
-    inputSubtotal.value = subtotal.toFixed(2).toString();
-
-    console.log(subtotal);
+    updateSubtotal();
 
     inputQtde.value = 1;
     inputProduto.value = "";
     inputUn.value = "";
     inputMarca.value = "";
-    inputValorProduto.value = 1.00;
+    inputValorProduto.value = 1.0;
     inputDescricaoProduto.value = "";
   }
 }
@@ -80,10 +83,13 @@ function createTable() {
   var marca = inputMarca.value;
   var valorProduto = inputValorProduto.value;
   var descricaoProduto = inputDescricaoProduto.value;
+  var valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
+  valortotalproduto = valortotalproduto.toFixed(2);
 
   var basketTable = document.getElementById("basket__table__tbody");
+  var rowIndex = basketTable.rows.length;
 
-  var row = basketTable.insertRow(0);
+  var row = basketTable.insertRow(rowIndex);
 
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
@@ -91,52 +97,101 @@ function createTable() {
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
   var cell6 = row.insertCell(5);
-  var cellRemoveRow = row.insertCell(6);
+  var cell7 = row.insertCell(6);
+  var cellRemoveRow = row.insertCell(7);
 
   cell1.innerHTML = qtde;
   cell2.innerHTML = produto;
   cell3.innerHTML = un;
   cell4.innerHTML = marca;
   cell5.innerHTML = valorProduto;
-  cell6.innerHTML = descricaoProduto;
+  cell6.innerHTML = valortotalproduto;
+  cell7.innerHTML = descricaoProduto;
 
-  var span = document.createElement("span");
-  span.classList.add("fa-solid");
-  span.classList.add("fa-trash");
-  span.classList.add("basket__table--trash-icon");
+  var trashIcon = document.createElement("span");
+  trashIcon.classList.add(
+    "fa-solid",
+    "fa-trash",
+    "basket__table--trash-icon",
+    "basket__table--align"
+  );
+  trashIcon.setAttribute("data-index", rowIndex);
+  trashIcon.addEventListener("click", function () {
+    removeRow(this);
+  });
 
-  cellRemoveRow.appendChild(span);
-  cellRemoveRow.classList.add("basket__table--align");
-  span.onclick = function () {
-    row.remove();
-  };
+  cellRemoveRow.appendChild(trashIcon);
 
-  var span = document.createElement("span");
-  span.classList.add("fa-solid");
-  span.classList.add("fa-pen");
-  span.classList.add("basket__table--edit-icon");
+  var editIcon = document.createElement("span");
+  editIcon.classList.add(
+    "fa-solid",
+    "fa-pen",
+    "basket__table--edit-icon",
+    "basket__table--align"
+  );
+  
+  trashIcon.style.display = "inline";
+  editIcon.style.display = "inline";
 
-  cellRemoveRow.appendChild(span);
+  cellRemoveRow.appendChild(editIcon);
 
-  span.onclick = function () {
-    inputQtde.value = qtde;
-    inputProduto.value = produto;
-    inputUn.value = un;
-    inputMarca.value = marca;
-    inputValorProduto.value = valorProduto;
-    inputDescricaoProduto.value = descricaoProduto;
+  editIcon.onclick = function () {
+    var rowIndex = this.parentNode.parentNode.rowIndex;
+    var rowData = basket[rowIndex - 1];
 
-    console(basket)
-    row.remove();
-    basket.splice(i, 1);
-    console(basket)
-  };
+    inputQtde.value = rowData.qtde;
+    inputProduto.value = rowData.produto;
+    inputUn.value = rowData.un;
+    inputMarca.value = rowData.marca;
+    inputValorProduto.value = rowData.valorProduto;
+    inputDescricaoProduto.value = rowData.descricaoProduto;
+    basket.splice(rowIndex - 1, 1);
+    this.parentNode.parentNode.remove();
+    updateSubtotal();
+};
+
+  function removeRow(element) {
+    var index = element.getAttribute("data-index");
+    basket.splice(index, 1);
+    element.closest("tr").remove();
+
+    updateSubtotal();
+  }
+
+  rowIndex++;
 }
 
-function updateSubtotal(){
-  var qtde = basket[0]
-  var valorProduto = basket[4]
-  var valortotalproduto = qtde * valorProduto;
+const inputValor = document.getElementById("valorproduto");
+inputValor.addEventListener("blur", function () {
+  let valor = parseFloat(inputValor.value);
+  if (!isNaN(valor)) {
+    inputValor.value = valor.toFixed(2);
+  }
+});
 
+function updateSubtotal() {
+  var tamArray = basket.length;
+  var subtotal = 0;
+  var j;
+  for (j = 0; j < tamArray; j++) {
+    subtotal += parseFloat(basket[j].valortotalproduto);
+  }
 
+  console.log(subtotal);
+
+  inputSubtotal.textContent = subtotal.toFixed(2);
+  inputSubtotal.value = parseFloat(subtotal);
+
+  console.log(basket);
 }
+
+function clear__basket(){
+  var basketTable = document.getElementById("basket__table__tbody");
+  basketTable.innerHTML = "";
+  
+  basket.length = 0;
+  
+  updateSubtotal();
+  table.style.display = "none";
+}
+

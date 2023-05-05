@@ -93,7 +93,7 @@
     padding: 5px;
     word-wrap: break-word;  
   }
-  .basket__table--trash-icon{
+  .basket__table--trash-icon, #trash-icon{
     color: rgb(241, 86, 86);
     cursor: pointer;
   }
@@ -103,7 +103,7 @@
   }
 
   .basket__table--align{   
-    padding: 5px 30px;
+    padding: 5px 10px;
     display: flex;
     justify-content: space-around;
   }
