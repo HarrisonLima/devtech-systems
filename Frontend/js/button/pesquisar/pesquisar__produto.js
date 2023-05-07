@@ -1,6 +1,7 @@
 const buttonPesquisarProduto = document.getElementById(
   "button__pesquisar--produto"
 );
+
 const buttonExportar = document.getElementById("button__exportar--pdf");
 
 buttonExportar.style.display = 'none';

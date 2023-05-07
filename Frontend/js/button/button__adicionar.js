@@ -1,18 +1,27 @@
 var basket = [];
 
+var button__adicionar = document.getElementById("button__adicionar");
 var button__cancelar = document.getElementById("button__cancelar");
-var button__finalizar = document.getElementById("button__finalizar");
+var button__check = document.getElementById("icon__check");
 var button__clear = document.getElementById("trash-icon");
-var table = document.getElementById("table__produtos");
+var button__finalizar = document.getElementById("button__finalizar");
+var button__pesquisar = document.getElementById("icon__search");
+var button__closeModal = document.getElementById("icon__xmark");
+var button__closeModalSelect = document.getElementById("icon__xmark--select");
+var inputBuscar = document.getElementById("pesquisarProduto");
 var modal__ClearTable = document.getElementById("modal__ClearTable");
+var modal__SelectProduct = document.getElementById("modal__SelectProduct");
+var tableProdutos = document.getElementById("table__produtos");
+var rowsTableProdutos = tableProdutos.getElementsByTagName("tr");
 
 button__cancelar.style.display = "none";
 button__finalizar.style.display = "none";
 button__clear.style.display = "none";
-table.style.display = "none";
 modal__ClearTable.style.display = "none";
+modal__SelectProduct.style.display = "none";
+tableProdutos.style.display = "none";
+icon__check.style.display = "none";
 
-const button__adicionar = document.getElementById("button__adicionar");
 var inputQtde = document.getElementById("quantidadeproduto");
 var inputProduto = document.getElementById("produto");
 var inputUn = document.getElementById("unidademedida");
@@ -21,7 +30,41 @@ var inputValorProduto = document.getElementById("valorproduto");
 var inputDescricaoProduto = document.getElementById("descricaoProduto");
 var inputSubtotal = document.getElementById("subtotal");
 
+var qtde;
+var produto;
+var un;
+var marca;
+var valorProduto;
+var descricao;
+var valortotalproduto;
+
+inputValorProduto.addEventListener("blur", function () {
+  let valor = parseFloat(inputValor).value;
+  if (!isNaN(valor)) {
+    inputValor.value = valor.toFixed(2);
+  }
+});
+
+inputBuscar.readOnly = true;
 inputSubtotal.readOnly = true;
+
+button__closeModal.addEventListener("click", (event) => {
+  modal__ClearTable.style.display = "none";
+});
+
+button__closeModalSelect.addEventListener("click", (event) => {
+  modal__SelectProduct.style.display = "none";
+});
+
+button__pesquisar.addEventListener("click", (event) => {
+  event.preventDefault();
+  selectProduct();
+});
+
+inputBuscar.addEventListener("dblclick", (event) => {
+  event.preventDefault();
+  selectProduct();
+});
 
 button__adicionar.addEventListener("click", () => {
   push__basket();
@@ -33,6 +76,17 @@ button__retirar.addEventListener("click", () => {
 
 button__clear.addEventListener("click", () => {
   confirm__clearbasket();
+});
+
+icon__check.addEventListener("click", () => {
+  inputProduto.value = produto.textContent;
+  inputUn.value = un.textContent;
+  inputMarca.value = marca.textContent;
+  inputDescricaoProduto.value = descricao.textContent;
+
+  inputBuscar.value = "";
+
+  icon__check.style.display = 'none';
 });
 
 function push__basket() {
@@ -48,15 +102,15 @@ function push__basket() {
     button__cancelar.style.display = "block";
     button__finalizar.style.display = "block";
     button__clear.style.display = "inline";
-    table.style.display = "table";
+    tableProdutos.style.display = "table";
 
-    var qtde = inputQtde.value;
-    var produto = inputProduto.value;
-    var un = inputUn.value;
-    var marca = inputMarca.value;
-    var valorProduto = inputValorProduto.value;
-    var descricaoProduto = inputDescricaoProduto.value;
-    var valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
+    qtde = inputQtde.value;
+    produto = inputProduto.value;
+    un = inputUn.value;
+    marca = inputMarca.value;
+    valorProduto = inputValorProduto.value;
+    descricao = inputDescricaoProduto.value;
+    valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
     valortotalproduto = valortotalproduto.toFixed(2);
 
     var produto = {
@@ -66,7 +120,7 @@ function push__basket() {
       marca: marca,
       valorProduto: valorProduto,
       valortotalproduto: valortotalproduto,
-      descricaoProduto: descricaoProduto,
+      descricao: descricao,
     };
 
     basket.push(produto);
@@ -74,18 +128,17 @@ function push__basket() {
 
     updateSubtotal();
     reset__inputs();
-
   }
 }
 
 function createTable() {
-  var qtde = inputQtde.value;
-  var produto = inputProduto.value;
-  var un = inputUn.value;
-  var marca = inputMarca.value;
-  var valorProduto = inputValorProduto.value;
-  var descricaoProduto = inputDescricaoProduto.value;
-  var valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
+  qtde = inputQtde.value;
+  produto = inputProduto.value;
+  un = inputUn.value;
+  marca = inputMarca.value;
+  valorProduto = inputValorProduto.value;
+  descricao = inputDescricaoProduto.value;
+  valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
   valortotalproduto = valortotalproduto.toFixed(2);
 
   var basketTable = document.getElementById("basket__table__tbody");
@@ -108,7 +161,7 @@ function createTable() {
   cell4.innerHTML = marca;
   cell5.innerHTML = valorProduto;
   cell6.innerHTML = valortotalproduto;
-  cell7.innerHTML = descricaoProduto;
+  cell7.innerHTML = descricao;
 
   var trashIcon = document.createElement("span");
   trashIcon.classList.add(
@@ -146,7 +199,7 @@ function createTable() {
     inputUn.value = rowData.un;
     inputMarca.value = rowData.marca;
     inputValorProduto.value = rowData.valorProduto;
-    inputDescricaoProduto.value = rowData.descricaoProduto;
+    inputDescricaoProduto.value = rowData.descricao;
 
     basket.splice(rowIndex - 1, 1);
     this.parentNode.parentNode.remove();
@@ -166,20 +219,12 @@ function createTable() {
   rowIndex++;
 }
 
-const inputValor = document.getElementById("valorproduto");
-inputValor.addEventListener("blur", function () {
-  let valor = parseFloat(inputValor.value);
-  if (!isNaN(valor)) {
-    inputValor.value = valor.toFixed(2);
-  }
-});
-
 function reset__inputs() {
   inputQtde.value = 1;
   inputProduto.value = "";
   inputUn.value = "";
   inputMarca.value = "";
-  inputValorProduto.value = 1.00;
+  inputValorProduto.value = 1.0;
   inputDescricaoProduto.value = "";
 }
 
@@ -207,8 +252,10 @@ function updateSubtotal() {
 function confirm__clearbasket() {
   modal__ClearTable.style.display = "block";
 
-  const buttonConfirmar = document.getElementById("button_confirmarClearTable");
-  const buttonCancelar = document.getElementById("button_cancelarClearTable");
+  const buttonConfirmar = document.getElementById(
+    "button__confirmarClearTable"
+  );
+  const buttonCancelar = document.getElementById("button__cancelarClearTable");
 
   buttonConfirmar.addEventListener("click", () => {
     clear__basket();
@@ -228,5 +275,115 @@ function clear__basket() {
   basket.length = 0;
 
   updateSubtotal();
-  table.style.display = "none";
+  tableProdutos.style.display = "none";
+}
+
+function selectProduct() {
+  modal__SelectProduct.style.display = "block";
+  updateRegistros();
+  addIndex();
+}
+
+function addIndex() {
+  for (var i = 1; i < rowsTableProdutos.length; i++) {
+    rowsTableProdutos[i].setAttribute("data-index", i - 1);
+  }
+}
+
+function getProdutos(url) {
+  let request = new XMLHttpRequest();
+  request.open("GET", url, false);
+  request.send();
+  return request.responseText;
+}
+
+const tabela = document.getElementById("tabela__produtos");
+const content = document.getElementById("content");
+const header = document.getElementById("header");
+
+function adicionaLinha(produto) {
+  linha = document.createElement("tr");
+  tdId = document.createElement("td");
+  tdProduto = document.createElement("td");
+  tdUn = document.createElement("td");
+  tdMarca = document.createElement("td");
+  tdDescricao = document.createElement("td");
+  tdId.innerHTML = produto.id;
+  tdProduto.innerHTML = produto.produto;
+  tdUn.innerHTML = produto.un;
+  tdMarca.innerHTML = produto.marca;
+  tdDescricao.innerHTML = produto.descricao;
+
+  linha.appendChild(tdId);
+  linha.appendChild(tdProduto);
+  linha.appendChild(tdUn);
+  linha.appendChild(tdMarca);
+  linha.appendChild(tdDescricao);
+
+  return linha;
+}
+
+function criaColunas(Column) {
+  const elementRow = document.createElement("tr");
+  const elementColumnId = document.createElement("th");
+  const elementColumnProduto = document.createElement("th");
+  const elementColumnUn = document.createElement("th");
+  const elementColumnMarca = document.createElement("th");
+  const elementColumnDescricao = document.createElement("th");
+
+  elementColumnId.innerHTML = "ID";
+  elementColumnProduto.innerHTML = "Produto";
+  elementColumnUn.innerHTML = "Un";
+  elementColumnMarca.innerHTML = "Marca";
+  elementColumnDescricao.innerHTML = "Descricao";
+
+  elementRow.appendChild(elementColumnId);
+  elementRow.appendChild(elementColumnProduto);
+  elementRow.appendChild(elementColumnUn);
+  elementRow.appendChild(elementColumnMarca);
+  elementRow.appendChild(elementColumnDescricao);
+  header.appendChild(elementRow);
+  tabela.appendChild(header);
+}
+
+function updateRegistros() {
+  tabela.innerHTML = "";
+  header.innerHTML = "";
+  criaColunas();
+  let data = getProdutos("http://localhost:3000/api/produtos");
+  let produtos = JSON.parse(data);
+
+
+  function selectionProduct() {
+    var nomeProduto = this.querySelector("td:nth-child(2)");
+    var unProduto = this.querySelector("td:nth-child(3)");
+    var marcaProduto = this.querySelector("td:nth-child(4)");
+    var descricaoProduto = this.querySelector("td:nth-child(5)");
+
+    produto = nomeProduto;
+    un = unProduto;
+    marca = marcaProduto;
+    descricao = descricaoProduto;
+
+    inputBuscar.readOnly = false;
+    inputBuscar.value = produto.textContent;
+    inputBuscar.readOnly = true;
+    icon__check.style.display = "block";
+    modal__SelectProduct.style.display = "none";
+  }
+
+  function paintRow(){
+
+    for (var i = 0, row; row = tabela.rows[i]; i++) {
+      tabela.rows[i].removeAttribute("style");      
+    }
+    this.style.backgroundColor = "#ffac1c";
+  }
+
+  produtos.forEach((element) => {
+    var linha = adicionaLinha(element);
+    linha.addEventListener("dblclick", selectionProduct);
+    linha.addEventListener("click", paintRow);
+    tabela.appendChild(linha);
+  });
 }

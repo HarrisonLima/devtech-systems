@@ -94,7 +94,7 @@
           </div>
         </div>
       </div>
-      <div class="movimentacao">
+      <div id="page60" class="movimentacao">
         <div class="movimentacao__content">
           <div>
             <i class="fa-solid fa-basket-shopping"></i>
@@ -140,8 +140,27 @@
                 <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
               </div>
               <div class="icon__check">
-                <i class="fa-solid fa-circle-check"></i>
+                <i id="icon__check" class="fa-solid fa-circle-check"></i>
               </div>
+            </div>
+            <div id="modal__SelectProduct">
+              <div class="modal__header">
+                <div>
+                  <i
+                  id="icon__modal--SelectProduct"
+                  class="fa-solid fa-magnifying-glass"
+                  ></i>
+                  <h2>Listagem produtos</h2>
+                </div>
+                <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
+              </div>
+              <p>Clique duas vezes no produto que deseja adicionar no carrinho.</p>
+              <table id="tabela__produtos">
+                <thead id="header"></thead>
+                <tbody>
+                  <tr id="content"></tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <form>
@@ -249,26 +268,30 @@
           </div>
           <div id="modal__ClearTable">
             <div class="modal__header">
-              <i
+              <div>
+                <i
                 id="icon__modal--ClearTable"
                 class="fa-solid fa-triangle-exclamation"
-              ></i>
-              <h2>Limpar carrinho</h2>
+                ></i>
+                <h2>Limpar carrinho</h2>
+  
+              </div>
+              <i id="icon__xmark" class="fa-solid fa-xmark"></i>
             </div>
 
             <p>
-              Tem certeza que deseja limpar o carrinho? Após
-              confirmação, não será possível desfazer a operação.
+              Tem certeza que deseja limpar o carrinho? Após confirmação, não
+              será possível desfazer a operação.
             </p>
             <div class="buttons__modal">
               <button
-                id="button_confirmarClearTable"
+                id="button__confirmarClearTable"
                 class="button__modal--confirmar"
               >
                 Confirmar
               </button>
               <button
-                id="button_cancelarClearTable"
+                id="button__cancelarClearTable"
                 class="button__modal--cancelar"
               >
                 Cancelar
