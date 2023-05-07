@@ -4,11 +4,13 @@ var button__cancelar = document.getElementById("button__cancelar");
 var button__finalizar = document.getElementById("button__finalizar");
 var button__clear = document.getElementById("trash-icon");
 var table = document.getElementById("table__produtos");
+var modal__ClearTable = document.getElementById("modal__ClearTable");
 
 button__cancelar.style.display = "none";
 button__finalizar.style.display = "none";
 button__clear.style.display = "none";
 table.style.display = "none";
+modal__ClearTable.style.display = "none";
 
 const button__adicionar = document.getElementById("button__adicionar");
 var inputQtde = document.getElementById("quantidadeproduto");
@@ -19,13 +21,18 @@ var inputValorProduto = document.getElementById("valorproduto");
 var inputDescricaoProduto = document.getElementById("descricaoProduto");
 var inputSubtotal = document.getElementById("subtotal");
 
+inputSubtotal.readOnly = true;
+
 button__adicionar.addEventListener("click", () => {
   push__basket();
 });
 
+button__retirar.addEventListener("click", () => {
+  reset__inputs();
+});
+
 button__clear.addEventListener("click", () => {
-  clear__basket();
-  button__clear.style.display = "none";
+  confirm__clearbasket();
 });
 
 function push__basket() {
@@ -66,13 +73,8 @@ function push__basket() {
     console.log(basket);
 
     updateSubtotal();
+    reset__inputs();
 
-    inputQtde.value = 1;
-    inputProduto.value = "";
-    inputUn.value = "";
-    inputMarca.value = "";
-    inputValorProduto.value = 1.0;
-    inputDescricaoProduto.value = "";
   }
 }
 
@@ -129,7 +131,7 @@ function createTable() {
     "basket__table--edit-icon",
     "basket__table--align"
   );
-  
+
   trashIcon.style.display = "inline";
   editIcon.style.display = "inline";
 
@@ -145,13 +147,16 @@ function createTable() {
     inputMarca.value = rowData.marca;
     inputValorProduto.value = rowData.valorProduto;
     inputDescricaoProduto.value = rowData.descricaoProduto;
+
     basket.splice(rowIndex - 1, 1);
     this.parentNode.parentNode.remove();
+
     updateSubtotal();
-};
+  };
 
   function removeRow(element) {
     var index = element.getAttribute("data-index");
+
     basket.splice(index, 1);
     element.closest("tr").remove();
 
@@ -169,29 +174,59 @@ inputValor.addEventListener("blur", function () {
   }
 });
 
+function reset__inputs() {
+  inputQtde.value = 1;
+  inputProduto.value = "";
+  inputUn.value = "";
+  inputMarca.value = "";
+  inputValorProduto.value = 1.00;
+  inputDescricaoProduto.value = "";
+}
+
 function updateSubtotal() {
   var tamArray = basket.length;
   var subtotal = 0;
   var j;
+
   for (j = 0; j < tamArray; j++) {
     subtotal += parseFloat(basket[j].valortotalproduto);
   }
 
   console.log(subtotal);
 
+  inputSubtotal.readOnly = false;
+
   inputSubtotal.textContent = subtotal.toFixed(2);
   inputSubtotal.value = parseFloat(subtotal);
+
+  inputSubtotal.readOnly = true;
 
   console.log(basket);
 }
 
-function clear__basket(){
+function confirm__clearbasket() {
+  modal__ClearTable.style.display = "block";
+
+  const buttonConfirmar = document.getElementById("button_confirmarClearTable");
+  const buttonCancelar = document.getElementById("button_cancelarClearTable");
+
+  buttonConfirmar.addEventListener("click", () => {
+    clear__basket();
+    modal__ClearTable.style.display = "none";
+    button__clear.style.display = "none";
+  });
+
+  buttonCancelar.addEventListener("click", () => {
+    modal__ClearTable.style.display = "none";
+  });
+}
+
+function clear__basket() {
   var basketTable = document.getElementById("basket__table__tbody");
   basketTable.innerHTML = "";
-  
+
   basket.length = 0;
-  
+
   updateSubtotal();
   table.style.display = "none";
 }
-
