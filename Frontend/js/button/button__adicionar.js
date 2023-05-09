@@ -494,94 +494,94 @@ function getClientespj(url) {
   return request.responseText;
 }
 
-const tabelaCliente = document.getElementById("tabela__clientespj");
-const contentCliente = document.getElementById("content__clientespj");
-const headerCliente = document.getElementById("header__clientespj");
+  const tabelaCliente = document.getElementById("tabela__clientespj");
+  const contentCliente = document.getElementById("content__clientespj");
+  const headerCliente = document.getElementById("header__clientespj");
 
-function adicionaLinhaCliente(cliente) {
-  var linha = document.createElement("tr");
-  var tdId = document.createElement("td");
-  var tdRazaoSocial = document.createElement("td");
-  var tdNomeFantasia = document.createElement("td");
-  var tdCnpj = document.createElement("td");
-  var tdCidade = document.createElement("td");
-  var tdUf = document.createElement("td");
+  function adicionaLinhaCliente(cliente) {
+    var linha = document.createElement("tr");
+    var tdId = document.createElement("td");
+    var tdRazaoSocial = document.createElement("td");
+    var tdNomeFantasia = document.createElement("td");
+    var tdCnpj = document.createElement("td");
+    var tdCidade = document.createElement("td");
+    var tdUf = document.createElement("td");
 
-  tdId.innerHTML = cliente.id;
-  tdRazaoSocial.innerHTML = cliente.razaosocial;
-  tdNomeFantasia.innerHTML = cliente.nomefantasia;
-  tdCnpj.innerHTML = cliente.cnpj;
-  tdCidade.innerHTML = cliente.cidade;
-  tdUf.innerHTML = cliente.uf;
+    tdId.innerHTML = cliente.id;
+    tdRazaoSocial.innerHTML = cliente.razaosocial;
+    tdNomeFantasia.innerHTML = cliente.nomefantasia;
+    tdCnpj.innerHTML = cliente.cnpj;
+    tdCidade.innerHTML = cliente.cidade;
+    tdUf.innerHTML = cliente.uf;
 
-  linha.appendChild(tdId);
-  linha.appendChild(tdRazaoSocial);
-  linha.appendChild(tdNomeFantasia);
-  linha.appendChild(tdCnpj);
-  linha.appendChild(tdCidade);
-  linha.appendChild(tdUf);
+    linha.appendChild(tdId);
+    linha.appendChild(tdRazaoSocial);
+    linha.appendChild(tdNomeFantasia);
+    linha.appendChild(tdCnpj);
+    linha.appendChild(tdCidade);
+    linha.appendChild(tdUf);
 
-  return linha;
-}
-
-function criaColunasCliente(Column) {
-  const elementRow = document.createElement("tr");
-  const elementColumnId = document.createElement("th");
-  const elementColumnRazaoSocial = document.createElement("th");
-  const elementColumnNomeFantasia = document.createElement("th");
-  const elementColumnCnpj = document.createElement("th");
-  const elementColumnCidade = document.createElement("th");
-  const elementColumnUf = document.createElement("th");
-
-  elementColumnId.innerHTML = "ID";
-  elementColumnRazaoSocial.innerHTML = "Razão Social";
-  elementColumnNomeFantasia.innerHTML = "Nome Fantasia";
-  elementColumnCnpj.innerHTML = "CNPJ";
-  elementColumnCidade.innerHTML = "Cidade";
-  elementColumnUf.innerHTML = "UF";
-
-  elementRow.appendChild(elementColumnId);
-  elementRow.appendChild(elementColumnRazaoSocial);
-  elementRow.appendChild(elementColumnNomeFantasia);
-  elementRow.appendChild(elementColumnCnpj);
-  elementRow.appendChild(elementColumnCidade);
-  elementRow.appendChild(elementColumnUf);
-
-  headerCliente.appendChild(elementRow);
-  tabelaCliente.appendChild(headerCliente);
-}
-
-function updateRegistrosCliente() {
-  tabelaCliente.innerHTML = "";
-  headerCliente.innerHTML = "";
-  criaColunasCliente();
-  let data = getClientespj("http://localhost:3000/api/clientespj");
-  let clientes = JSON.parse(data);
-
-  function selectionCliente() {
-    var razaoCliente = this.querySelector("td:nth-child(2)");
-
-    razaoSocial = razaoCliente;
-
-    inputBuscarCliente.readOnly = false;
-    inputBuscarCliente.value = razaoSocial.textContent;
-    inputBuscarCliente.readOnly = true;
-
-    modal__SelectCliente.style.display = "none";
+    return linha;
   }
 
-  var rowCliente; 
-  function paintRowCliente() {
-    for (var i = 0; (rowCliente = tabelaCliente.rows[i]); i++) {
-      tabelaCliente.rows[i].removeAttribute("style");
+  function criaColunasCliente(Column) {
+    const elementRow = document.createElement("tr");
+    const elementColumnId = document.createElement("th");
+    const elementColumnRazaoSocial = document.createElement("th");
+    const elementColumnNomeFantasia = document.createElement("th");
+    const elementColumnCnpj = document.createElement("th");
+    const elementColumnCidade = document.createElement("th");
+    const elementColumnUf = document.createElement("th");
+
+    elementColumnId.innerHTML = "ID";
+    elementColumnRazaoSocial.innerHTML = "Razão Social";
+    elementColumnNomeFantasia.innerHTML = "Nome Fantasia";
+    elementColumnCnpj.innerHTML = "CNPJ";
+    elementColumnCidade.innerHTML = "Cidade";
+    elementColumnUf.innerHTML = "UF";
+
+    elementRow.appendChild(elementColumnId);
+    elementRow.appendChild(elementColumnRazaoSocial);
+    elementRow.appendChild(elementColumnNomeFantasia);
+    elementRow.appendChild(elementColumnCnpj);
+    elementRow.appendChild(elementColumnCidade);
+    elementRow.appendChild(elementColumnUf);
+
+    headerCliente.appendChild(elementRow);
+    tabelaCliente.appendChild(headerCliente);
+  }
+
+  function updateRegistrosCliente() {
+    tabelaCliente.innerHTML = "";
+    headerCliente.innerHTML = "";
+    criaColunasCliente();
+    let data = getClientespj("http://localhost:3000/api/clientespj");
+    let clientes = JSON.parse(data);
+
+    function selectionCliente() {
+      var razaoCliente = this.querySelector("td:nth-child(2)");
+
+      razaoSocial = razaoCliente;
+
+      inputBuscarCliente.readOnly = false;
+      inputBuscarCliente.value = razaoSocial.textContent;
+      inputBuscarCliente.readOnly = true;
+
+      modal__SelectCliente.style.display = "none";
     }
-    this.style.backgroundColor = "#ffac1c";
-  }
 
-  clientes.forEach((element) => {
-    var linhaCliente = adicionaLinhaCliente(element);
-    linhaCliente.addEventListener("dblclick", selectionCliente);
-    linhaCliente.addEventListener("click", paintRowCliente);
-    tabelaProduto.appendChild(linhaCliente);
-  });
-}
+    var rowCliente; 
+    function paintRowCliente() {
+      for (var i = 0; (rowCliente = tabelaCliente.rows[i]); i++) {
+        tabelaCliente.rows[i].removeAttribute("style");
+      }
+      this.style.backgroundColor = "#ffac1c";
+    }
+
+    clientes.forEach((element) => {
+      var linhaCliente = adicionaLinhaCliente(element);
+      linhaCliente.addEventListener("dblclick", selectionCliente);
+      linhaCliente.addEventListener("click", paintRowCliente);
+      tabelaCliente.appendChild(linhaCliente);
+    });
+  }
