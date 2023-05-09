@@ -1,19 +1,50 @@
 const db = require("../postgres");
 
-async function cadastrarVeiculopf(tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cpf, cnh){ 
-  try{
-            const query = "INSERT INTO veiculopf (tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cpf, cnh) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *"
-            const values = [tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cpf, cnh];
-        
-            return db.query(query, values).then((res) => {
-              return res.rows[0];
-            }).catch( error => {
-              console.log(error)
-            })
-          } catch (error) {
-            console.log(error);
-          }
-        }
+async function cadastrarVeiculopfRepository(
+  tipo,
+  marca,
+  anofabricacao,
+  cor,
+  numeropassageiro,
+  modelo,
+  renavam,
+  fabricante,
+  placa,
+  nomeproprietario,
+  cpf,
+  cnh
+) {
+  try {
+    const query =
+      "INSERT INTO veiculopf (tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cpf, cnh) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *";
+    const values = [
+      tipo,
+      marca,
+      anofabricacao,
+      cor,
+      numeropassageiro,
+      modelo,
+      renavam,
+      fabricante,
+      placa,
+      nomeproprietario,
+      cpf,
+      cnh,
+    ];
+
+    return db
+      .query(query, values)
+      .then((res) => {
+        return res.rows[0];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } catch (error) {
+    console.log(error);
+    throw new Error("Erro ao cadastrar veículo.");
+  }
+}
 
 async function buscarVeiculospfRepository() {
   try {
@@ -33,13 +64,14 @@ async function buscarVeiculospfRepository() {
           placa: veiculo.placa,
           nomeproprietario: veiculo.nomeproprietario,
           cpf: veiculo.cpf,
-          cnh: veiculo.cnh
+          cnh: veiculo.cnh,
         };
       });
     });
   } catch (error) {
     console.log(error);
+    throw new Error("Erro ao buscar veículos.");
   }
 }
 
-module.exports = { cadastrarVeiculopf, buscarVeiculospfRepository };
+module.exports = { cadastrarVeiculopfRepository, buscarVeiculospfRepository };

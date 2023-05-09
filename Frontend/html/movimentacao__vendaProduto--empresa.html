@@ -85,11 +85,9 @@
                 <a href="./movimentacao__emitirOrcamento.html"
                   >Emitir Orçamento</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
+                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
                 ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -98,9 +96,13 @@
       </div>
       <div class="movimentacao">
         <div class="movimentacao__content">
-          <div>
-            <i class="fa-solid fa-basket-shopping"></i>
-            Venda de produto
+          <div class="titlePage">
+            <div>
+              <i class="fa-solid fa-basket-shopping"></i>
+            </div>
+            <div>
+              Venda de produto
+            </div>
           </div>
           <div class="radio__tipoCliente">
             <input
@@ -109,9 +111,9 @@
               name="radio"
               title="radio_clientepf"
               value="pf"
-              />
-              <label for="radio__passeio">Pessoa Física</label>
-              <input
+            />
+            <label for="radio__passeio">Pessoa Física</label>
+            <input
               type="radio"
               id="radio__clientepj"
               name="radio"
@@ -121,42 +123,37 @@
             />
             <label for="radio__utilitario">Pessoa Jurídica</label>
           </div>
-          <div>
-            <h2>Informações do cliente</h2>
-          </div>
           <form>
-            <div class="form__cliente--informacoes">
+            <div class="form__fornecedor--informacoes">
               <div>
-                <h3>Cliente</h3>
+                <h2>Cliente</h2>
                 <input
                   type="text"
-                  id="nomeCliente"
+                  id="pesquisarCliente"
                   class="movimentacao__input--xbig"
-                  placeholder="Digite o nome do cliente"
+                  placeholder="Buscar cliente"
                 />
-              </div>
-              <div>
-                <h3>CNPJ</h3>
-                <input
-                  type="text"
-                  id="cnpj"
-                  class="movimentacao__input--cnpj"
-                  placeholder="00.000.000/0000-00"
-                  maxlength="18"
-                />
+                <i
+                  id="icon__searchCliente"
+                  class="fa-solid fa-magnifying-glass"
+                ></i>
               </div>
             </div>
           </form>
-
           <div class="title__listagemProdutos">
             <h2>Listagem produtos</h2>
             <div class="form__pesquisar--produto">
-              <input type="text"id="pesquisarProduto" class="movimentacao__input--xbig" placeholder="Buscar produto"/>
+              <input
+                type="text"
+                id="pesquisarProduto"
+                class="movimentacao__input--xbig"
+                placeholder="Buscar produto"
+              />
               <div class="icon__search">
                 <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
               </div>
               <div class="icon__check">
-                <i class="fa-solid fa-circle-check"></i>
+                <i id="icon__check" class="fa-solid fa-circle-check"></i>
               </div>
             </div>
           </div>
@@ -168,8 +165,7 @@
                   type="number"
                   id="quantidadeproduto"
                   class="movimentacao__input--small"
-                  placeholder="01"
-                  disabled
+                  placeholder="1"
                 />
               </div>
               <div>
@@ -177,9 +173,8 @@
                 <input
                   type="text"
                   id="produto"
-                  class="movimentacao__input--big "
+                  class="movimentacao__input--big"
                   placeholder="Digite o nome do produto"
-                  disabled
                 />
               </div>
               <div>
@@ -189,7 +184,6 @@
                   id="unidademedida"
                   class="movimentacao__input--small"
                   placeholder="un"
-                  disabled
                 />
               </div>
               <div>
@@ -199,17 +193,16 @@
                   id="marca"
                   class="movimentacao__input"
                   placeholder="Digite a marca do produto"
-                  disabled
                 />
               </div>
               <div>
                 <h3>Valor</h3>
                 <input
                   type="number"
-                  id="valorProduto"
+                  id="valorproduto"
                   class="movimentacao__input"
-                  placeholder="R$ 0,00"
-                  disabled
+                  placeholder="1,00"
+                  step="0.01"
                 />
               </div>
               <div>
@@ -219,7 +212,6 @@
                   id="descricaoProduto"
                   class="movimentacao__input"
                   placeholder="Digite a descrição"
-                  disabled
                 />
               </div>
               <div class="movimentacao__button">
@@ -230,26 +222,123 @@
               </div>
             </div>
           </form>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+          <div class="basket__table">
+            <div>
+              <table id="table__produtos">
+                <thead>
+                  <th>Qtde</th>
+                  <th>Produto</th>
+                  <th>UN</th>
+                  <th>Marca</th>
+                  <th>Valor</th>
+                  <th>Total</th>
+                  <th>Descrição</th>
+                  <th>Ações</th>
+                </thead>
+                <tbody id="basket__table__tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="div__subtotal" class="subtotal">
+            <h3>Subtotal</h3>
+            <input type="number" id="subtotal" placeholder="0.00" step="0.01" />
+            <i id="trash-icon" class="fa-solid fa-trash"></i>
+          </div>
+
           <div class="buttons">
-            <button
-            id="button" 
-              class="button__form--finalizarVenda"
-            >
+            <button id="button__finalizar" class="button__form--finalizarVenda">
               Finalizar
             </button>
             <button id="button__cancelar" class="button__form--cancelar">
               Cancelar
             </button>
           </div>
-        </div>
+          <div id="modal__SelectProduct">
+            <div class="modal__header">
+              <div>
+                <i
+                  id="icon__modal--SelectProduct"
+                  class="fa-solid fa-magnifying-glass"
+                ></i>
+                <h2>Listagem produtos</h2>
+              </div>
+              <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
+            </div>
+            <p>
+              Clique duas vezes no produto que deseja adicionar no carrinho.
+            </p>
+            <table id="tabela__produtos">
+              <thead id="header"></thead>
+              <tbody>
+                <tr id="content"></tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="modal__ClearTable">
+            <div class="modal__header">
+              <div>
+                <i
+                  id="icon__modal--ClearTable"
+                  class="fa-solid fa-triangle-exclamation"
+                ></i>
+                <h2>Limpar carrinho</h2>
+              </div>
+              <i id="icon__xmark" class="fa-solid fa-xmark"></i>
+            </div>
+
+            <p>
+              Tem certeza que deseja limpar o carrinho? Após confirmação, não
+              será possível desfazer a operação.
+            </p>
+            <div class="buttons__modal">
+              <button
+                id="button__confirmarClearTable"
+                class="button__modal--confirmar"
+              >
+                Confirmar
+              </button>
+              <button
+                id="button__cancelarClearTable"
+                class="button__modal--cancelar"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+          <div id="modal__SelectCliente">
+            <div class="modal__header">
+              <div>
+                <i
+                  id="icon__modal--SelectCliente"
+                  class="fa-solid fa-magnifying-glass"
+                ></i>
+                <h2>Listagem de clientes</h2>
+              </div>
+              <i id="icon__xmark--selectCliente" class="fa-solid fa-xmark"></i>
+            </div>
+            <p>
+              Clique duas vezes no cliente para quem emitirá a venda.
+            </p>
+            <table id="tabela__clientespj">
+              <thead id="header__clientespj"></thead>
+              <tbody>
+                <tr id="content__clientespj"></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </main>
     <footer></footer>
 
+    <script src="../js/validacao/input__produto.js"></script>
     <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/button__adicionar.js"></script>
     <script src="../js/components/radio__cliente--movimentacao.js"></script>
-
   </body>
 </html>

@@ -52,7 +52,7 @@ function adicionaLinha(veiculo) {
   tdRenavam.innerHTML = veiculo.renavam;
   tdFabricante.innerHTML = veiculo.fabricante;
   tdPlaca.innerHTML = veiculo.placa;
-  tdProprietario.innerHTML = veiculo.proprietario;
+  tdProprietario.innerHTML = veiculo.nomeproprietario;
   tdCnpj.innerHTML = veiculo.cnpj;
 
   linha.appendChild(tdId);

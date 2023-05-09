@@ -20,7 +20,7 @@ function event__buttonCadastrar__CadastraVeiculopj() {
   var inputRenavam = document.getElementById("renavamVeiculo");
   var inputFabricante = document.getElementById("fabricanteVeiculo");
   var inputPlacaVeiculo = document.getElementById("placaVeiculo");
-  var inputNomeFantasia = document.getElementById("nomeFantasiaVeiculo");
+  var inputProprietario = document.getElementById("nomeProprietario");
   var inputCnpj = document.getElementById("cnpj");
 
   if (
@@ -33,7 +33,7 @@ function event__buttonCadastrar__CadastraVeiculopj() {
       inputRenavam.value == "" ||
       inputFabricante.value == "" ||
       inputPlacaVeiculo.value == "" ||
-      inputNomeFantasia.value == "" ||
+      inputProprietario.value == "" ||
       inputCnpj.value == "")
   ) {
     alert(
@@ -44,14 +44,14 @@ function event__buttonCadastrar__CadastraVeiculopj() {
       const payload = {
         tipo: "Veículo de passeio",
         marca: inputMarca.value,
-        anoFabricacao: inputAnoFabricacao.value,
+        anofabricacao: inputAnoFabricacao.value,
         cor: inputCor.value,
-        numeroPassageiro: inputQuantidadePassageiros.value,
+        numeropassageiro: inputQuantidadePassageiros.value,
         modelo: inputModelo.value,
         renavam: inputRenavam.value,
         fabricante: inputFabricante.value,
         placa: inputPlacaVeiculo.value,
-        nomeProprietario: inputNomeFantasia.value,
+        nomeproprietario: inputProprietario.value,
         cnpj: inputCnpj.value,
       };
 
@@ -68,14 +68,14 @@ function event__buttonCadastrar__CadastraVeiculopj() {
       const payload = {
         tipo: "Veículo de utilitário",
         marca: inputMarca.value,
-        anoFabricacao: inputAnoFabricacao.value,
+        anofabricacao: inputAnoFabricacao.value,
         cor: inputCor.value,
-        numeroPassageiro: inputQuantidadePassageiros.value,
+        numeropassageiro: inputQuantidadePassageiros.value,
         modelo: inputModelo.value,
         renavam: inputRenavam.value,
         fabricante: inputFabricante.value,
         placa: inputPlacaVeiculo.value,
-        nomeProprietario: inputNomeFantasia.value,
+        nomeproprietario: inputProprietario.value,
         cnpj: inputCnpj.value,
       };
 

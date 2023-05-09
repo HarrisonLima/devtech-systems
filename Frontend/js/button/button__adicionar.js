@@ -6,21 +6,36 @@ var button__check = document.getElementById("icon__check");
 var button__clear = document.getElementById("trash-icon");
 var button__finalizar = document.getElementById("button__finalizar");
 var button__pesquisar = document.getElementById("icon__search");
+var button__pesquisarCliente = document.getElementById("icon__searchCliente");
 var button__closeModal = document.getElementById("icon__xmark");
 var button__closeModalSelect = document.getElementById("icon__xmark--select");
+var button__closeModalSelectCliente = document.getElementById(
+  "icon__xmark--selectCliente"
+);
+var button__retirar = document.getElementById("button__retirar");
+var divsubtotal = document.getElementById("div__subtotal");
 var inputBuscar = document.getElementById("pesquisarProduto");
+var inputBuscarCliente = document.getElementById("pesquisarCliente");
 var modal__ClearTable = document.getElementById("modal__ClearTable");
 var modal__SelectProduct = document.getElementById("modal__SelectProduct");
+var modal__SelectCliente = document.getElementById("modal__SelectCliente");
 var tableProdutos = document.getElementById("table__produtos");
 var rowsTableProdutos = tableProdutos.getElementsByTagName("tr");
+var tableClientes = document.getElementById("tabela__clientespj");
+var rowsTableClientes = tableClientes.getElementsByTagName("tr");
 
+button__adicionar.style.display = "none";
 button__cancelar.style.display = "none";
-button__finalizar.style.display = "none";
+button__check.style.display = "none";
 button__clear.style.display = "none";
+button__finalizar.style.display = "none";
+button__retirar.style.display = "none";
+divsubtotal.style.display = "none";
 modal__ClearTable.style.display = "none";
 modal__SelectProduct.style.display = "none";
+modal__SelectCliente.style.display = "none";
 tableProdutos.style.display = "none";
-icon__check.style.display = "none";
+button__pesquisarCliente.style.marginLeft = "15px";
 
 var inputQtde = document.getElementById("quantidadeproduto");
 var inputProduto = document.getElementById("produto");
@@ -38,15 +53,25 @@ var valorProduto;
 var descricao;
 var valortotalproduto;
 
-inputValorProduto.addEventListener("blur", function () {
-  let valor = parseFloat(inputValor).value;
-  if (!isNaN(valor)) {
-    inputValor.value = valor.toFixed(2);
-  }
-});
+var razaoSocial;
+
+inputQtde.disabled = true;
+inputProduto.disabled = true;
+inputUn.disabled = true;
+inputMarca.disabled = true;
+inputValorProduto.disabled = true;
+inputDescricaoProduto.disabled = true;
 
 inputBuscar.readOnly = true;
+inputBuscarCliente.readOnly = true;
 inputSubtotal.readOnly = true;
+
+inputValorProduto.addEventListener("blur", function () {
+  let valor = parseFloat(inputValorProduto.value);
+  if (!isNaN(valor)) {
+    inputValorProduto.value = valor.toFixed(2);
+  }
+});
 
 button__closeModal.addEventListener("click", (event) => {
   modal__ClearTable.style.display = "none";
@@ -54,6 +79,10 @@ button__closeModal.addEventListener("click", (event) => {
 
 button__closeModalSelect.addEventListener("click", (event) => {
   modal__SelectProduct.style.display = "none";
+});
+
+button__closeModalSelectCliente.addEventListener("click", (event) => {
+  modal__SelectCliente.style.display = "none";
 });
 
 button__pesquisar.addEventListener("click", (event) => {
@@ -66,19 +95,56 @@ inputBuscar.addEventListener("dblclick", (event) => {
   selectProduct();
 });
 
+button__pesquisarCliente.addEventListener("click", (event) => {
+  event.preventDefault();
+  selectCliente();
+});
+
+inputBuscarCliente.addEventListener("dblclick", (event) => {
+  event.preventDefault();
+  selectCliente();
+});
+
 button__adicionar.addEventListener("click", () => {
   push__basket();
+
+  inputQtde.disabled = true;
+  inputProduto.disabled = true;
+  inputUn.disabled = true;
+  inputMarca.disabled = true;
+  inputValorProduto.disabled = true;
+  inputDescricaoProduto.disabled = true;
+
+  button__adicionar.style.display = "none";
+  button__retirar.style.display = "none";
 });
 
 button__retirar.addEventListener("click", () => {
   reset__inputs();
+
+  inputQtde.disabled = true;
+  inputProduto.disabled = true;
+  inputUn.disabled = true;
+  inputMarca.disabled = true;
+  inputValorProduto.disabled = true;
+  inputDescricaoProduto.disabled = true;
+
+  button__adicionar.style.display = "none";
+  button__retirar.style.display = "none";
 });
 
 button__clear.addEventListener("click", () => {
   confirm__clearbasket();
 });
 
-icon__check.addEventListener("click", () => {
+button__check.addEventListener("click", () => {
+  inputQtde.disabled = false;
+  inputValorProduto.disabled = false;
+
+  inputQtde.value = 1;
+  const valorDefault = 1.0;
+  inputValorProduto.value = valorDefault.toFixed(2);
+
   inputProduto.value = produto.textContent;
   inputUn.value = un.textContent;
   inputMarca.value = marca.textContent;
@@ -86,7 +152,10 @@ icon__check.addEventListener("click", () => {
 
   inputBuscar.value = "";
 
-  icon__check.style.display = 'none';
+  button__adicionar.style.display = "block";
+  button__retirar.style.display = "block";
+  button__check.style.display = "none";
+  button__pesquisarCliente.style.marginLeft = "15px";
 });
 
 function push__basket() {
@@ -126,6 +195,7 @@ function push__basket() {
     basket.push(produto);
     console.log(basket);
 
+    divsubtotal.style.display = "block";
     updateSubtotal();
     reset__inputs();
   }
@@ -173,6 +243,10 @@ function createTable() {
   trashIcon.setAttribute("data-index", rowIndex);
   trashIcon.addEventListener("click", function () {
     removeRow(this);
+    if (basket.length == 0) {
+      clear__basket();
+      button__clear.style.display = "none";
+    }
   });
 
   cellRemoveRow.appendChild(trashIcon);
@@ -194,6 +268,9 @@ function createTable() {
     var rowIndex = this.parentNode.parentNode.rowIndex;
     var rowData = basket[rowIndex - 1];
 
+    inputQtde.disabled = false;
+    inputValorProduto.disabled = false;
+
     inputQtde.value = rowData.qtde;
     inputProduto.value = rowData.produto;
     inputUn.value = rowData.un;
@@ -205,6 +282,16 @@ function createTable() {
     this.parentNode.parentNode.remove();
 
     updateSubtotal();
+
+    button__adicionar.style.display = "block";
+    button__retirar.style.display = "block";
+
+    if (basket.length == 0) {
+      clear__basket();
+      button__clear.style.display = "none";
+      button__cancelar.style.display = "none";
+      button__finalizar.style.display = "none";
+    }
   };
 
   function removeRow(element) {
@@ -220,11 +307,11 @@ function createTable() {
 }
 
 function reset__inputs() {
-  inputQtde.value = 1;
+  inputQtde.value = "";
   inputProduto.value = "";
   inputUn.value = "";
   inputMarca.value = "";
-  inputValorProduto.value = 1.0;
+  inputValorProduto.value = "";
   inputDescricaoProduto.value = "";
 }
 
@@ -240,9 +327,7 @@ function updateSubtotal() {
   console.log(subtotal);
 
   inputSubtotal.readOnly = false;
-
-  inputSubtotal.textContent = subtotal.toFixed(2);
-  inputSubtotal.value = parseFloat(subtotal);
+  inputSubtotal.value = subtotal.toFixed(2);
 
   inputSubtotal.readOnly = true;
 
@@ -275,12 +360,15 @@ function clear__basket() {
   basket.length = 0;
 
   updateSubtotal();
+  divsubtotal.style.display = "none";
   tableProdutos.style.display = "none";
+  button__cancelar.style.display = "none";
+  button__finalizar.style.display = "none";
 }
 
 function selectProduct() {
   modal__SelectProduct.style.display = "block";
-  updateRegistros();
+  updateRegistrosProduto();
   addIndex();
 }
 
@@ -297,11 +385,11 @@ function getProdutos(url) {
   return request.responseText;
 }
 
-const tabela = document.getElementById("tabela__produtos");
-const content = document.getElementById("content");
-const header = document.getElementById("header");
+const tabelaProduto = document.getElementById("tabela__produtos");
+const contentProduto = document.getElementById("content");
+const headerProduto = document.getElementById("header");
 
-function adicionaLinha(produto) {
+function adicionaLinhaProduto(produto) {
   linha = document.createElement("tr");
   tdId = document.createElement("td");
   tdProduto = document.createElement("td");
@@ -323,7 +411,7 @@ function adicionaLinha(produto) {
   return linha;
 }
 
-function criaColunas(Column) {
+function criaColunasProduto(Column) {
   const elementRow = document.createElement("tr");
   const elementColumnId = document.createElement("th");
   const elementColumnProduto = document.createElement("th");
@@ -342,17 +430,16 @@ function criaColunas(Column) {
   elementRow.appendChild(elementColumnUn);
   elementRow.appendChild(elementColumnMarca);
   elementRow.appendChild(elementColumnDescricao);
-  header.appendChild(elementRow);
-  tabela.appendChild(header);
+  headerProduto.appendChild(elementRow);
+  tabelaProduto.appendChild(headerProduto);
 }
 
-function updateRegistros() {
-  tabela.innerHTML = "";
-  header.innerHTML = "";
-  criaColunas();
+function updateRegistrosProduto() {
+  tabelaProduto.innerHTML = "";
+  headerProduto.innerHTML = "";
+  criaColunasProduto();
   let data = getProdutos("http://localhost:3000/api/produtos");
   let produtos = JSON.parse(data);
-
 
   function selectionProduct() {
     var nomeProduto = this.querySelector("td:nth-child(2)");
@@ -368,22 +455,133 @@ function updateRegistros() {
     inputBuscar.readOnly = false;
     inputBuscar.value = produto.textContent;
     inputBuscar.readOnly = true;
-    icon__check.style.display = "block";
+    button__check.style.display = "block";
+    button__pesquisarCliente.style.marginLeft = "-0.1px";
     modal__SelectProduct.style.display = "none";
   }
 
-  function paintRow(){
-
-    for (var i = 0, row; row = tabela.rows[i]; i++) {
-      tabela.rows[i].removeAttribute("style");      
+  function paintRow() {
+    for (var i = 0, row; (row = tabelaProduto.rows[i]); i++) {
+      tabelaProduto.rows[i].removeAttribute("style");
     }
     this.style.backgroundColor = "#ffac1c";
   }
 
   produtos.forEach((element) => {
-    var linha = adicionaLinha(element);
+    var linha = adicionaLinhaProduto(element);
     linha.addEventListener("dblclick", selectionProduct);
     linha.addEventListener("click", paintRow);
-    tabela.appendChild(linha);
+    tabelaProduto.appendChild(linha);
+  });
+}
+
+function selectCliente() {
+  modal__SelectCliente.style.display = "block";
+  updateRegistrosCliente();
+  addIndexCliente();
+}
+
+function addIndexCliente() {
+  for (var i = 1; i < rowsTableClientes.length; i++) {
+    rowsTableClientes[i].setAttribute("data-index", i - 1);
+  }
+}
+
+function getClientespj(url) {
+  let request = new XMLHttpRequest();
+  request.open("GET", url, false);
+  request.send();
+  return request.responseText;
+}
+
+const tabelaCliente = document.getElementById("tabela__clientespj");
+const contentCliente = document.getElementById("content__clientespj");
+const headerCliente = document.getElementById("header__clientespj");
+
+function adicionaLinhaCliente(cliente) {
+  var linha = document.createElement("tr");
+  var tdId = document.createElement("td");
+  var tdRazaoSocial = document.createElement("td");
+  var tdNomeFantasia = document.createElement("td");
+  var tdCnpj = document.createElement("td");
+  var tdCidade = document.createElement("td");
+  var tdUf = document.createElement("td");
+
+  tdId.innerHTML = cliente.id;
+  tdRazaoSocial.innerHTML = cliente.razaosocial;
+  tdNomeFantasia.innerHTML = cliente.nomefantasia;
+  tdCnpj.innerHTML = cliente.cnpj;
+  tdCidade.innerHTML = cliente.cidade;
+  tdUf.innerHTML = cliente.uf;
+
+  linha.appendChild(tdId);
+  linha.appendChild(tdRazaoSocial);
+  linha.appendChild(tdNomeFantasia);
+  linha.appendChild(tdCnpj);
+  linha.appendChild(tdCidade);
+  linha.appendChild(tdUf);
+
+  return linha;
+}
+
+function criaColunasCliente(Column) {
+  const elementRow = document.createElement("tr");
+  const elementColumnId = document.createElement("th");
+  const elementColumnRazaoSocial = document.createElement("th");
+  const elementColumnNomeFantasia = document.createElement("th");
+  const elementColumnCnpj = document.createElement("th");
+  const elementColumnCidade = document.createElement("th");
+  const elementColumnUf = document.createElement("th");
+
+  elementColumnId.innerHTML = "ID";
+  elementColumnRazaoSocial.innerHTML = "Razão Social";
+  elementColumnNomeFantasia.innerHTML = "Nome Fantasia";
+  elementColumnCnpj.innerHTML = "CNPJ";
+  elementColumnCidade.innerHTML = "Cidade";
+  elementColumnUf.innerHTML = "UF";
+
+  elementRow.appendChild(elementColumnId);
+  elementRow.appendChild(elementColumnRazaoSocial);
+  elementRow.appendChild(elementColumnNomeFantasia);
+  elementRow.appendChild(elementColumnCnpj);
+  elementRow.appendChild(elementColumnCidade);
+  elementRow.appendChild(elementColumnUf);
+
+  headerCliente.appendChild(elementRow);
+  tabelaCliente.appendChild(headerCliente);
+}
+
+function updateRegistrosCliente() {
+  tabelaCliente.innerHTML = "";
+  headerCliente.innerHTML = "";
+  criaColunasCliente();
+  let data = getClientespj("http://localhost:3000/api/clientespj");
+  let clientes = JSON.parse(data);
+
+  function selectionCliente() {
+    var razaoCliente = this.querySelector("td:nth-child(2)");
+
+    razaoSocial = razaoCliente;
+
+    inputBuscarCliente.readOnly = false;
+    inputBuscarCliente.value = razaoSocial.textContent;
+    inputBuscarCliente.readOnly = true;
+
+    modal__SelectCliente.style.display = "none";
+  }
+
+  var rowCliente; 
+  function paintRowCliente() {
+    for (var i = 0; (rowCliente = tabelaCliente.rows[i]); i++) {
+      tabelaCliente.rows[i].removeAttribute("style");
+    }
+    this.style.backgroundColor = "#ffac1c";
+  }
+
+  clientes.forEach((element) => {
+    var linhaCliente = adicionaLinhaCliente(element);
+    linhaCliente.addEventListener("dblclick", selectionCliente);
+    linhaCliente.addEventListener("click", paintRowCliente);
+    tabelaProduto.appendChild(linhaCliente);
   });
 }

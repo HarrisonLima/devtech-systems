@@ -2,10 +2,8 @@ const buttonPesquisarUsuarios = document.getElementById(
   "button__pesquisar--usuario"
 );
 const buttonExportar = document.getElementById("button__exportar--pdf");
-const buttonExportarExcel = document.getElementById("button__exportar--excel");
 
 buttonExportar.style.display = 'none';
-buttonExportarExcel.style.display = 'none';
 
 buttonPesquisarUsuarios.addEventListener("click", (event) => {
   event.preventDefault();
@@ -15,9 +13,7 @@ buttonPesquisarUsuarios.addEventListener("click", (event) => {
 
 function statusButtonExportar() {
   buttonExportar.disabled = false;
-  buttonExportarExcel.disabled = false;
   buttonExportar.style.display = 'block';
-  buttonExportarExcel.style.display = 'block';
 }
 
 function getUsuarios(url) {

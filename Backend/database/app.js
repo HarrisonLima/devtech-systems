@@ -144,11 +144,11 @@ app.post("/api/cadastro/clientepj", (req, res) => {
 
 app.post("/api/cadastro/fornecedor", (req, res) => {
   console.log(req.body);
-  const razaoSocial = req.body.razaoSocial
-  const nomeFantasia = req.body.nomeFantasia
+  const razaosocial = req.body.razaosocial
+  const nomefantasia = req.body.nomefantasia
   const cnpj = req.body.cnpj
-  const inscricaoEstadual = req.body.inscricaoEstadual
-  const inscricaoMunicipal = req.body.inscricaoMunicipal
+  const inscricaoestadual = req.body.inscricaoestadual
+  const inscricaomunicipal = req.body.inscricaomunicipal
   const cep = req.body.cep
   const numero = req.body.numero
   const complemento = req.body.complemento
@@ -159,7 +159,7 @@ app.post("/api/cadastro/fornecedor", (req, res) => {
   const ddd = req.body.ddd
   const telefone = req.body.telefone
 
-  return cadastrarFornecedor(razaoSocial, nomeFantasia, cnpj, inscricaoEstadual, inscricaoMunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone)
+  return cadastrarFornecedor(razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone)
     .then((data) => {
       res.status(200)
       return res.send(data)
@@ -173,18 +173,18 @@ app.post("/api/cadastro/veiculopf", (req, res) => {
   console.log(req.body);
   const tipo = req.body.tipo
   const marca = req.body.marca
-  const anoFabricacao = req.body.anoFabricacao
+  const anofabricacao = req.body.anofabricacao
   const cor = req.body.cor
-  const numeroPassageiro = req.body.numeroPassageiro
+  const numeropassageiro = req.body.numeropassageiro
   const modelo = req.body.modelo
   const renavam = req.body.renavam
   const fabricante = req.body.fabricante
   const placa = req.body.placa
-  const nomeProprietario = req.body.nomeProprietario
+  const nomeproprietario = req.body.nomeproprietario
   const cpf = req.body.cpf
   const cnh = req.body.cnh
 
-  return cadastrarVeiculopf(tipo, marca, anoFabricacao, cor, numeroPassageiro, modelo, renavam, fabricante, placa, nomeProprietario, cpf, cnh)
+  return cadastrarVeiculopf(tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cpf, cnh)
     .then((data) => {
       res.status(200)
       return res.send(data)
@@ -198,17 +198,17 @@ app.post("/api/cadastro/veiculopj", (req, res) => {
   console.log(req.body);
   const tipo = req.body.tipo
   const marca = req.body.marca
-  const anoFabricacao = req.body.anoFabricacao
+  const anofabricacao = req.body.anofabricacao
   const cor = req.body.cor
-  const numeroPassageiro = req.body.numeroPassageiro
+  const numeropassageiro = req.body.numeropassageiro
   const modelo = req.body.modelo
   const renavam = req.body.renavam
   const fabricante = req.body.fabricante
   const placa = req.body.placa
-  const nomeProprietario = req.body.nomeProprietario
-  const cnpj = req.body.cpf
+  const nomeproprietario = req.body.nomeproprietario
+  const cnpj = req.body.cnpj
 
-  return cadastrarVeiculopj(tipo, marca, anoFabricacao, cor, numeroPassageiro, modelo, renavam, fabricante, placa, nomeProprietario, cnpj)
+  return cadastrarVeiculopj(tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cnpj)
     .then((data) => {
       res.status(200)
       return res.send(data)

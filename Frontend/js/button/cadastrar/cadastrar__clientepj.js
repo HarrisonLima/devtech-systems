@@ -40,8 +40,11 @@ function event__buttonCadastrar__CadastraClientepj() {
       "Não foi possível realizar o cadastro! Verifique novamente se todos os campos foram preenchidos corretamente!"
     );
   } else {
+
+    // var razao = inputRazaoSocial.value.toString();
+
     const payload = {
-      razaosocial: inputRazaoSocial.value,
+      razaoSocial: inputRazaoSocial.value,
       nomeFantasia: inputNomeFantasia.value,
       cnpj: inputCnpj.value,
       inscricaoEstadual: inputInscricaoEstadual.value,

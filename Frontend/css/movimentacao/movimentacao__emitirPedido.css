@@ -184,7 +184,8 @@
   justify-content: space-between;
 }
 
-#icon__xmark, #icon__xmark--select {
+#icon__xmark,
+#icon__xmark--select {
   color: #db1414;
   cursor: pointer;
   font-size: 25px;
@@ -218,7 +219,6 @@
   width: 125px;
 }
 
-
 .button__modal--cancelar {
   background-color: #e9b3b3;
   border: 0.5px solid #e9b3b3;
@@ -229,7 +229,6 @@
   font-weight: 500;
   width: 125px;
 }
-
 
 #tabela__produtos {
   align-items: center;
@@ -256,3 +255,10 @@
   cursor: pointer;
 }
 
+#pesquisarProduto {
+  cursor: pointer;
+}
+
+#subtotal, #valorproduto{
+  text-align: right;
+}

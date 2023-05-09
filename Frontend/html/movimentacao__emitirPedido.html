@@ -126,7 +126,6 @@
               </div>
             </div>
           </form>
-
           <div class="title__listagemProdutos">
             <h2>Listagem produtos</h2>
             <div class="form__pesquisar--produto">
@@ -143,25 +142,6 @@
                 <i id="icon__check" class="fa-solid fa-circle-check"></i>
               </div>
             </div>
-            <div id="modal__SelectProduct">
-              <div class="modal__header">
-                <div>
-                  <i
-                  id="icon__modal--SelectProduct"
-                  class="fa-solid fa-magnifying-glass"
-                  ></i>
-                  <h2>Listagem produtos</h2>
-                </div>
-                <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
-              </div>
-              <p>Clique duas vezes no produto que deseja adicionar no carrinho.</p>
-              <table id="tabela__produtos">
-                <thead id="header"></thead>
-                <tbody>
-                  <tr id="content"></tr>
-                </tbody>
-              </table>
-            </div>
           </div>
           <form>
             <div id="form__Itens" class="form__itens">
@@ -171,7 +151,6 @@
                   type="number"
                   id="quantidadeproduto"
                   class="movimentacao__input--small"
-                  value="1"
                   placeholder="1"
                 />
               </div>
@@ -209,7 +188,6 @@
                   id="valorproduto"
                   class="movimentacao__input"
                   placeholder="1,00"
-                  value="1.00"
                   step="0.01"
                 />
               </div>
@@ -252,7 +230,7 @@
             </div>
           </div>
 
-          <div class="subtotal">
+          <div id="div__subtotal" class="subtotal">
             <h3>Subtotal</h3>
             <input type="number" id="subtotal" placeholder="0.00" step="0.01" />
             <i id="trash-icon" class="fa-solid fa-trash"></i>
@@ -266,6 +244,25 @@
               Cancelar
             </button>
           </div>
+          <div id="modal__SelectProduct">
+            <div class="modal__header">
+              <div>
+                <i
+                id="icon__modal--SelectProduct"
+                class="fa-solid fa-magnifying-glass"
+                ></i>
+                <h2>Listagem produtos</h2>
+              </div>
+              <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
+            </div>
+            <p>Clique duas vezes no produto que deseja adicionar no carrinho.</p>
+            <table id="tabela__produtos">
+              <thead id="header"></thead>
+              <tbody>
+                <tr id="content"></tr>
+              </tbody>
+            </table>
+          </div>
           <div id="modal__ClearTable">
             <div class="modal__header">
               <div>
@@ -274,7 +271,6 @@
                 class="fa-solid fa-triangle-exclamation"
                 ></i>
                 <h2>Limpar carrinho</h2>
-  
               </div>
               <i id="icon__xmark" class="fa-solid fa-xmark"></i>
             </div>
