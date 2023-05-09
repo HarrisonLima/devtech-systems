@@ -247,19 +247,19 @@
   width: 125px;
 }
 
-#tabela__produtos, #tabela__clientespj {
+#tabela__produtos, #tabela__clientespj, #tabela__clientespf {
   align-items: center;
   display: flexbox;
   justify-content: center;
   justify-items: center;
 }
 
-#tabela__produtos, #tabela__clientespj thead {
+#tabela__produtos, #tabela__clientespj, #tabela__clientespf thead {
   font-size: 16px;
   width: 100%;
 }
 
-#tabela__produtos, #tabela__clientespj td {
+#tabela__produtos, #tabela__clientespj, #tabela__clientespf td {
   font-size: 14px;
 }
 
@@ -272,7 +272,7 @@
   cursor: pointer;
 }
 
-#tabela__clientespj > tr:not(:first-child):hover {
+#tabela__clientespj, #tabela__clientespf > tr:not(:first-child):hover {
   background: #ffcc74;
   cursor: pointer;
 }
