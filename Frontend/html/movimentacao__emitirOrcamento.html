@@ -100,175 +100,276 @@
       </div>
       <div class="movimentacao">
         <div class="movimentacao__content">
-          <div>
-            <i class="fa-solid fa-file"></i>
-            Emissão de orçamento
+          <div class="titlePage">
+            <div>
+              <i class="fa-solid fa-file"></i>
+            </div>
+            <div>
+              Emissão de Orçamento
+            </div>
           </div>
-          <div>
-            <h2>Informações do cliente e veículo</h2>
-          </div>
-
-          <form>
-            <div class="form__orcamento--informacoes">
-              <div>
-                <h3>Cliente</h3>
-                <input
-                  type="text"
-                  id="nomeCliente"
-                  class="movimentacao__input--proprietario"
-                  placeholder="Digite o nome do cliente"
-                />
-              </div>
-              <div>
-                <h3>Placa</h3>
-                <input
-                  type="text"
-                  id="placa"
-                  class="movimentacao__input--placa"
-                  placeholder="Digite a placa do veículo"
-                />
-              </div>
-            </div>
-          </form>
-
-          <div>
-            <h2>Informações das peças utilizadas</h2>
-          </div>
-
-          <form>
-            <div id="form__orcamentoItens" class="form__orcamento--itens">
-              <!-- <div>
-                <h3>Código da peça</h3>
-                <input
-                  type="text"
-                  id="codigoPeca"
-                  class="movimentacao__input--codigo"
-                  placeholder="0000000000"
-                />
-              </div> -->
-              <div>
-                <h3>Peça</h3>
-                <input
-                  type="text"
-                  id="peca"
-                  class="movimentacao__input--item"
-                  placeholder="Digite o nome da peça"
-                />
-              </div>
-              <div>
-                <h3>Quantidade</h3>
-                <input
-                  type="number"
-                  id="quantidadePeca"
-                  class="movimentacao__input--quantidade"
-                  placeholder="1"
-                />
-              </div>
-              <div>
-                <h3>Valor</h3>
-                <input
-                  type="text"
-                  id="valorPeca"
-                  class="movimentacao__input--valor"
-                  placeholder="R$ 0,00"
-                />
-              </div>
-              <div>
-                <h3>Observação</h3>
-                <input
-                  type="text"
-                  id="observacaoPeca"
-                  class="movimentacao__input--observacao"
-                  placeholder="Digite a observação"
-                />
-              </div>
-            </div>
-            <div class="movimentacao__button">
-              <button type="submit" class="movimentacao__button--addItem">
-                Adicionar
-              </button>
-            </div>
-          </form>
-          <form>
-            <div class="form__orcamento--itens">
-              <!-- <div>
-                <h3>Código do serviço</h3>
-                <input
-                  type="text"
-                  id="codigoServico"
-                  class="movimentacao__input--codigo"
-                  placeholder="0000000000"
-                />
-              </div> -->
-              <div>
-                <h3>Serviço</h3>
-                <input
-                  type="text"
-                  id="servico"
-                  class="movimentacao__input--item"
-                  placeholder="Digite o título do serviço"
-                />
-              </div>
-              <div>
-                <h3>Quantidade</h3>
-                <input
-                  type="number"
-                  id="quantidadeServico"
-                  class="movimentacao__input--quantidade"
-                  placeholder="1"
-                />
-              </div>
-              <div>
-                <h3>Valor</h3>
-                <input
-                  type="text"
-                  id="valorServico"
-                  class="movimentacao__input--valor"
-                  placeholder="R$ 0,00"
-                />
-              </div>
-              <div>
-                <h3>Observação</h3>
-                <input
-                  type="text"
-                  id="observacaoServico"
-                  class="movimentacao__input--observacao"
-                  placeholder="Digite a observação"
-                />
-              </div>
-            </div>
-          </form>
-          <div class="movimentacao__input--valorFinalOrcamento">
-            <h3>Valor do orçamento</h3>
+          <div class="radio__tipoCliente">
             <input
-              type="text"
-              class="movimentacao__input--valor"
-              placeholder="R$ 0,00"
-              readonly
+              type="radio"
+              id="radio__clientepf"
+              name="radio"
+              title="radio_clientepf"
+              value="pf"
+              checked
             />
-            <i class="fa-solid fa-lock"></i>
+            <label for="radio__passeio">Pessoa Física</label>
+            <input
+              type="radio"
+              id="radio__clientepj"
+              name="radio"
+              title="radio_clientepj"
+              value="pj"
+            />
+            <label for="radio__utilitario">Pessoa Jurídica</label>
           </div>
+          <form>
+            <div class="form__cliente--informacoes">
+              <div>
+                <h2>Cliente</h2>
+                <input
+                  type="text"
+                  id="pesquisarCliente"
+                  class="movimentacao__input--xbig"
+                  placeholder="Buscar cliente"
+                />
+                <i
+                  id="icon__searchCliente"
+                  class="fa-solid fa-magnifying-glass"
+                ></i>
+              </div>
+            </div>
+          </form>
+          <div class="title__listagemItens">
+            <h2>Listagem de itens</h2>
+            <div class="form__pesquisar--item">
+              <input
+                type="text"
+                id="pesquisarItem"
+                class="movimentacao__input--xbig"
+                placeholder="Buscar item"
+              />
+              <div class="icon__search">
+                <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="icon__check">
+                <i id="icon__check" class="fa-solid fa-circle-check"></i>
+              </div>
+            </div>
+          </div>
+          <form>
+            <div id="form__Itens" class="form__itens">
+              <div>
+                <h3>Qtde</h3>
+                <input
+                  type="number"
+                  id="quantidadeproduto"
+                  class="movimentacao__input--small"
+                  placeholder="1"
+                />
+              </div>
+              <div>
+                <h3>Item</h3>
+                <input
+                  type="text"
+                  id="item"
+                  class="movimentacao__input--big"
+                />
+              </div>
+              <div>
+                <h3>UN</h3>
+                <input
+                  type="text"
+                  id="unidademedida"
+                  class="movimentacao__input--small"
+                  placeholder="un"
+                />
+              </div>
+              <div>
+                <h3>Marca</h3>
+                <input
+                  type="text"
+                  id="marca"
+                  class="movimentacao__input"
+                />
+              </div>
+              <div>
+                <h3>Valor</h3>
+                <input
+                  type="number"
+                  id="valorproduto"
+                  class="movimentacao__input"
+                  placeholder="1,00"
+                  step="0.01"
+                />
+              </div>
+              <div>
+                <h3>Descrição</h3>
+                <input
+                  type="text"
+                  id="descricao"
+                  class="movimentacao__input--xbig"
+                />
+              </div>
+              <div class="movimentacao__button">
+                <i id="button__adicionar" class="fa-solid fa-circle-check"></i>
+              </div>
+              <div class="movimentacao__button">
+                <i id="button__retirar" class="fa-solid fa-circle-xmark"></i>
+              </div>
+            </div>
+          </form>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+          <div class="basket__table">
+            <div>
+              <table id="table__produtos">
+                <thead>
+                  <th>Qtde</th>
+                  <th>Item</th>
+                  <th>UN</th>
+                  <th>Valor</th>
+                  <th>Total</th>
+                  <th>Descrição</th>
+                  <th>Ações</th>
+                </thead>
+                <tbody id="basket__table__tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="div__subtotal" class="subtotal">
+            <h3>Subtotal</h3>
+            <input type="number" id="subtotal" placeholder="0.00" step="0.01" />
+            <i id="trash-icon" class="fa-solid fa-trash"></i>
+          </div>
+
           <div class="buttons">
-            <button
-            id="button__gerar--orcamento"
-              class="button__form--cadastrar"
-            >
-              Gerar
+            <button id="button__emitir" class="button__form--emitirOrcamento">
+              Emitir
             </button>
             <button id="button__cancelar" class="button__form--cancelar">
               Cancelar
             </button>
-            <button id="button__limpar--orcamento" class="button__form--limpar">Limpar</button>
           </div>
-        </div>
+          <div id="modal__SelectItem">
+            <div class="modal__header">
+              <div>
+                <i
+                  id="icon__modal--SelectItem"
+                  class="fa-solid fa-magnifying-glass"
+                ></i>
+                <h2>Listagem de itens</h2>
+              </div>
+              <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
+            </div>
+            <p>
+              Clique duas vezes no item que deseja adicionar no carrinho.
+            </p>
+            <div class="radio__tipoPeca">
+              <input
+                type="radio"
+                id="radio__peca"
+                name="radio"
+                title="radio_peca"
+                value="peca"
+                checked
+              />
+              <label for="radio__peca">Peça</label>
+              <input
+                type="radio"
+                id="radio__servico"
+                name="radio"
+                title="radio_servico"
+                value="servico"
+              />
+              <label for="radio__servico">Serviço</label>
+            </div>
+            <table id="tabela__pecas">
+              <thead id="header__pecas"></thead>
+              <tbody>
+                <tr id="content__pecas"></tr>
+              </tbody>
+            </table>
+            <table id="tabela__servicos">
+              <thead id="header__servicos"></thead>
+              <tbody>
+                <tr id="content__servicos"></tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="modal__ClearTable">
+            <div class="modal__header">
+              <div>
+                <i
+                  id="icon__modal--ClearTable"
+                  class="fa-solid fa-triangle-exclamation"
+                ></i>
+                <h2>Limpar carrinho</h2>
+              </div>
+              <i id="icon__xmark" class="fa-solid fa-xmark"></i>
+            </div>
+
+            <p>
+              Tem certeza que deseja limpar o carrinho? Após confirmação, não
+              será possível desfazer a operação.
+            </p>
+            <div class="buttons__modal">
+              <button
+                id="button__confirmarClearTable"
+                class="button__modal--confirmar"
+              >
+                Confirmar
+              </button>
+              <button
+                id="button__cancelarClearTable"
+                class="button__modal--cancelar"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+          <div id="modal__SelectCliente">
+            <div class="modal__header">
+              <div>
+                <i
+                  id="icon__modal--SelectCliente"
+                  class="fa-solid fa-magnifying-glass"
+                ></i>
+                <h2>Listagem de clientes</h2>
+              </div>
+              <i id="icon__xmark--selectCliente" class="fa-solid fa-xmark"></i>
+            </div>
+            <p>
+              Clique duas vezes no cliente para quem emitirá o orçamento.
+            </p>
+            <table id="tabela__clientespf">
+              <thead id="header__clientespf"></thead>
+              <tbody>
+                <tr id="content__clientespf"></tr>
+              </tbody>
+            </table>
+            <table id="tabela__clientespj">
+              <thead id="header__clientespj"></thead>
+              <tbody>
+                <tr id="content__clientespj"></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </main>
     <footer></footer>
 
+    <script src="../js/validacao/input__produto.js"></script>
     <script src="../js/button/button__cancelar.js"></script>
-    <script src="../js/button/limpar/limpar__orcamento.js"></script>
-    <script src="../js/button/button__adicionar.js"></script>
-
+    <script src="../js/button/button__adicionar--orcamento.js"></script>
+    <script src="../js/components/radio__cliente--orcamento.js"></script>
   </body>
 </html>

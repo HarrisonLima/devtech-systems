@@ -3,8 +3,8 @@ const db = require("../postgres");
 async function cadastrarProdutoRepository(produto, un, marca, descricao) {
   try {
     const query =
-      "INSERT INTO produto (produto, un, marca, descricao) VALUES($1, $2, $3, $4) RETURNING *";
-    const values = [produto, un, marca, descricao];
+      "INSERT INTO produto (produto, un, marca, descricao, estoque) VALUES($1, $2, $3, $4, $5) RETURNING *";
+    const values = [produto, un, marca, descricao, 0];
 
     return db.query(query, values).then((res) => {
       return res.rows[0];
@@ -27,6 +27,7 @@ async function buscarProdutosRepository() {
           un: produto.un,
           marca: produto.marca,
           descricao: produto.descricao,
+          estoque: produto.estoque,
         };
       });
     });
@@ -35,4 +36,20 @@ async function buscarProdutosRepository() {
   }
 }
 
-module.exports = { cadastrarProdutoRepository, buscarProdutosRepository };
+async function atualizarProdutoRepository(id, produto, un, marca, descricao, estoque) {
+  try {
+    const query =
+      "UPDATE produto SET produto = $1, un = $2, marca = $3, descricao = $4 , estoque = $5 WHERE id = $6 RETURNING *";
+    const values = [produto, un, marca, descricao, estoque, id];
+
+    return db.query(query, values).then((res) => {
+      return res.rows[0];
+    }).catch((error) => {
+      console.log(error);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { cadastrarProdutoRepository, buscarProdutosRepository, atualizarProdutoRepository };

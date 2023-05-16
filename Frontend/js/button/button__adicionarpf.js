@@ -16,6 +16,7 @@ var button__retirar = document.getElementById("button__retirar");
 var divsubtotal = document.getElementById("div__subtotal");
 var inputBuscar = document.getElementById("pesquisarProduto");
 var inputBuscarCliente = document.getElementById("pesquisarCliente");
+var inputEstoque = document.getElementById("estoque");
 var modal__ClearTable = document.getElementById("modal__ClearTable");
 var modal__SelectProduct = document.getElementById("modal__SelectProduct");
 var modal__SelectCliente = document.getElementById("modal__SelectCliente");
@@ -62,6 +63,7 @@ inputMarca.disabled = true;
 inputValorProduto.disabled = true;
 inputDescricaoProduto.disabled = true;
 
+inputEstoque.readOnly = true;
 inputBuscar.readOnly = true;
 inputBuscarCliente.readOnly = true;
 inputSubtotal.readOnly = true;
@@ -138,24 +140,34 @@ button__clear.addEventListener("click", () => {
 });
 
 button__check.addEventListener("click", () => {
-  inputQtde.disabled = false;
-  inputValorProduto.disabled = false;
+  if (inputEstoque > 0) {
+    inputQtde.disabled = false;
+    inputValorProduto.disabled = false;
 
-  inputQtde.value = 1;
-  const valorDefault = 1.0;
-  inputValorProduto.value = valorDefault.toFixed(2);
+    inputQtde.value = 1;
+    const valorDefault = 1.0;
+    inputValorProduto.value = valorDefault.toFixed(2);
 
-  inputProduto.value = produto.textContent;
-  inputUn.value = un.textContent;
-  inputMarca.value = marca.textContent;
-  inputDescricaoProduto.value = descricao.textContent;
+    inputProduto.value = produto.textContent;
+    inputUn.value = un.textContent;
+    inputMarca.value = marca.textContent;
+    inputDescricaoProduto.value = descricao.textContent;
 
-  inputBuscar.value = "";
+    inputBuscar.value = "";
 
-  button__adicionar.style.display = "block";
-  button__retirar.style.display = "block";
-  button__check.style.display = "none";
-  button__pesquisarCliente.style.marginLeft = "15px";
+    button__adicionar.style.display = "block";
+    button__retirar.style.display = "block";
+    button__check.style.display = "none";
+    button__pesquisarCliente.style.marginLeft = "15px";
+  } else {
+    inputEstoque.style.border = "solid 2px #FF0000 ";
+
+    alert("Sem estoque do item selecionado!");
+
+    setTimeout(function () {
+      inputEstoque.style.border = "";
+    }, 1500);
+  }
 });
 
 function push__basket() {
@@ -395,17 +407,20 @@ function adicionaLinhaProduto(produto) {
   tdProduto = document.createElement("td");
   tdUn = document.createElement("td");
   tdMarca = document.createElement("td");
+  tdEstoque = document.createElement("td");
   tdDescricao = document.createElement("td");
   tdId.innerHTML = produto.id;
   tdProduto.innerHTML = produto.produto;
   tdUn.innerHTML = produto.un;
   tdMarca.innerHTML = produto.marca;
+  tdEstoque.innerHTML = produto.estoque;
   tdDescricao.innerHTML = produto.descricao;
 
   linha.appendChild(tdId);
   linha.appendChild(tdProduto);
   linha.appendChild(tdUn);
   linha.appendChild(tdMarca);
+  linha.appendChild(tdEstoque);
   linha.appendChild(tdDescricao);
 
   return linha;
@@ -417,18 +432,21 @@ function criaColunasProduto(Column) {
   const elementColumnProduto = document.createElement("th");
   const elementColumnUn = document.createElement("th");
   const elementColumnMarca = document.createElement("th");
+  const elementColumnEstoque = document.createElement("th");
   const elementColumnDescricao = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
   elementColumnProduto.innerHTML = "Produto";
   elementColumnUn.innerHTML = "Un";
   elementColumnMarca.innerHTML = "Marca";
+  elementColumnEstoque.innerHTML = "Estoque";
   elementColumnDescricao.innerHTML = "Descricao";
 
   elementRow.appendChild(elementColumnId);
   elementRow.appendChild(elementColumnProduto);
   elementRow.appendChild(elementColumnUn);
   elementRow.appendChild(elementColumnMarca);
+  elementRow.appendChild(elementColumnEstoque);
   elementRow.appendChild(elementColumnDescricao);
   headerProduto.appendChild(elementRow);
   tabelaProduto.appendChild(headerProduto);
@@ -445,16 +463,23 @@ function updateRegistrosProduto() {
     var nomeProduto = this.querySelector("td:nth-child(2)");
     var unProduto = this.querySelector("td:nth-child(3)");
     var marcaProduto = this.querySelector("td:nth-child(4)");
-    var descricaoProduto = this.querySelector("td:nth-child(5)");
+    var estoqueItem = this.querySelector("td:nth-child(5)");
+    var descricaoProduto = this.querySelector("td:nth-child(6)");
 
     produto = nomeProduto;
     un = unProduto;
     marca = marcaProduto;
+    qtdeEstoque = estoqueItem;
     descricao = descricaoProduto;
 
-    inputBuscar.readOnly = false;
     inputBuscar.value = produto.textContent;
-    inputBuscar.readOnly = true;
+    inputEstoque.value = parseFloat(qtdeEstoque.textContent).toFixed(2);
+
+    if (inputEstoque.value == 0) {
+      inputEstoque.style.color = "#FF0000";
+      inputEstoque.style.fontWeight = "500";
+    }
+
     button__check.style.display = "block";
     button__pesquisarCliente.style.marginLeft = "-0.1px";
     modal__SelectProduct.style.display = "none";

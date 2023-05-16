@@ -3,7 +3,7 @@ const bodyParser = require("body-parser")
 const cors = require('cors')
 const { cadastrarUsuario, buscarUsuarios } = require("./services/usuarioService")
 const { cadastrarPeca, buscarPecas } = require("./services/pecaService")
-const { cadastrarProduto, buscarProdutos } = require("./services/produtoService")
+const { cadastrarProduto, buscarProdutos, atualizarProdutos } = require("./services/produtoService")
 const { cadastrarServico, buscarServicos } = require("./services/servicoService")
 const { cadastrarClientepf, buscarClientespf }= require("./services/clientepfService")
 const { cadastrarClientepj, buscarClientespj } = require("./services/clientepjService")
@@ -318,5 +318,28 @@ app.get("/api/veiculospj", (req, res) => {
       return res.status(500)
     })
 })
+
+//UPDATE
+
+app.put("/api/produto/:id", (req, res) => {
+  const id = req.params.id;
+  const { produto, un, marca, descricao, estoque } = req.body;
+
+  return atualizarVeiculopj(id, produto, un, marca, descricao, estoque)
+    .then((updateProduto) => {
+      if (updateProduto) {
+        res.status(200);
+        return res.json(updateProduto);
+      } else {
+        res.status(404);
+        return res.json({ message: "Produto não encontrado" });
+      }
+    })
+    .catch(() => {
+      res.status(500);
+      return res.json({ message: "Erro ao atualizar Produto" });
+    });
+});
+
 
 app.listen(3000, () => console.log(`Started server at http://localhost:3000!`))

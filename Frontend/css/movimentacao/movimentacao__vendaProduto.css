@@ -63,7 +63,7 @@
 
 .form__itens input:disabled::placeholder {
   color: transparent;
-}
+} 
 
 .movimentacao__input--xbig {
   font-size: 16px;
@@ -83,6 +83,12 @@
 .movimentacao__input--small {
   font-size: 16px;
   width: 40px;
+}
+
+.movimentacao__input--Estoque {
+  font-size: 16px;
+  text-align: center;
+  width: 55px;
 }
 
 .movimentacao__input--cpf {
@@ -163,9 +169,13 @@
   margin-top: 18px;
 }
 
-#modal__SelectProduct, #modal__SelectCliente  h2 {
-  font-size: 25px;
+#modal__SelectProduct, #modal__SelectCliente, #modal__ClearTable  h2 {
+  font-size: 30px;
   margin-left: 8px;
+}
+
+#modal__SelectProduct, #modal__SelectCliente, #modal__CleartTable p {
+  font-size: 16px;
 }
 
 .button__modal--selecionar {
@@ -212,11 +222,6 @@
   color: #ffac1c;
   font-size: 25px;
   margin-top: 18px;
-}
-
-#modal__ClearTable h2 {
-  font-size: 25px;
-  margin-left: 8px;
 }
 
 .buttons__modal {
@@ -283,4 +288,14 @@
 
 #subtotal, #valorproduto{
   text-align: right;
+}
+
+.section__produto{
+  display: flex;
+}
+
+.input__estoque{
+  height: 31px;
+  margin-left: 20px;
+  margin-top: 32.5px;
 }

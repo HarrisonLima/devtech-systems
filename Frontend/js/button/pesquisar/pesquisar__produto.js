@@ -34,17 +34,21 @@ function adicionaLinha(produto) {
   tdProduto = document.createElement("td");
   tdUn = document.createElement("td");
   tdMarca = document.createElement("td");
+  tdEstoque = document.createElement("td");
   tdDescricao = document.createElement("td");
+
   tdId.innerHTML = produto.id;
   tdProduto.innerHTML = produto.produto;
   tdUn.innerHTML = produto.un;
   tdMarca.innerHTML = produto.marca;
+  tdEstoque.innerHTML = produto.estoque;
   tdDescricao.innerHTML = produto.descricao;
 
   linha.appendChild(tdId);
   linha.appendChild(tdProduto);
   linha.appendChild(tdUn);
   linha.appendChild(tdMarca);
+  linha.appendChild(tdEstoque);
   linha.appendChild(tdDescricao);
 
   return linha;
@@ -56,18 +60,21 @@ function criaColunas(Column) {
   const elementColumnProduto = document.createElement("th");
   const elementColumnUn = document.createElement("th");
   const elementColumnMarca = document.createElement("th");
+  const elementColumnEstoque = document.createElement("th");
   const elementColumnDescricao = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
   elementColumnProduto.innerHTML = "Produto";
   elementColumnUn.innerHTML = "Un";
   elementColumnMarca.innerHTML = "Marca";
+  elementColumnEstoque.innerHTML = "Estoque";
   elementColumnDescricao.innerHTML = "Descricao";
 
   elementRow.appendChild(elementColumnId);
   elementRow.appendChild(elementColumnProduto);
   elementRow.appendChild(elementColumnUn);
   elementRow.appendChild(elementColumnMarca);
+  elementRow.appendChild(elementColumnEstoque);
   elementRow.appendChild(elementColumnDescricao);
   header.appendChild(elementRow);
   tabela.appendChild(header);

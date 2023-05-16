@@ -100,14 +100,12 @@
             <div>
               <i class="fa-solid fa-basket-shopping"></i>
             </div>
-            <div>
-              Venda de produto
-            </div>
+            <div>Venda de produto</div>
           </div>
           <div class="radio__tipoCliente">
             <input
               type="radio"
-              id="radio__clientepf"
+              id="radio__clientepfVenda"
               name="radio"
               title="radio_clientepf"
               value="pf"
@@ -116,7 +114,7 @@
             <label for="radio__passeio">Pessoa Física</label>
             <input
               type="radio"
-              id="radio__clientepj"
+              id="radio__clientepjVenda"
               name="radio"
               title="radio_clientepj"
               value="pj"
@@ -140,20 +138,32 @@
               </div>
             </div>
           </form>
-          <div class="title__listagemProdutos">
-            <h2>Listagem produtos</h2>
-            <div class="form__pesquisar--produto">
-              <input
-                type="text"
-                id="pesquisarProduto"
-                class="movimentacao__input--xbig"
-                placeholder="Buscar produto"
-              />
-              <div class="icon__search">
-                <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
+          <div class="section__produto">
+            <div class="title__listagemProdutos">
+              <h2>Listagem produtos</h2>
+              <div class="form__pesquisar--produto">
+                <input
+                  type="text"
+                  id="pesquisarProduto"
+                  class="movimentacao__input--xbig"
+                  placeholder="Buscar produto"
+                />
+                <div class="icon__search">
+                  <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="icon__check">
+                  <i id="icon__check" class="fa-solid fa-circle-check"></i>
+                </div>
               </div>
-              <div class="icon__check">
-                <i id="icon__check" class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="input__estoque">
+              <h2>Estoque</h2>
+              <div>
+                <input
+                  type="number"
+                  id="estoque"
+                  class="movimentacao__input--Estoque"
+                />
               </div>
             </div>
           </div>
@@ -321,9 +331,7 @@
               </div>
               <i id="icon__xmark--selectCliente" class="fa-solid fa-xmark"></i>
             </div>
-            <p>
-              Clique duas vezes no cliente para quem emitirá a venda.
-            </p>
+            <p>Clique duas vezes no cliente para quem emitirá a venda.</p>
             <table id="tabela__clientespf">
               <thead id="header__clientespf"></thead>
               <tbody>

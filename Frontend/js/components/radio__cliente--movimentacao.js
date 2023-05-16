@@ -1,5 +1,5 @@
-var radiopf = document.getElementById("radio__clientepf");
-var radiopj = document.getElementById("radio__clientepj");
+var radiopf = document.getElementById("radio__clientepfVenda");
+var radiopj = document.getElementById("radio__clientepjVenda");
 
 radiopf.addEventListener("click", (event) => {
   event.preventDefault();
@@ -18,4 +18,5 @@ function valid__tipoClienteMovimentacao() {
     window.location.href = "../html/movimentacao__vendaProduto--empresa.html";
   }
 }
+  
   

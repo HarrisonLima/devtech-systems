@@ -40,6 +40,9 @@ function generate() {
         cellWidth: 120,
       },
       4: {
+        cellWidth: 30,
+      },
+      5: {
         cellWidth: 200,
       },
     },

@@ -1,0 +1,19 @@
+.buttons {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-left: 50px;
+  width: 265px;
+}
+
+.button__form--atualizar {
+  background-color: #1d4350;
+  border: 0.5px solid #1d4350;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  height: 35px;
+  width: 125px;
+}

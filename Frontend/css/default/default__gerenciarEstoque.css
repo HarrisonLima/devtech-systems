@@ -1,0 +1,138 @@
+.just__line {
+  border-bottom: 1px solid #dedede;
+  padding: 0%;
+  width: 1000px;
+}
+
+.form__search {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  width: 850px;
+}
+
+.relatorio {
+  border-bottom-width: 100%;
+  float: left;
+  font-size: 20px;
+  padding: 25px;
+  width: 66.66666%;
+}
+
+.relatorio__input {
+  font-size: 16px;
+  width: 200px;
+}
+
+.relatorio__input--small {
+  font-size: 16px;
+  width: 60px;
+}
+
+.relatorio__input--medium {
+  font-size: 16px;
+  width: 100px;
+}
+
+.relatorio__search--content {
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.relatorio__search--content i {
+  font-size: 18px;
+}
+
+.relatorio__search--content h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.relatorio__search--content h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.button__search {
+  background-color: #1d4350;
+  border: 0.5px solid #1d4350;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 35px;
+  margin-top: 40px;
+  width: 125px;
+}
+
+.relatorio__search--results {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.relatorio__search--results > div {
+  width: 100%;
+}
+
+.relatorio__search--results >div > table {
+  table-layout: fixed;
+  width: 100%;
+}
+.relatorio__search--results >div > table > tr{
+  text-align: center;
+}
+.relatorio__search--results > div >table > thead{  
+  background-color: #161818;
+  color: #ffffff;
+}
+
+.relatorio__search--results > div >table > tr:nth-child(even) {
+  background-color: #dae1e2;
+}
+.relatorio__search--results > div >table > tr > td{
+  padding: 5px;
+  word-wrap: break-word;
+
+}
+
+#tabela__produtos {
+  align-items: center;
+  display: flexbox;
+  justify-content: center;
+  justify-items: center;
+}
+
+#tabela__produtos thead {
+  font-size: 16px;
+  width: 100%;
+}
+
+#tabela__produtos td {
+  font-size: 14px;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-left: 50px;
+  width: 265px;
+}
+
+.button__form--atualizar {
+  background-color: #1d4350;
+  border: 0.5px solid #1d4350;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  height: 35px;
+  width: 125px;
+}

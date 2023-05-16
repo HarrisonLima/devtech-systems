@@ -4,7 +4,7 @@ var button__adicionar = document.getElementById("button__adicionar");
 var button__cancelar = document.getElementById("button__cancelar");
 var button__check = document.getElementById("icon__check");
 var button__clear = document.getElementById("trash-icon");
-var button__finalizar = document.getElementById("button__finalizar");
+var button__emitir = document.getElementById("button__emitir");
 var button__pesquisar = document.getElementById("icon__search");
 var button__pesquisarCliente = document.getElementById("icon__searchCliente");
 var button__closeModal = document.getElementById("icon__xmark");
@@ -14,64 +14,64 @@ var button__closeModalSelectCliente = document.getElementById(
 );
 var button__retirar = document.getElementById("button__retirar");
 var divsubtotal = document.getElementById("div__subtotal");
-var inputBuscar = document.getElementById("pesquisarProduto");
+var inputBuscar = document.getElementById("pesquisarItem");
 var inputBuscarCliente = document.getElementById("pesquisarCliente");
-var inputEstoque = document.getElementById("estoque");
 var modal__ClearTable = document.getElementById("modal__ClearTable");
-var modal__SelectProduct = document.getElementById("modal__SelectProduct");
+var modal__SelectItem = document.getElementById("modal__SelectItem");
 var modal__SelectCliente = document.getElementById("modal__SelectCliente");
 var tableProdutos = document.getElementById("table__produtos");
 var rowsTableProdutos = tableProdutos.getElementsByTagName("tr");
-var tableClientes = document.getElementById("tabela__clientespj");
-var rowsTableClientes = tableClientes.getElementsByTagName("tr");
+var tableClientespf = document.getElementById("tabela__clientespf");
+var rowsTableClientes = tableClientespf.getElementsByTagName("tr");
+var tableClientespj = document.getElementById("tabela__clientespj");
+var rowsTableClientes = tableClientespj.getElementsByTagName("tr");
 
 button__adicionar.style.display = "none";
 button__cancelar.style.display = "none";
 button__check.style.display = "none";
 button__clear.style.display = "none";
-button__finalizar.style.display = "none";
+button__emitir.style.display = "none";
 button__retirar.style.display = "none";
 divsubtotal.style.display = "none";
 modal__ClearTable.style.display = "none";
-modal__SelectProduct.style.display = "none";
+modal__SelectItem.style.display = "none";
 modal__SelectCliente.style.display = "none";
 tableProdutos.style.display = "none";
 button__pesquisarCliente.style.marginLeft = "15px";
 
 var inputQtde = document.getElementById("quantidadeproduto");
-var inputProduto = document.getElementById("produto");
+var inputItem = document.getElementById("item");
 var inputUn = document.getElementById("unidademedida");
 var inputMarca = document.getElementById("marca");
-var inputValorProduto = document.getElementById("valorproduto");
-var inputDescricaoProduto = document.getElementById("descricaoProduto");
+var inputValorItem = document.getElementById("valorproduto");
+var inputDescricao = document.getElementById("descricao");
 var inputSubtotal = document.getElementById("subtotal");
 
 var qtde;
-var produto;
+var item;
 var un;
 var marca;
-var valorProduto;
+var valorItem;
 var descricao;
-var valortotalproduto;
+var valortotalitem;
 
-var razaoSocial;
-var qtdeEstoque;
+var cliente;
 
 inputQtde.disabled = true;
-inputProduto.disabled = true;
+inputItem.disabled = true;
 inputUn.disabled = true;
 inputMarca.disabled = true;
-inputValorProduto.disabled = true;
-inputDescricaoProduto.disabled = true;
+inputValorItem.disabled = true;
+inputDescricao.disabled = true;
 
-inputEstoque.readOnly = true;
 inputBuscar.readOnly = true;
+inputBuscarCliente.readOnly = true;
 inputSubtotal.readOnly = true;
 
-inputValorProduto.addEventListener("blur", function () {
-  let valor = parseFloat(inputValorProduto.value);
+inputValorItem.addEventListener("blur", function () {
+  let valor = parseFloat(inputValorItem.value);
   if (!isNaN(valor)) {
-    inputValorProduto.value = valor.toFixed(2);
+    inputValorItem.value = valor.toFixed(2);
   }
 });
 
@@ -80,7 +80,7 @@ button__closeModal.addEventListener("click", (event) => {
 });
 
 button__closeModalSelect.addEventListener("click", (event) => {
-  modal__SelectProduct.style.display = "none";
+  modal__SelectItem.style.display = "none";
 });
 
 button__closeModalSelectCliente.addEventListener("click", (event) => {
@@ -89,12 +89,12 @@ button__closeModalSelectCliente.addEventListener("click", (event) => {
 
 button__pesquisar.addEventListener("click", (event) => {
   event.preventDefault();
-  selectProduct();
+  selectItem();
 });
 
 inputBuscar.addEventListener("dblclick", (event) => {
   event.preventDefault();
-  selectProduct();
+  selectItem();
 });
 
 button__pesquisarCliente.addEventListener("click", (event) => {
@@ -111,11 +111,11 @@ button__adicionar.addEventListener("click", () => {
   push__basket();
 
   inputQtde.disabled = true;
-  inputProduto.disabled = true;
+  inputItem.disabled = true;
   inputUn.disabled = true;
   inputMarca.disabled = true;
-  inputValorProduto.disabled = true;
-  inputDescricaoProduto.disabled = true;
+  inputValorItem.disabled = true;
+  inputDescricao.disabled = true;
 
   button__adicionar.style.display = "none";
   button__retirar.style.display = "none";
@@ -125,11 +125,11 @@ button__retirar.addEventListener("click", () => {
   reset__inputs();
 
   inputQtde.disabled = true;
-  inputProduto.disabled = true;
+  inputItem.disabled = true;
   inputUn.disabled = true;
   inputMarca.disabled = true;
-  inputValorProduto.disabled = true;
-  inputDescricaoProduto.disabled = true;
+  inputValorItem.disabled = true;
+  inputDescricao.disabled = true;
 
   button__adicionar.style.display = "none";
   button__retirar.style.display = "none";
@@ -140,71 +140,63 @@ button__clear.addEventListener("click", () => {
 });
 
 button__check.addEventListener("click", () => {
-  if (inputEstoque > 0) {
-    inputQtde.disabled = false;
-    inputValorProduto.disabled = false;
+  inputQtde.disabled = false;
+  inputValorItem.disabled = false;
 
-    inputQtde.value = 1;
-    const valorDefault = 1.0;
-    inputValorProduto.value = valorDefault.toFixed(2);
+  inputQtde.value = 1;
+  const valorDefault = 1.0;
+  inputValorItem.value = valorDefault.toFixed(2);
 
-    inputProduto.value = produto.textContent;
-    inputUn.value = un.textContent;
-    inputMarca.value = marca.textContent;
-    inputDescricaoProduto.value = descricao.textContent;
+  inputItem.value = item.textContent;
+  inputUn.value = un.textContent;
+  inputMarca.value = marca.textContent;
+  inputDescricao.value = descricao.textContent;
 
-    inputBuscar.value = "";
+  inputBuscar.value = "";
 
-    button__adicionar.style.display = "block";
-    button__retirar.style.display = "block";
-    button__check.style.display = "none";
-    button__pesquisarCliente.style.marginLeft = "15px";
-  } else {
-    inputEstoque.style.border = "solid 2px #FF0000 ";
-
-    alert("Sem estoque do item selecionado!");
-
-    setTimeout(function () {
-      inputEstoque.style.border = "";
-    }, 1500);
-  }
+  button__adicionar.style.display = "block";
+  button__retirar.style.display = "block";
+  button__check.style.display = "none";
+  button__pesquisarCliente.style.marginLeft = "15px";
 });
 
 function push__basket() {
   if (
     inputQtde.value > 0 &&
-    inputProduto.value != "" &&
+    inputItem.value != "" &&
     inputUn.value != "" &&
     inputMarca.value != "" &&
-    inputValorProduto.value > 0
+    inputValorItem.value > 0
   ) {
     document.getElementById("table__produtos").style.display = "table";
     createTable();
     button__cancelar.style.display = "block";
-    button__finalizar.style.display = "block";
+    button__emitir.style.display = "block";
     button__clear.style.display = "inline";
     tableProdutos.style.display = "table";
 
     qtde = inputQtde.value;
-    produto = inputProduto.value;
+    item = inputItem.value;
     un = inputUn.value;
-    marca = inputMarca.value;
-    valorProduto = inputValorProduto.value;
-    descricao = inputDescricaoProduto.value;
-    valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
-    valortotalproduto = valortotalproduto.toFixed(2);
+    valorItem = inputValorItem.value;
 
-    var produto = {
+    const half__marca = "Marca: " + inputMarca.value;
+    const half__descricao = "Descrição: " + inputDescricao.value;
+
+    descricao = half__marca + " - " + half__descricao;
+    valortotalitem = parseFloat(qtde) * parseFloat(valorItem);
+    valortotalitem = valortotalitem.toFixed(2);
+
+    var item = {
       qtde: qtde,
-      produto: produto,
+      item: item,
       un: un,
-      marca: marca,
-      valorProduto: valorProduto,
-      valortotalproduto: valortotalproduto,
+      valorItem: valorItem,
+      valortotalitem: valortotalitem,
       descricao: descricao,
     };
 
-    basket.push(produto);
+    basket.push(item);
     console.log(basket);
 
     divsubtotal.style.display = "block";
@@ -215,13 +207,16 @@ function push__basket() {
 
 function createTable() {
   qtde = inputQtde.value;
-  produto = inputProduto.value;
+  item = inputItem.value;
   un = inputUn.value;
-  marca = inputMarca.value;
-  valorProduto = inputValorProduto.value;
-  descricao = inputDescricaoProduto.value;
-  valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
-  valortotalproduto = valortotalproduto.toFixed(2);
+  valorItem = inputValorItem.value;
+
+  const half__marca = "Marca: " + inputMarca.value;
+  const half__descricao = "Descrição: " + inputDescricao.value;
+
+  descricao = half__marca + " - " + half__descricao;
+  valortotalitem = parseFloat(qtde) * parseFloat(valorItem);
+  valortotalitem = valortotalitem.toFixed(2);
 
   var basketTable = document.getElementById("basket__table__tbody");
   var rowIndex = basketTable.rows.length;
@@ -234,16 +229,14 @@ function createTable() {
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
   var cell6 = row.insertCell(5);
-  var cell7 = row.insertCell(6);
-  var cellRemoveRow = row.insertCell(7);
+  var cellRemoveRow = row.insertCell(6);
 
   cell1.innerHTML = qtde;
   cell2.innerHTML = produto;
   cell3.innerHTML = un;
-  cell4.innerHTML = marca;
-  cell5.innerHTML = valorProduto;
-  cell6.innerHTML = valortotalproduto;
-  cell7.innerHTML = descricao;
+  cell4.innerHTML = valorItem;
+  cell5.innerHTML = valortotalitem;
+  cell6.innerHTML = descricao;
 
   var trashIcon = document.createElement("span");
   trashIcon.classList.add(
@@ -281,14 +274,13 @@ function createTable() {
     var rowData = basket[rowIndex - 1];
 
     inputQtde.disabled = false;
-    inputValorProduto.disabled = false;
+    inputValorItem.disabled = false;
 
     inputQtde.value = rowData.qtde;
-    inputProduto.value = rowData.produto;
+    inputItem.value = rowData.item;
     inputUn.value = rowData.un;
-    inputMarca.value = rowData.marca;
-    inputValorProduto.value = rowData.valorProduto;
-    inputDescricaoProduto.value = rowData.descricao;
+    inputValorItem.value = rowData.valorItem;
+    inputDescricao.value = rowData.descricao;
 
     basket.splice(rowIndex - 1, 1);
     this.parentNode.parentNode.remove();
@@ -302,7 +294,7 @@ function createTable() {
       clear__basket();
       button__clear.style.display = "none";
       button__cancelar.style.display = "none";
-      button__finalizar.style.display = "none";
+      button__emitir.style.display = "none";
     }
   };
 
@@ -320,11 +312,10 @@ function createTable() {
 
 function reset__inputs() {
   inputQtde.value = "";
-  inputProduto.value = "";
+  inputItem.value = "";
   inputUn.value = "";
-  inputMarca.value = "";
-  inputValorProduto.value = "";
-  inputDescricaoProduto.value = "";
+  inputValorItem.value = "";
+  inputDescricao.value = "";
 }
 
 function updateSubtotal() {
@@ -333,7 +324,7 @@ function updateSubtotal() {
   var j;
 
   for (j = 0; j < tamArray; j++) {
-    subtotal += parseFloat(basket[j].valortotalproduto);
+    subtotal += parseFloat(basket[j].valortotalitem);
   }
 
   console.log(subtotal);
@@ -375,174 +366,155 @@ function clear__basket() {
   divsubtotal.style.display = "none";
   tableProdutos.style.display = "none";
   button__cancelar.style.display = "none";
-  button__finalizar.style.display = "none";
+  button__emitir.style.display = "none";
 }
 
-function selectProduct() {
-  modal__SelectProduct.style.display = "block";
-  updateRegistrosProduto();
-  addIndex();
+function selectItem() {
+  modal__SelectItem.style.display = "block";
+  
+  const radioPeca = document.getElementById('radio__peca');
+  const radioServico = document.getElementById('radio__servico');
+
+  if(radioPeca.checked == true){
+    updateRegistrosPecas();
+  } 
+  // else if(radioServico.checked == true){
+  //   updateRegistrosServicos();
+  // }
 }
 
-function addIndex() {
-  for (var i = 1; i < rowsTableProdutos.length; i++) {
-    rowsTableProdutos[i].setAttribute("data-index", i - 1);
-  }
-}
-
-function getProdutos(url) {
+function getPecas(url) {
   let request = new XMLHttpRequest();
   request.open("GET", url, false);
   request.send();
   return request.responseText;
 }
 
-const tabelaProduto = document.getElementById("tabela__produtos");
-const contentProduto = document.getElementById("content");
-const headerProduto = document.getElementById("header");
+const tabelaPecas = document.getElementById("tabela__pecas");
+const contentPecas = document.getElementById("content__pecas");
+const headerPecas = document.getElementById("header__pecas");
 
-function adicionaLinhaProduto(produto) {
-  linha = document.createElement("tr");
-  tdId = document.createElement("td");
-  tdProduto = document.createElement("td");
-  tdUn = document.createElement("td");
-  tdMarca = document.createElement("td");
-  tdEstoque = document.createElement("td");
-  tdDescricao = document.createElement("td");
-  tdId.innerHTML = produto.id;
-  tdProduto.innerHTML = produto.produto;
-  tdUn.innerHTML = produto.un;
-  tdMarca.innerHTML = produto.marca;
-  tdEstoque.innerHTML = produto.estoque;
-  tdDescricao.innerHTML = produto.descricao;
+function adicionaLinhaPecas(peca) {
+  var linha = document.createElement("tr");
+  var tdId = document.createElement("td");
+  var tdPeca = document.createElement("td");
+  var tdMarca = document.createElement("td");
+  var tdDescricao = document.createElement("td");
+
+  tdId.innerHTML = peca.id;
+  tdPeca.innerHTML = peca.peca;
+  tdMarca.innerHTML = peca.marca;
+  tdDescricao.innerHTML = peca.descricao;
 
   linha.appendChild(tdId);
-  linha.appendChild(tdProduto);
-  linha.appendChild(tdUn);
+  linha.appendChild(tdPeca);
   linha.appendChild(tdMarca);
-  linha.appendChild(tdEstoque);
   linha.appendChild(tdDescricao);
 
   return linha;
 }
 
-function criaColunasProduto(Column) {
+function criaColunasPecas() {
   const elementRow = document.createElement("tr");
   const elementColumnId = document.createElement("th");
-  const elementColumnProduto = document.createElement("th");
-  const elementColumnUn = document.createElement("th");
+  const elementColumnPeca = document.createElement("th");
   const elementColumnMarca = document.createElement("th");
-  const elementColumnEstoque = document.createElement("th");
   const elementColumnDescricao = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
-  elementColumnProduto.innerHTML = "Produto";
-  elementColumnUn.innerHTML = "Un";
+  elementColumnPeca.innerHTML = "Peca";
   elementColumnMarca.innerHTML = "Marca";
-  elementColumnEstoque.innerHTML = "Estoque";
   elementColumnDescricao.innerHTML = "Descricao";
 
   elementRow.appendChild(elementColumnId);
-  elementRow.appendChild(elementColumnProduto);
-  elementRow.appendChild(elementColumnUn);
+  elementRow.appendChild(elementColumnPeca);
   elementRow.appendChild(elementColumnMarca);
-  elementRow.appendChild(elementColumnEstoque);
   elementRow.appendChild(elementColumnDescricao);
-  headerProduto.appendChild(elementRow);
-  tabelaProduto.appendChild(headerProduto);
+
+  headerPecas.appendChild(elementRow);
+  tabelaPecas.appendChild(headerPecas);
 }
 
-function updateRegistrosProduto() {
-  tabelaProduto.innerHTML = "";
-  headerProduto.innerHTML = "";
-  criaColunasProduto();
-  let data = getProdutos("http://localhost:3000/api/produtos");
-  let produtos = JSON.parse(data);
+function updateRegistrosPecas() {
+  tabelaPecas.innerHTML = "";
+  headerPecas.innerHTML = "";
+  criaColunasPecas();
+  let data = getPecas("http://localhost:3000/api/pecas");
+  let pecas = JSON.parse(data);
 
-  function selectionProduct() {
-    var nomeProduto = this.querySelector("td:nth-child(2)");
-    var unProduto = this.querySelector("td:nth-child(3)");
-    var marcaProduto = this.querySelector("td:nth-child(4)");
-    var estoqueItem = this.querySelector("td:nth-child(5)");
-    var descricaoProduto = this.querySelector("td:nth-child(6)");
+  function selectionPeca() {
+    var nomeItem = this.querySelector("td:nth-child(2)");
+    var marcaItem = this.querySelector("td:nth-child(3)");
+    var descricaoItem = this.querySelector("td:nth-child(4)");
 
-    produto = nomeProduto;
-    un = unProduto;
-    marca = marcaProduto;
-    qtdeEstoque = estoqueItem;
-    descricao = descricaoProduto;
+    item = nomeItem;
+    marca = marcaItem;
+    descricao = descricaoItem;
 
-    inputBuscar.value = produto.textContent;
-    inputEstoque.value = parseFloat(qtdeEstoque.textContent).toFixed(2);
-
-    if (inputEstoque.value == 0) {
-      inputEstoque.style.color = "#FF0000";
-      inputEstoque.style.fontWeight = "500";
-    }
-
+    inputBuscar.readOnly = false;
+    inputBuscar.value = item.textContent;
+    inputBuscar.readOnly = true;
     button__check.style.display = "block";
     button__pesquisarCliente.style.marginLeft = "-0.1px";
-    modal__SelectProduct.style.display = "none";
+    modal__SelectItem.style.display = "none";
   }
 
-  function paintRow() {
-    for (var i = 0, row; (row = tabelaProduto.rows[i]); i++) {
-      tabelaProduto.rows[i].removeAttribute("style");
+  function paintRowPecas() {
+    for (var i = 0, row; (row = tabelaPecas.rows[i]); i++) {
+      tabelaPecas.rows[i].removeAttribute("style");
     }
     this.style.backgroundColor = "#ffac1c";
   }
 
-  produtos.forEach((element) => {
-    var linha = adicionaLinhaProduto(element);
-    linha.addEventListener("dblclick", selectionProduct);
-    linha.addEventListener("click", paintRow);
-    tabelaProduto.appendChild(linha);
+  pecas.forEach((element) => {
+    var linha = adicionaLinhaPecas(element);
+    linha.addEventListener("dblclick", selectionPeca);
+    linha.addEventListener("click", paintRowPecas);
+    tabelaPecas.appendChild(linha);
   });
 }
 
 function selectCliente() {
   modal__SelectCliente.style.display = "block";
-  updateRegistrosCliente();
-  addIndexCliente();
-}
-
-function addIndexCliente() {
-  for (var i = 1; i < rowsTableClientes.length; i++) {
-    rowsTableClientes[i].setAttribute("data-index", i - 1);
+  
+  const radioClientepf = document.getElementById('radio__clientepf');
+  const radioClientepj = document.getElementById('radio__clientepf');
+  if(radioClientepf.checked == true){
+    updateRegistrosCliente();
+  } else if(radioClientepj.checked == true){
+    tabelaCliente.innerHTML = "";
+    headerCliente.innerHTML = "";
   }
 }
 
-function getClientespj(url) {
+function getClientespf(url) {
   let request = new XMLHttpRequest();
   request.open("GET", url, false);
   request.send();
   return request.responseText;
 }
 
-const tabelaCliente = document.getElementById("tabela__clientespj");
-const contentCliente = document.getElementById("content__clientespj");
-const headerCliente = document.getElementById("header__clientespj");
+const tabelaCliente = document.getElementById("tabela__clientespf");
+const contentCliente = document.getElementById("content__clientespf");
+const headerCliente = document.getElementById("header__clientespf");
 
 function adicionaLinhaCliente(cliente) {
   var linha = document.createElement("tr");
   var tdId = document.createElement("td");
-  var tdRazaoSocial = document.createElement("td");
-  var tdNomeFantasia = document.createElement("td");
-  var tdCnpj = document.createElement("td");
+  var tdNome = document.createElement("td");
+  var tdCpf = document.createElement("td");
   var tdCidade = document.createElement("td");
   var tdUf = document.createElement("td");
 
   tdId.innerHTML = cliente.id;
-  tdRazaoSocial.innerHTML = cliente.razaosocial;
-  tdNomeFantasia.innerHTML = cliente.nomefantasia;
-  tdCnpj.innerHTML = cliente.cnpj;
+  tdNome.innerHTML = cliente.nome;
+  tdCpf.innerHTML = cliente.cpf;
   tdCidade.innerHTML = cliente.cidade;
   tdUf.innerHTML = cliente.uf;
 
   linha.appendChild(tdId);
-  linha.appendChild(tdRazaoSocial);
-  linha.appendChild(tdNomeFantasia);
-  linha.appendChild(tdCnpj);
+  linha.appendChild(tdNome);
+  linha.appendChild(tdCpf);
   linha.appendChild(tdCidade);
   linha.appendChild(tdUf);
 
@@ -552,23 +524,20 @@ function adicionaLinhaCliente(cliente) {
 function criaColunasCliente(Column) {
   const elementRow = document.createElement("tr");
   const elementColumnId = document.createElement("th");
-  const elementColumnRazaoSocial = document.createElement("th");
-  const elementColumnNomeFantasia = document.createElement("th");
-  const elementColumnCnpj = document.createElement("th");
+  const elementColumnNome = document.createElement("th");
+  const elementColumnCpf = document.createElement("th");
   const elementColumnCidade = document.createElement("th");
   const elementColumnUf = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
-  elementColumnRazaoSocial.innerHTML = "Razão Social";
-  elementColumnNomeFantasia.innerHTML = "Nome Fantasia";
-  elementColumnCnpj.innerHTML = "CNPJ";
+  elementColumnNome.innerHTML = "Nome";
+  elementColumnCpf.innerHTML = "CPF";
   elementColumnCidade.innerHTML = "Cidade";
   elementColumnUf.innerHTML = "UF";
 
   elementRow.appendChild(elementColumnId);
-  elementRow.appendChild(elementColumnRazaoSocial);
-  elementRow.appendChild(elementColumnNomeFantasia);
-  elementRow.appendChild(elementColumnCnpj);
+  elementRow.appendChild(elementColumnNome);
+  elementRow.appendChild(elementColumnCpf);
   elementRow.appendChild(elementColumnCidade);
   elementRow.appendChild(elementColumnUf);
 
@@ -580,16 +549,16 @@ function updateRegistrosCliente() {
   tabelaCliente.innerHTML = "";
   headerCliente.innerHTML = "";
   criaColunasCliente();
-  let data = getClientespj("http://localhost:3000/api/clientespj");
+  let data = getClientespf("http://localhost:3000/api/clientespf");
   let clientes = JSON.parse(data);
 
   function selectionCliente() {
-    var razaoCliente = this.querySelector("td:nth-child(2)");
+    var nomeCliente = this.querySelector("td:nth-child(2)");
 
-    razaoSocial = razaoCliente;
+    cliente = nomeCliente;
 
     inputBuscarCliente.readOnly = false;
-    inputBuscarCliente.value = razaoSocial.textContent;
+    inputBuscarCliente.value = cliente.textContent;
     inputBuscarCliente.readOnly = true;
 
     modal__SelectCliente.style.display = "none";
