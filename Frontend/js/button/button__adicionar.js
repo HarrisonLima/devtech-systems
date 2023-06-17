@@ -140,7 +140,7 @@ button__clear.addEventListener("click", () => {
 });
 
 button__check.addEventListener("click", () => {
-  if (inputEstoque > 0) {
+  if (toParseFloat(inputEstoque.value) > 0) {
     inputQtde.disabled = false;
     inputValorProduto.disabled = false;
 
@@ -159,7 +159,8 @@ button__check.addEventListener("click", () => {
     button__retirar.style.display = "block";
     button__check.style.display = "none";
     button__pesquisarCliente.style.marginLeft = "15px";
-  } else {
+  } 
+  else {
     inputEstoque.style.border = "solid 2px #FF0000 ";
 
     alert("Sem estoque do item selecionado!");

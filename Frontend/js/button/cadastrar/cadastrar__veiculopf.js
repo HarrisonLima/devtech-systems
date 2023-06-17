@@ -25,18 +25,18 @@ function event__buttonCadastrar__CadastraVeiculopf() {
   var inputCnh = document.getElementById("cnhProprietario");
 
   if (
-    (radioButtonPasseio.checked == false || radioButtonUtilitario == false) &&
-    (inputMarca.value == "" ||
-      inputAnoFabricacao.value == "" ||
-      inputMarca.value == "" ||
-      inputQuantidadePassageiros.value == "" ||
-      inputModelo.value == "" ||
-      inputRenavam.value == "" ||
-      inputFabricante.value == "" ||
-      inputPlacaVeiculo.value == "" ||
-      inputNome.value == "" ||
-      inputCpf.value == "" ||
-      inputCnh.value == "")
+    radioButtonPasseio.checked == false ||
+    (radioButtonUtilitario == false && inputMarca.value == "") ||
+    inputAnoFabricacao.value == "" ||
+    inputMarca.value == "" ||
+    inputQuantidadePassageiros.value == "" ||
+    inputModelo.value == "" ||
+    inputRenavam.value == "" ||
+    inputFabricante.value == "" ||
+    inputPlacaVeiculo.value == "" ||
+    inputNome.value == "" ||
+    inputCpf.value == "" ||
+    inputCnh.value == ""
   ) {
     alert(
       "Não foi possível realizar o cadastro! Verifique novamente se todos os campos foram preenchidos corretamente!"
@@ -87,9 +87,11 @@ function event__buttonCadastrar__CadastraVeiculopf() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-      }).then((data) => data.json()).then((data) => {
+      })
+        .then((data) => data.json())
+        .then((data) => {
           window.location.href = "../html/msgbox__cadastroconcluido.html";
         });
-    }   
+    }
   }
 }

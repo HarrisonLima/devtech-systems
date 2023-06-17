@@ -24,17 +24,17 @@ function event__buttonCadastrar__CadastraVeiculopj() {
   var inputCnpj = document.getElementById("cnpj");
 
   if (
-    (radioButtonPasseio.checked == false || radioButtonUtilitario == false) &&
-    (inputMarca.value == "" ||
-      inputAnoFabricacao.value == "" ||
-      inputMarca.value == "" ||
-      inputQuantidadePassageiros.value == "" ||
-      inputModelo.value == "" ||
-      inputRenavam.value == "" ||
-      inputFabricante.value == "" ||
-      inputPlacaVeiculo.value == "" ||
-      inputProprietario.value == "" ||
-      inputCnpj.value == "")
+    radioButtonPasseio.checked == false ||
+    (radioButtonUtilitario == false && inputMarca.value == "") ||
+    inputAnoFabricacao.value == "" ||
+    inputMarca.value == "" ||
+    inputQuantidadePassageiros.value == "" ||
+    inputModelo.value == "" ||
+    inputRenavam.value == "" ||
+    inputFabricante.value == "" ||
+    inputPlacaVeiculo.value == "" ||
+    inputProprietario.value == "" ||
+    inputCnpj.value == ""
   ) {
     alert(
       "Não foi possível realizar o cadastro! Verifique novamente se todos os campos foram preenchidos corretamente!"
