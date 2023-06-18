@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__cadastro.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
-    <link rel="stylesheet" href="../css/cadastro/cadastro__peca.css" />
+    <link rel="stylesheet" href="../css/cadastro/cadastro__forms.css" />
 
     <title>Garage 817</title>
   </head>
@@ -55,7 +55,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -68,7 +68,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -82,11 +82,9 @@
                 <a href="./movimentacao__emitirOrcamento.html"
                   >Emitir Orçamento</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
+                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
                 ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -104,13 +102,13 @@
           </div>
 
           <form>
-            <div class="form__peca--informacoes">
+            <div class="form__peca--informations">
               <div>
                 <h3>Peça</h3>
                 <input
                   type="text"
                   id="peca"
-                  class="cadastro__input--peca"
+                  class="input__big"
                   placeholder="Digite o nome da peça"
                 />
               </div>
@@ -119,40 +117,31 @@
                 <input
                   type="text"
                   id="marcaPeca"
-                  class="cadastro__input--marca"
+                  class="input__big"
                   placeholder="Digite a marca da peça"
                 />
               </div>
               <div>
-                <h3>Descrição</h3>
+                <h4>Descrição</h4>
                 <input
                   type="text"
                   id="descricaoPeca"
-                  class="cadastro__input--descricao"
+                  class="input__big"
                   placeholder="Descrição complementar da peça"
                 />
               </div>
             </div>
-            <!-- <div>
-              <h3>Código da peça</h3>
-              <input
-                type="text"
-                class="cadastro__input--codigo"
-                placeholder="000000000000"
-                readonly="readonly"
-                maxlength="8"
-              />
-              <i class="fa-solid fa-lock"></i>
-            </div> -->
           </form>
-          <div class="buttons">
-            <button id="button__cadastrar--peca" class="button__form--cadastrar">
-                Cadastrar
+          <div class="buttons__cadastro">
+            <button
+              id="button__cadastrar--peca"
+              class="button__form--cadastrar"
+            >
+              Cadastrar
             </button>
-            <button id="button__cancelar" class="button__form--cancelar">
-              Cancelar
+            <button id="button__limpar--peca" class="button__form--limpar">
+              Limpar
             </button>
-            <button id="button__limpar--peca" class="button__form--limpar">Limpar</button>
           </div>
         </div>
       </div>
@@ -160,8 +149,6 @@
     <footer></footer>
 
     <script src="../js/button/cadastrar/cadastrar__peca.js"></script>
-    <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/limpar/limpar__peca.js"></script>
-
   </body>
 </html>

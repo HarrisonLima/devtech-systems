@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__relatorio.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
-    <link rel="stylesheet" href="../css/relatorio/relatorio__veiculo.css" />
+    <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
+    <link rel="stylesheet" href="../css/dropdown/relatorio__dropdown.css" />
+    
     <title>Garage 817</title>
   </head>
 
@@ -54,7 +56,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+                  
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -67,7 +69,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+                
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -120,65 +122,110 @@
               <label for="radio__clientepj">Proprietário Pessoa Jurídica</label>
             </div>
             <div class="relatorio__search">
-              <form class="form__search--veiculo">
+              <form class="form__search">
                 <div>
+                  <h3>Filtrar por</h3>
+                  <div
+                    id="dropdownSearch__Veiculopj"
+                    class="dropdown__relatorio"
+                  >
+                    <input
+                      type="text"
+                      id="dropdown__textBox--Veiculopj"
+                      class="dropdown__textBox"
+                      placeholder="Selecionar"
+                      readonly
+                    />
+                    <div id="dropdownOption" class="dropdown__option">
+                      <div
+                        onclick="dropdownSelect__SearchVeiculopj('CNPJ')"
+                      >
+                        CNPJ
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchVeiculopj('Cor')"
+                      >
+                        Cor
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchVeiculopj('Marca')"
+                      >
+                        Marca
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchVeiculopj('Modelo')"
+                      >
+                      Modelo
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchVeiculopj('Placa')"
+                      >
+                        Placa
+                      </div>
+                      <div
+                      onclick="dropdownSelect__SearchVeiculopj('Proprietário')"
+                    >
+                      Proprietário
+                    </div>
+                    </div>
+                  </div>
+                  </div>
+                <div id="modelo__search">
                   <h3>Modelo</h3>
                   <input
                     type="text"
                     id="cliente"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="Digite o modelo do veículo"
                   />
                 </div>
-                <div>
+                <div id="marca__search">
                   <h3>Marca</h3>
                   <input
                     type="text"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="Digite a marca do veículo"
                   />
                 </div>
-                <div>
+                <div id="cor__search">
                   <h3>Cor</h3>
                   <input
-                    type="color"
+                    type="text"
                     id="color"
-                    class="relatorio__input--small"
-                    placeholder="#000000"
+                    class="input__big"
+                    placeholder="Digite a cor do veículo"
                   />
                 </div>
-                <div>
+                <div id="placa__search">
                   <h3>Placa</h3>
-                  <input type="text" id="placa" class="relatorio__input--medium" placeholder="Placa" maxlength="9"/>
+                  <input type="text" id="placa" class="input__big" placeholder="Placa" maxlength="9"/>
                 </div>
-                  <div class="buttons">
-                    <button
-                      id="button__pesquisar--veiculopj"
-                      class="button__search"
-                    >
-                      Pesquisar
-                    </button>
-                  </div>
-              </form>
-            <form class="form__search--proprietario">
-              <div>
+              <div id="proprietario__search">
                 <h3>Proprietário</h3>
                   <input
                     type="text"
                     id="proprietario"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="Digite o nome do proprietário"
                   />
               </div>
-              <div>
+              <div id="cnpj__search">
                 <h3>CNPJ</h3>
                 <input
                   type="text"
                   id="cnpj"
-                  class="relatorio__input"
+                  class="input__big"
                   placeholder="00.000.000/0000-00"
                   maxlength="18"
                 />
+              </div>
+              <div class="buttons">
+                <button
+                  id="button__pesquisar--veiculopj"
+                  class="button__search"
+                >
+                  Pesquisar
+                </button>
               </div>
             </form>
           </div>
@@ -208,6 +255,7 @@
     <script src="../js/mascara__relatorio/mascara__cnpj.js"></script>
     <script src="../js/components/radio__veiculo--relatorio.js"></script>
     <script src="../js/button/pesquisar/pesquisar__veiculopj.js"></script>
+    <script src="../js/components/dropdown__search--veiculopj.js"></script>
 
     </main>
     <footer></footer>

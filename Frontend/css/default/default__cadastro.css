@@ -19,7 +19,7 @@
     font-weight: 600;
   }
   
-  .cadastro__content h3 {
+  .cadastro__content h3, h4 {
     font-size: 16px;
     font-weight: 500;
   }
@@ -33,16 +33,7 @@
     height: 35px;
     width: 125px;
   }
-
-  .button__form--cancelar{
-    background-color: #ce1a14;
-    border: 0.5px solid #ce1a14;
-    border-radius: 6px;
-    color: #ffffff;
-    cursor: pointer;
-    height: 35px;
-    width: 125px;
-  }
+  
   .button__form--limpar{
     background-color: #e7aa00;
     border: 0.5px solid #e7aa00;
@@ -51,4 +42,9 @@
     cursor: pointer;
     height: 35px;
     width: 125px;
+  }
+  
+  h3::before {
+    content: "*"; 
+    color: red;  
   }

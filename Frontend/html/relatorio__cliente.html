@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__relatorio.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
+    <link
+    rel="stylesheet"
+    href="../css/dropdown/relatorio__dropdown.css"
+  />
+  <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
+  
     <title>Garage 817</title>
   </head>
 
@@ -53,7 +59,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+                  
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -66,7 +72,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+                
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -121,42 +127,51 @@
             <div class="relatorio__search">
               <form class="form__search">
                 <div>
+                  <h3>Filtrar por</h3>
+                  <div
+                    id="dropdownSearch__Clientepf"
+                    class="dropdown__relatorio"
+                  >
+                    <input
+                      type="text"
+                      id="dropdown__textBox--Clientepf"
+                      class="dropdown__textBox"
+                      placeholder="Selecionar"
+                      readonly
+                    />
+                    <div id="dropdownOption" class="dropdown__option">
+                      <div
+                        onclick="dropdownSelect__SearchClientepf('Cliente')"
+                      >
+                        Cliente
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchClientepf('CPF')"
+                      >
+                        CPF
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="cliente__search">
                   <h3>Cliente</h3>
                   <input
                     type="text"
                     id="cliente"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="Digite o nome do cliente"
                   />
                 </div>
-                <div>
+                <div id="cpf__search">
                   <h3>CPF</h3>
                   <input
                     type="text"
                     id="cpf"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="000.000.000-00"
                     maxlength="14"
                   />
                 </div>
-                <div>
-                  <h3>UF</h3>
-                  <input
-                    type="text"
-                    id="uf"
-                    class="relatorio__input--small"
-                    placeholder="UF"
-                  />
-                </div>
-                <div>
-                  <h3>Cidade</h3>
-                    <input
-                      type="text"
-                      id="cidade"
-                      class="relatorio__input"
-                      placeholder="Digite a cidade"
-                    />
-                  </div>
                   <div class="buttons">
                     <button
                       id="button__pesquisar--clientepf"
@@ -191,6 +206,7 @@
     <script src="../js/components/radio__cliente--relatorio.js"></script>
     <script src="../js/button/pesquisar/pesquisar__clientepf.js"></script>
     <script src="../js/mascara__relatorio/mascara__cpf.js"></script>
+    <script src="../js/components/dropdown__search--clientepf.js"></script>
     
   </main>
     <footer></footer>

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__cadastro.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
-    <link rel="stylesheet" href="../css/cadastro/cadastro__servico.css" />
+    <link rel="stylesheet" href="../css/cadastro/cadastro__forms.css" />
 
     <title>Garage 817</title>
   </head>
@@ -55,7 +55,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+                  
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -68,7 +68,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+                
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -104,13 +104,13 @@
           </div>
 
           <form>
-            <div class="form__servico--informacoes">
+            <div class="form__servico--informations">
               <div>
                 <h3>Serviço</h3>
                 <input
                   type="text"
                   id="servico"
-                  class="cadastro__input--servico"
+                  class="input__xbig"
                   placeholder="Digite o título do serviço"
                 />
               </div>
@@ -119,30 +119,24 @@
                 <input
                   type="number"
                   id="valorServico"
-                  class="cadastro__input--valor"
+                  class="input__medium"
                   placeholder="R$ 99,99"
                 />
               </div>
               <div>
-                <h3>Descrição</h3>
+                <h4>Descrição</h4>
                 <input
                   type="text"
                   id="descricaoServico"
-                  class="cadastro__input--descricao"
+                  class="input__xbig"
                   placeholder="Descrição complementar do servico"
                 />
               </div>
             </div>
           </form>
-          <div class="buttons">
+          <div class="buttons__cadastro">
             <button id="button__cadastrar--servico" class="button__form--cadastrar">
                 Cadastrar
-            </button>
-            <button
-              id="button__cancelar"
-              class="button__form--cancelar"
-            >
-              Cancelar
             </button>
             <button id="button__limpar--servico" class="button__form--limpar">Limpar</button>
           </div>
@@ -152,7 +146,6 @@
     <footer></footer>
 
     <script src="../js/button/cadastrar/cadastrar__servico.js"></script>
-    <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/limpar/limpar__servico.js"></script>
 
   </body>

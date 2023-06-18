@@ -9,9 +9,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css” integrity=”sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T” crossorigin=”anonymous”>
-    <link rel="stylesheet" href=
-"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel=”stylesheet”
+    href=”https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css”
+    integrity=”sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T”
+    crossorigin=”anonymous”>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
     <script
       src="https://kit.fontawesome.com/fb57ddc8bd.js"
       crossorigin="anonymous"
@@ -20,9 +25,11 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__cadastro.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
-    <link rel="stylesheet" href="../css/cadastro/cadastro__usuario.css" />
-    <link rel="stylesheet" href="../css/cadastro/cadastro__dropdown--usuario.css" />
-    
+    <link rel="stylesheet" href="../css/cadastro/cadastro__forms.css" />
+    <link
+      rel="stylesheet"
+      href="../css/dropdown/cadastro__dropdown--usuario.css"
+    />
 
     <title>Garage 817</title>
   </head>
@@ -60,7 +67,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -73,7 +80,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -87,11 +94,9 @@
                 <a href="./movimentacao__emitirOrcamento.html"
                   >Emitir Orçamento</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
+                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
                 ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -109,13 +114,13 @@
           </div>
 
           <form>
-            <div class="form__usuario--informacoes">
+            <div class="form__usuario--informations">
               <div>
                 <h3>Usuário</h3>
                 <input
                   type="text"
                   id="usuario"
-                  class="cadastro__input--usuario"
+                  class="input__big"
                   placeholder="Digite o nome do usuáro"
                 />
               </div>
@@ -124,47 +129,51 @@
                 <input
                   type="password"
                   id="password__cadastro--usuario"
-                  class="cadastro__input--senha"
+                  class="input__big"
                   placeholder="*********"
                 />
-                  <i class="bi bi-eye-slash" 
-                  id="togglePassword" onclick="statusVisibleChange()"></i>
+                <i
+                  class="bi bi-eye-slash"
+                  id="togglePassword"
+                  onclick="statusVisibleChange()"
+                ></i>
               </div>
               <div id="dropdown" class="dropdown">
-                  <input type="text" id="dropdown__textBox" class="dropdwn__textBox" placeholder="Perfil de acesso" readonly>
+                <input
+                  type="text"
+                  id="dropdown__textBox"
+                  class="dropdwn__textBox"
+                  placeholder="Perfil de acesso"
+                  readonly
+                />
                 <div class="dropdown__option">
                   <div onclick="dropdownSelect('Administrador')">
                     Administrador
                   </div>
-                  <div onclick="dropdownSelect('Funcionário')">
-                    Funcionário
-                  </div>
+                  <div onclick="dropdownSelect('Funcionário')">Funcionário</div>
                 </div>
               </div>
             </div>
           </form>
-          <div class="buttons">
-            <button id="button__cadastrar--usuario" class="button__form--cadastrar">
-                Cadastrar
-            </button>
+          <div class="buttons__cadastro">
             <button
-              id="button__cancelar"
-              class="button__form--cancelar"
+              id="button__cadastrar--usuario"
+              class="button__form--cadastrar"
             >
-              Cancelar
+              Cadastrar
             </button>
-            <button id="button__limpar--usuario" class="button__form--limpar">Limpar</button>
+            <button id="button__limpar--usuario" class="button__form--limpar">
+              Limpar
+            </button>
           </div>
         </div>
       </div>
     </main>
     <footer></footer>
-    
+
     <script src="../js/button/cadastrar/cadastrar__usuario.js"></script>
-    <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/button__eye.js"></script>
     <script src="../js/button/limpar/limpar__usuario.js"></script>
     <script src="../js/components/dropdown__perfilacesso.js"></script>
-
   </body>
 </html>

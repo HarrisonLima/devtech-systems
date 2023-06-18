@@ -1,4 +1,4 @@
-.dropdown__cadastro--cliente{
+.dropdown__relatorio{
     display: flex;
     font-size: 16px;
     height: 30px;
@@ -6,12 +6,12 @@
     width: 150px;
 }
 
-.dropdown__cadastro--cliente input::placeholder{
+.dropdown__relatorio input::placeholder{
     color:#000000;
     font-size: 16px;
 }
 
-.dropdown__cadastro--cliente::before{
+.dropdown__relatorio::before{
     border: 1.5px solid rgb(118, 118, 118);
     border-top: 1.5px solid #fff;
     border-right: 1.5px solid #fff;
@@ -27,7 +27,7 @@
     z-index: 10000;
 }
 
-.dropdown__cadastro--cliente.active::before{
+.dropdown__relatorio::before{
     background-color: #ebebeb;
     border-top: 1.5px solid #ebebeb;
     border-right: 1.5px solid #ebebeb;
@@ -35,7 +35,7 @@
     transform: rotate(-225deg);
 }
 
-.dropdown__cadastro--cliente input{
+.dropdown__relatorio input{
     border: 1.5px solid rgb(118, 118, 118);
     cursor: pointer;
     left: 0;
@@ -43,7 +43,7 @@
     top: 0;
     width: 100%;
 }
-.dropdown__cadastro--cliente.active input{
+.dropdown__relatorio input{
     background-color: #ebebeb;
 }
 
@@ -57,7 +57,7 @@
     width: 100%;
 }
 
-.dropdown__cadastro--cliente.active .dropdown__option{
+.dropdown__relatorio .dropdown__option{
     display: block;
 }
 

@@ -1,0 +1,65 @@
+.form__data--personal{
+  display: flex;
+  justify-content: space-between;
+  width: 525px;
+}
+
+.form__data--personalCompany{
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.form__data--contact{
+  display: flex;
+  justify-content: space-between;
+  width: 525px;
+}
+
+.form__data--address{
+  display: flex;
+  justify-content: space-between;
+  width: 540px;
+}
+
+.form__peca--informations{
+  display: flex;
+  justify-content: space-between;
+  width: 850px;
+}
+
+.form__produto--informations{
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+.form__servico--informations{
+  display: flex;
+  justify-content: space-between;
+  width: 850px;
+}
+
+.form__usuario--informations{
+  display: flex;
+  justify-content: space-between;
+  width: 750px;
+}
+
+.form__veiculo--especifications {
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
+}
+
+.form__veiculo--informations {
+  display: flex;
+  justify-content: space-between;
+  width: 550px;
+}
+
+.form__veiculo--owner{
+  display: flex;
+  justify-content: space-between;
+  width: 525px;
+}

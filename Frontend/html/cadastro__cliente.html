@@ -18,19 +18,14 @@
     <link rel="stylesheet" href="../css/default/default__cadastro.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
     <link rel="stylesheet" href="../css/cadastro/cadastro__cliente.css" />
-    <link
-      rel="stylesheet"
-      href="../css/cadastro/cadastro__dropdown--cliente.css"
-    />
+    <link rel="stylesheet" href="../css/cadastro/cadastro__forms.css" />
     <title>Garage 817</title>
   </head>
   <body>
-    
-   <div class="loader close-loader" id="loader">
-      <span>
-      </span>
+    <div class="loader close-loader" id="loader">
+      <span> </span>
     </div>
-   
+
     <header class="topbar">
       <a href="./home.html"
         >GARAGE 817
@@ -63,7 +58,6 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -76,7 +70,6 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -90,11 +83,9 @@
                 <a href="./movimentacao__emitirOrcamento.html"
                   >Emitir Orçamento</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
+                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
                 ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -131,105 +122,61 @@
           </div>
 
           <form>
-            <div>
-              <h3>Nome</h3>
-              <input
-                type="text"
-                id="nome"
-                class="cadastro__input--nome"
-                placeholder="Digite o nome completo"
-              />
-            </div>
-            <div class="form__pessoal--dados">
+            <div class="form__data--personal">
+              <div>
+                <h3>Nome</h3>
+                <input
+                  type="text"
+                  id="nome"
+                  class="input__big"
+                  placeholder="Digite o nome"
+                />
+              </div>
               <div>
                 <h3>CPF</h3>
                 <input
                   type="text"
                   id="cpf"
-                  class="cadastro__input--cpf"
+                  class="input__big"
                   autocomplete="off"
                   placeholder="000.000.000-00"
                   maxlength="14"
                 />
               </div>
+            </div>
+            <div class="form__data--contact">
               <div>
-                <h3>Gênero</h3>
-                <div id="dropdownGenero" class="dropdown__cadastro--cliente">
-                  <input
-                    type="text"
-                    id="dropdown__textBox--Genero"
-                    class="dropdwn__textBox"
-                    placeholder="Selecionar"
-                    readonly
-                  />
-                  <div class="dropdown__option">
-                    <div onclick="dropdownSelectGenero('Feminino')">
-                      Feminino
-                    </div>
-                    <div onclick="dropdownSelectGenero('Masculino')">
-                      Masculino
-                    </div>
-                    <div onclick="dropdownSelectGenero('Outros')">Outros</div>
-                    <div onclick="dropdownSelectGenero('Prefiro não dizer')">
-                      Prefiro não dizer
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h3>Data de Nascimento</h3>
+                <h3>Telefone</h3>
                 <input
-                  type="date"
-                  id="dataNascimento"
-                  class="cadastro__input--nascimento"
-                  placeholder="___/___/___"
-                  maxlength="8"
+                  type="text"
+                  id="telefone"
+                  class="input__big"
+                  placeholder="+55 44 99999-9999"
+                  maxlength="14"
                 />
               </div>
               <div>
-                <h3>Estado civil</h3>
-                <div
-                  id="dropdownEstadoCivil"
-                  class="dropdown__cadastro--cliente"
-                >
-                  <input
-                    type="text"
-                    id="dropdown__textBox--EstadoCivil"
-                    class="dropdown__textBox"
-                    placeholder="Selecionar"
-                    readonly
-                  />
-                  <div class="dropdown__option">
-                    <div onclick="dropdownSelectEstadoCivil('Casado(a)')">
-                      Casado(a)
-                    </div>
-                    <div onclick="dropdownSelectEstadoCivil('Divorciado(a)')">
-                      Divorciado(a)
-                    </div>
-                    <div onclick="dropdownSelectEstadoCivil('Solteiro(a)')">
-                      Solteiro(a)
-                    </div>
-                    <div onclick="dropdownSelectEstadoCivil('Viúvo(a)')">
-                      Viúvo(a
-                    </div>
-                  </div>
-                </div>
+                <h3>E-mail</h3>
+                <input
+                  type="email"
+                  id="email"
+                  class="input__big"
+                  placeholder="seuemail@gmail.com"
+                />
               </div>
             </div>
           </form>
-
           <div>
-            <h2 id="informacoes__contato">Informações de contato</h2>
+            <h2 id="informacoes__endereco">Informações de endereço</h2>
           </div>
-
-          <form class="form__contato">
-            <div class="form__contato--residencia">
+          <form>
+            <div class="form__data--address">
               <div>
                 <h3>CEP</h3>
                 <input
                   type="text"
                   id="cep"
-                  class="cadastro__input--cep"
+                  class="input__big"
                   placeholder="00.000-000"
                   maxlength="10"
                 />
@@ -239,28 +186,8 @@
                 <input
                   type="text"
                   id="numeroEndereco"
-                  class="cadastro__input--numero"
+                  class="input__small"
                   placeholder="Nº 999"
-                />
-              </div>
-              <div>
-                <h3>Complemento</h3>
-                <input
-                  type="text"
-                  id="complementoEndereco"
-                  class="cadastro__input--complemento"
-                  placeholder="Complemento de endereço"
-                />
-              </div>
-            </div>
-            <div class="form__contato--localizacao">
-              <div>
-                <h3>Cidade</h3>
-                <input
-                  type="text"
-                  id="cidade"
-                  class="cadastro__input--cidade"
-                  placeholder="Digite o nome da cidade"
                 />
               </div>
               <div>
@@ -268,9 +195,20 @@
                 <input
                   type="text"
                   id="uf"
-                  class="cadastro__input--uf"
+                  class="input__small"
                   placeholder="UF"
                   maxlength="2"
+                />
+              </div>
+            </div>
+            <div class="form__data--address">
+              <div>
+                <h3>Cidade</h3>
+                <input
+                  type="text"
+                  id="cidade"
+                  class="input__big"
+                  placeholder="Digite o nome da cidade"
                 />
               </div>
               <div>
@@ -278,52 +216,18 @@
                 <input
                   type="text"
                   id="logradouro"
-                  class="cadastro__input--logradouro"
+                  class="input__big"
                   placeholder="Digite o endereço"
                 />
               </div>
             </div>
-            <div class="form__contato--pessoal">
-              <div>
-                <h3>E-mail</h3>
-                <input
-                  type="email"
-                  id="email"
-                  class="cadastro__input--email"
-                  placeholder="exemploemail@gmail.com"
-                />
-              </div>
-              <div>
-                <h3>DDD</h3>
-                <input
-                  type="text"
-                  id="ddd"
-                  class="cadastro__input--uf"
-                  placeholder="(44)"
-                  maxlength="4"
-                />
-              </div>
-              <div>
-                <h3>Telefone</h3>
-                <input
-                  type="text"
-                  id="telefone"
-                  class="cadastro__input--fone"
-                  placeholder="9.9999-9999"
-                  maxlength="10"
-                />
-              </div>
-            </div>
           </form>
-          <div class="buttons">
+          <div class="buttons__cadastro">
             <button
               id="button__cadastrar--clientepf"
               class="button__form--cadastrar"
             >
               Cadastrar
-            </button>
-            <button id="button__cancelar" class="button__form--cancelar">
-              Cancelar
             </button>
             <button id="button__limpar--clientepf" class="button__form--limpar">
               Limpar
@@ -335,10 +239,7 @@
     <footer></footer>
 
     <script src="../js/button/cadastrar/cadastrar__clientepf.js"></script>
-    <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/limpar/limpar__clientepf.js"></script>
-    <script src="../js/components/dropdown__estadocivil.js"></script>
-    <script src="../js/components/dropdown__genero.js"></script>
     <script src="../js/components/radio__cliente--cadastro.js"></script>
     <script src="../js/mascara/mascara__cep.js"></script>
     <script src="../js/mascara/mascara__cpf.js"></script>

@@ -17,8 +17,14 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__relatorio.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
-    <link rel="stylesheet" href="../css/relatorio/relatorio__cliente.css" />
-
+    
+    <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
+    <link
+      rel="stylesheet"
+      href="../css/dropdown/relatorio__dropdown.css"
+    />
+    <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
+    
     <title>Garage 817</title>
   </head>
 
@@ -55,7 +61,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -68,7 +74,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -118,51 +124,63 @@
               <label for="radio__utilitario">Pessoa Jurídica</label>
             </div>
             <div class="relatorio__search">
-              <form class="form__search--cliente">
+              <form class="form__search">
                 <div>
-                  <h3>Nome Fantasia</h3>
-                  <input
-                    type="text"
-                    id="nomeFantasia"
-                    class="relatorio__input"
-                    placeholder="Digite o nome fantasia"
-                  />
+                  <h3>Filtrar por</h3>
+                  <div
+                    id="dropdownSearch__Clientepj"
+                    class="dropdown__relatorio"
+                  >
+                    <input
+                      type="text"
+                      id="dropdown__textBox--Clientepj"
+                      class="dropdown__textBox"
+                      placeholder="Selecionar"
+                      readonly
+                    />
+                    <div id="dropdownOption" class="dropdown__option">
+                      <div
+                        onclick="dropdownSelect__SearchClientepj('Razão Social')"
+                      >
+                        Razão Social
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchClientepj('Nome Fantasia')"
+                      >
+                        Nome Fantasia
+                      </div>
+                      <div onclick="dropdownSelect__SearchClientepj('CNPJ')">
+                        CNPJ
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3>CNPJ</h3>
-                  <input
-                    type="text"
-                    id="cnpj"
-                    class="relatorio__input"
-                    placeholder="00.000.000/0000-00"
-                    maxlength="18"
-                  />
-                </div>
-                <div>
+                <div id="razaoSocial__search">
                   <h3>Razão Social</h3>
                   <input
                     type="text"
                     id="razaoSocial"
-                    class="relatorio__input"
-                    placeholder="Digite a razão social"
+                    class="input__big"
+                    placeholder="Digite o nome fantasia"
                   />
                 </div>
-                <div>
-                  <h3>UF</h3>
+                <div id="nomeFantasia__search">
+                  <h3>Nome Fantasia</h3>
                   <input
                     type="text"
-                    id="uf"
-                    class="relatorio__input--small"
-                    placeholder="UF"
+                    id="nomeFantasia"
+                    class="input__big"
+                    placeholder="Digite o nome fantasia"
                   />
                 </div>
-                <div>
-                  <h3>Cidade</h3>
+                <div id="cnpj__search">
+                  <h3>CNPJ</h3>
                   <input
                     type="text"
-                    id="cidade"
-                    class="relatorio__input"
-                    placeholder="Digite a cidade"
+                    id="cnpj"
+                    class="input__big"
+                    placeholder="00.000.000/0000-00"
+                    maxlength="18"
                   />
                 </div>
                 <div class="buttons">
@@ -188,19 +206,23 @@
           </div>
         </div>
         <div>
-          <button id="button__exportar--pdf" class="button__export--pdf" disabled>
+          <button
+            id="button__exportar--pdf"
+            class="button__export--pdf"
+            disabled
+          >
             Exportar PDF
           </button>
         </div>
       </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
       <script src="../js/button/exportar__pdf/exportar__clientepj.js"></script>
       <script src="../js/components/radio__cliente--relatorio.js"></script>
       <script src="../js/button/pesquisar/pesquisar__clientepj.js"></script>
       <script src="../js/mascara__relatorio/mascara__cnpj.js"></script>
-    
+      <script src="../js/components/dropdown__search--clientepj.js"></script>
     </main>
     <footer></footer>
   </body>

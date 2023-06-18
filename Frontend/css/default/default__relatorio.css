@@ -4,17 +4,17 @@
   width: 1000px;
 }
 
-.radio__tipoCliente {
-  font-size: 15px;
-  margin-top: 10px;
-}
-
 .form__search {
   display: flex;
   margin-top: 10px;
   justify-content: space-between;
   padding-bottom: 20px;
-  width: 850px;
+  width: 600px;
+}
+
+.radio__tipoCliente {
+  font-size: 15px;
+  margin-top: 10px;
 }
 
 .relatorio {
@@ -23,21 +23,6 @@
   font-size: 20px;
   padding: 25px;
   width: 66.66666%;
-}
-
-.relatorio__input {
-  font-size: 16px;
-  width: 200px;
-}
-
-.relatorio__input--small {
-  font-size: 16px;
-  width: 60px;
-}
-
-.relatorio__input--medium {
-  font-size: 16px;
-  width: 100px;
 }
 
 .relatorio__search--content {
@@ -55,7 +40,7 @@
   font-weight: 600;
 }
 
-.relatorio__search--content h3 {
+.relatorio__search--content h3, h4 {
   font-size: 16px;
   font-weight: 500;
 }
@@ -84,72 +69,3 @@
   margin-top: 40px;
   width: 125px;
 }
-
-.relatorio__search--results {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding-top: 25px;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-.relatorio__search--results > div {
-  width: 100%;
-}
-
-.relatorio__search--results >div > table {
-  table-layout: fixed;
-  width: 100%;
-}
-.relatorio__search--results >div > table > tr{
-  text-align: center;
-}
-.relatorio__search--results > div >table > thead{  
-  background-color: #161818;
-  color: #ffffff;
-}
-
-.relatorio__search--results > div >table > tr:nth-child(even) {
-  background-color: #f1f1da;
-}
-.relatorio__search--results > div >table > tr > td{
-  padding: 5px;
-  word-wrap: break-word;
-
-}
-
-#tabela__clientespf,
-#tabela__clientespj,
-#tabela__fornecedores,
-#tabela__produtos,
-#tabela__pecas,
-#tabela__servicos,
-#tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj {
-  align-items: center;
-  display: flexbox;
-  justify-content: center;
-  justify-items: center;
-}
-
-#tabela__clientespf,
-#tabela__clientespj,
-#tabela__fornecedores,
-#tabela__produtos,
-#tabela__pecas,
-#tabela__servicos,
-#tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj thead {
-  font-size: 16px;
-  width: 100%;
-}
-
-#tabela__clientespf,
-#tabela__clientespj,
-#tabela__fornecedores,
-#tabela__produtos,
-#tabela__pecas,
-#tabela__servicos,
-#tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj td {
-  font-size: 14px;
-}
-

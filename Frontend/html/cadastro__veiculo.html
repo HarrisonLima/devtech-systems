@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__cadastro.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
+    <link rel="stylesheet" href="../css/cadastro/cadastro__forms.css" />
     <link rel="stylesheet" href="../css/cadastro/cadastro__veiculo.css" />
 
     <title>Garage 817</title>
@@ -55,7 +56,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  <a href="./cadastro__fornecedor.html">Fornecedor</a><br />
+
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -68,7 +69,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                <a href="./relatorio__fornecedor.html">Fornecedor</a><br />
+
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -82,11 +83,9 @@
                 <a href="./movimentacao__emitirOrcamento.html"
                   >Emitir Orçamento</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
+                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
                 ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -107,9 +106,9 @@
               title="radio_veiculopf"
               value="pf"
               checked
-              />
-              <label for="radio__clientepf">Proprietário Pessoa Física</label>
-              <input
+            />
+            <label for="radio__clientepf">Proprietário Pessoa Física</label>
+            <input
               type="radio"
               id="radio__veiculopj"
               name="radio"
@@ -142,75 +141,56 @@
               />
               <label for="radio__utilitario">Veículo utilitário</label>
             </div>
-            <div class="form__veiculo--especificacao">
+            <div class="form__veiculo--especifications">
               <div>
                 <h3>Marca</h3>
                 <input
                   type="text"
                   id="marcaVeiculo"
-                  class="cadastro__input--marca"
+                  class="input__big"
                   placeholder="Digite a marca do veículo"
                   required
                 />
               </div>
               <div>
-                <h3>Ano de fabricação</h3>
+                <h3>Passageiros</h3>
                 <input
                   type="number"
-                  id="anoFabricacaoVeiculo"
-                  class="cadastro__input--ano"
-                  placeholder="9999"
-                  minlength="4"
-                  maxlength="4"
+                  id="quantidadePassageirosVeiculo"
+                  class="input__small"
+                  placeholder="2"
+                  maxlength="2"
                 />
               </div>
               <div>
                 <h3>Cor</h3>
                 <input
-                  type="color"
+                  type="text"
                   id="color__Veiculopf"
-                  class="cadastro__input--cor"
+                  class="input__big"
                   placeholder="Digite a cor do veículo"
                 />
               </div>
-              <div>
-                <h3>Número Passageiros</h3>
-                <input
-                  type="number"
-                  id="quantidadePassageirosVeiculo"
-                  class="cadastro__input--passageiros"
-                  placeholder="2"
-                  maxlength="2"
-                />
-              </div>
             </div>
-            <div class="form__veiculo--informacoes">
+            <div class="form__veiculo--informations">
               <div>
                 <h3>Modelo</h3>
                 <input
                   type="text"
                   id="modeloVeiculo"
-                  class="cadastro__input--modelo"
+                  class="input__big"
                   placeholder="Digite o modelo do veículo"
                 />
               </div>
               <div>
-                <h3>Renavam</h3>
+                <h3>Fabricação</h3>
                 <input
                   type="number"
-                  id="renavamVeiculo"
-                  class="cadastro__input--renavam"
-                  placeholder="123456789"
-                  maxlength="11"
-                />
-              </div>
-              <div>
-                <h3>Fabricante</h3>
-                <input
-                  type="text"
-                  id="fabricanteVeiculo"
-                  class="cadastro__input--fabricante"
-                  placeholder="Fabricante do veículo"
+                  id="anoFabricacaoVeiculo"
+                  class="input__small"
+                  placeholder="2023"
+                  minlength="4"
+                  maxlength="4"
                 />
               </div>
               <div>
@@ -218,7 +198,7 @@
                 <input
                   type="text"
                   id="placaVeiculo"
-                  class="cadastro__input--placa"
+                  class="input__medium"
                   placeholder="Placa"
                   maxlength="9"
                 />
@@ -226,16 +206,16 @@
             </div>
           </form>
           <form>
-            <div>
+            <div id="sectionOwner">
               <h2>Informações do proprietário do veículo</h2>
             </div>
-            <div class="form__veiculo--proprietario">
+            <div class="form__veiculo--owner">
               <div>
                 <h3>Cliente</h3>
                 <input
                   type="text"
                   id="nomeProprietario"
-                  class="cadastro__input--proprietario"
+                  class="input__big"
                   placeholder="Digite o nome completo"
                 />
               </div>
@@ -244,32 +224,24 @@
                 <input
                   type="text"
                   id="cpf"
-                  class="cadastro__input--cpf"
+                  class="input__big"
                   autocomplete="off"
                   placeholder="000.000.000-00"
                   maxlength="14"
                 />
               </div>
-              <div>
-                <h3>CNH</h3>
-                <input
-                  type="number"
-                  id="cnhProprietario"
-                  class="cadastro__input--cnh"
-                  placeholder="123456789"
-                  maxlength="11"
-                />
-              </div>
             </div>
           </form>
-          <div class="buttons">
-            <button id="button__cadastrar--veiculopf" class="button__form--cadastrar">
-                Cadastrar
+          <div class="buttons__cadastro">
+            <button
+              id="button__cadastrar--veiculopf"
+              class="button__form--cadastrar"
+            >
+              Cadastrar
             </button>
-            <button id="button__cancelar" class="button__form--cancelar">
-              Cancelar
+            <button id="button__limpar--veiculopf" class="button__form--limpar">
+              Limpar
             </button>
-            <button id="button__limpar--veiculopf" class="button__form--limpar">Limpar</button>
           </div>
         </div>
       </div>
@@ -277,10 +249,8 @@
     <footer></footer>
 
     <script src="../js/button/cadastrar/cadastrar__veiculopf.js"></script>
-    <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/limpar/limpar__veiculopf.js"></script>
     <script src="../js/mascara/mascara__cpf.js"></script>
     <script src="../js/components/radio__veiculo--cadastro.js"></script>
-
   </body>
 </html>
