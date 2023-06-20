@@ -1,20 +1,115 @@
-const buttonPesquisarVeiculospj = document.getElementById(
-  "button__pesquisar--veiculopj"
-);
-const buttonExportar = document.getElementById("button__exportar--pdf");
+var inputCnpj = document.getElementById("cnpj");
+var inputModelo = document.getElementById("modelo");
+var inputMarca = document.getElementById("marca");
+var inputColor = document.getElementById("color");
+var inputPlaca = document.getElementById("placa");
+var inputProprietario = document.getElementById("proprietario");
 
-buttonExportar.style.display = 'none';
+inputCnpj.addEventListener("input", () => {
+  filter = inputCnpj.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
 
-buttonPesquisarVeiculospj.addEventListener("click", (event) => {
-  event.preventDefault();
-  updateRegistros();
-  statusButtonExportar();
-});
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
 
-function statusButtonExportar() {
-  buttonExportar.disabled = false;
-  buttonExportar.style.display = 'block';
-}
+inputModelo.addEventListener("input", () => {
+  filter = inputModelo.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
+
+inputMarca.addEventListener("input", () => {
+  filter = inputMarca.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
+
+inputColor.addEventListener("input", () => {
+  filter = inputColor.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
+inputPlaca.addEventListener("input", () => {
+  filter = inputPlaca.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
+inputProprietario.addEventListener("input", () => {
+  filter = inputProprietario.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
 
 function getVeiculospj(url) {
   let request = new XMLHttpRequest();
@@ -36,8 +131,6 @@ function adicionaLinha(veiculo) {
   tdCor = document.createElement("td");
   tdNumeroPassageiro = document.createElement("td");
   tdModelo = document.createElement("td");
-  tdRenavam = document.createElement("td");
-  tdFabricante = document.createElement("td");
   tdPlaca = document.createElement("td");
   tdProprietario = document.createElement("td");
   tdCnpj = document.createElement("td");
@@ -49,8 +142,6 @@ function adicionaLinha(veiculo) {
   tdCor.innerHTML = veiculo.cor;
   tdNumeroPassageiro.innerHTML = veiculo.numeropassageiro;
   tdModelo.innerHTML = veiculo.modelo;
-  tdRenavam.innerHTML = veiculo.renavam;
-  tdFabricante.innerHTML = veiculo.fabricante;
   tdPlaca.innerHTML = veiculo.placa;
   tdProprietario.innerHTML = veiculo.nomeproprietario;
   tdCnpj.innerHTML = veiculo.cnpj;
@@ -62,8 +153,6 @@ function adicionaLinha(veiculo) {
   linha.appendChild(tdCor);
   linha.appendChild(tdNumeroPassageiro);
   linha.appendChild(tdModelo);
-  linha.appendChild(tdRenavam);
-  linha.appendChild(tdFabricante);
   linha.appendChild(tdPlaca);
   linha.appendChild(tdProprietario);
   linha.appendChild(tdCnpj);
@@ -80,8 +169,6 @@ function criaColunas(Column) {
   const elementColumnCor = document.createElement("th");
   const elementColumnNumeroPassageiro = document.createElement("th");
   const elementColumnModelo = document.createElement("th");
-  const elementColumnRenavam = document.createElement("th");
-  const elementColumnFabricante = document.createElement("th");
   const elementColumnPlaca = document.createElement("th");
   const elementColumnProprietario = document.createElement("th");
   const elementColumnCnpj = document.createElement("th");
@@ -93,8 +180,6 @@ function criaColunas(Column) {
   elementColumnCor.innerHTML = "Cor";
   elementColumnNumeroPassageiro.innerHTML = "Núm. Passag.";
   elementColumnModelo.innerHTML = "Modelo";
-  elementColumnRenavam.innerHTML = "Renavam";
-  elementColumnFabricante.innerHTML = "Fabricante";
   elementColumnPlaca.innerHTML = "Placa";
   elementColumnProprietario.innerHTML = "Proprietário";
   elementColumnCnpj.innerHTML = "CNPJ";
@@ -106,8 +191,6 @@ function criaColunas(Column) {
   elementRow.appendChild(elementColumnCor);
   elementRow.appendChild(elementColumnNumeroPassageiro);
   elementRow.appendChild(elementColumnModelo);
-  elementRow.appendChild(elementColumnRenavam);
-  elementRow.appendChild(elementColumnFabricante);
   elementRow.appendChild(elementColumnPlaca);
   elementRow.appendChild(elementColumnProprietario);
   elementRow.appendChild(elementColumnCnpj);
@@ -127,3 +210,5 @@ function updateRegistros() {
     tabela.appendChild(linha);
   });
 }
+
+updateRegistros();

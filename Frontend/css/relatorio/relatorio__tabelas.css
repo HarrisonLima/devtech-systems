@@ -24,9 +24,6 @@
   color: #000000;
 }
 
-/* .relatorio__search--results > div >table > tr:nth-child(even) {
-  background-color: #d3d3d3;
-} */
 .relatorio__search--results > div >table > tr > td{
   padding: 5px;
   word-wrap: break-word;

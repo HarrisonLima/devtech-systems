@@ -17,9 +17,12 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link
       rel="stylesheet"
-      href="../css/default/default__gerenciarEstoque.css"
+      href="../css/default/default__menu.css"
     />
-    <link rel="stylesheet" href="../css/default/default__menu.css" />
+    <link rel="stylesheet" href="../css/default/default__relatorio.css" />
+    <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
+    <link rel="stylesheet" href="../css/default/default__gerenciarEstoque.css" />
+    <link rel="stylesheet" href="../css/dropdown/relatorio__dropdown.css" />
     <title>Garage 817</title>
   </head>
 
@@ -56,7 +59,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  
+                 
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -78,12 +81,16 @@
               </div>
             </div>
             <div>
+              <button type="button">Estoque</button>
+              <div class="submenu__bottom--elements">
+                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+              </div>
+            </div>
+            <div>
               <button type="button">Movimentações</button>
               <div class="submenu__bottom--elements">
-                <a href="./movimentacao__emitirOrcamento.html"
-                  >Emitir Orçamento</a
-                ><br />
-                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
+                <a href="./movimentacao__manutencao.html"
+                  >Ordem manutenção</a
                 ><br />
                 <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
@@ -102,38 +109,61 @@
             <div class="relatorio__search">
               <form class="form__search">
                 <div>
+                  <h3>Filtrar por</h3>
+                  <div
+                    id="dropdownSearch__Produto"
+                    class="dropdown__relatorio"
+                  >
+                    <input
+                      type="text"
+                      id="dropdown__textBox--Produto"
+                      class="dropdown__textBox"
+                      placeholder="Selecionar"
+                      readonly
+                    />
+                    <div id="dropdownOption" class="dropdown__option">
+                      <div
+                        onclick="dropdownSelect__SearchProduto('Produto')"
+                      >
+                        Produto
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchProduto('Marca')"
+                      >
+                        Marca
+                      </div>
+                      <div
+                        onclick="dropdownSelect__SearchProduto('Descrição')"
+                      >
+                        Descrição
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="produto__search">
                   <h3>Produto</h3>
                   <input
                     type="text"
                     id="produto"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="Digite o nome do produto"
                   />
                 </div>
-                <div>
-                  <h3>UN</h3>
-                  <input
-                    type="text"
-                    id="unidademedida"
-                    class="relatorio__input--small"
-                    placeholder="un"
-                  />
-                </div>
-                <div>
+                <div id="marca__search">
                   <h3>Marca</h3>
                   <input
                     type="text"
                     id="marca"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="Digite a marca do produto"
                   />
                 </div>
-                <div>
+                <div id="descricao__search">
                   <h3>Descrição</h3>
                   <input
                     type="text"
                     id="descricao"
-                    class="relatorio__input"
+                    class="input__big"
                     placeholder="Digite a descrição do produto"
                   />
                 </div>
@@ -168,6 +198,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
       <script src="../js/button/button__pesquisar.js"></script>
+      <script src="../js/components/dropdown__search--produto.js"></script>
     </main>
     <footer></footer>
   </body>

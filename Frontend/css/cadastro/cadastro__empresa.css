@@ -1,0 +1,117 @@
+.form__empresa--informacoes{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 725px;
+}
+
+.radio__tipoCliente{
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.cadastro__input--razaosocial {
+  font-size: 16px;
+  width: 375px;
+}
+.cadastro__input--nomefantasia {
+  font-size: 16px;
+  width: 325px;
+}
+
+.form__empresa--dados{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 725px;
+}
+
+.cadastro__input--cnpj {
+  font-size: 16px;
+  width: 200px;
+}
+
+.cadastro__input--inscricaoEstadual {
+  font-size: 15px;
+  width: 250px;
+}
+
+.cadastro__input--inscricaoMunicipal {
+  font-size: 15px;
+  width: 250px;
+}
+
+#informacoes__contato {
+  margin-top: 25px;
+}
+
+.form__contato--dados{
+  display: flex;
+  margin-top: -15px;
+  justify-content: space-between;
+  width: 725px;
+}
+
+.cadastro__input--logradouro {
+  float: left;
+  font-size: 16px;
+  width: 250px;
+}
+
+.cadastro__input--numero {
+  font-size: 16px;
+  width: 100px;
+}
+
+.cadastro__input--complemento {
+    font-size: 16px;
+    width: 250px;
+}
+
+.form__contato--localizacao{
+  display: flex;
+  justify-content: space-between;
+  width: 725px;
+}
+
+.cadastro__input--cidade {
+    font-size: 16px;
+    width: 340px;
+}
+
+.cadastro__input--uf {
+    float: left;
+    font-size: 16px;
+    width: 100px;
+}
+
+.cadastro__input--cep {
+  font-size: 16px;
+  width: 340px;
+}
+
+.form__contato--pessoal{
+  display: flex;
+  justify-content: space-between;
+  width: 725px;
+}
+
+.cadastro__input--email {
+    font-size: 16px;
+    width: 340px;
+} 
+
+.cadastro__input--fone {
+    float: left;
+    font-size: 16px;
+    width: 250px;
+}
+
+.buttons{
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  margin-top: 50px;
+  width: 400px;
+}

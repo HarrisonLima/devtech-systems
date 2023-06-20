@@ -1,0 +1,72 @@
+.form__usuario--informacoes{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 750px;
+}
+
+.cadastro__input--usuario {
+  font-size: 16px;
+  width: 250px;
+}
+
+.cadastro__input--senha {
+  font-size: 16px;
+  width: 200px;
+}
+
+.form__usuario--informacoes i{
+    width: 30px;
+}
+
+.dropdown {
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.button__perfil {
+  background-color: #ffffff;
+  border: 0.5px solid #000000;
+  width: 120px;
+}
+
+.dropdown-content {
+  background-color: #f1f1f1;
+  display: none;
+  font-size: 16px;
+  min-width: 100px;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: black;
+  background-color: #ffffff;
+  border: 0.2px solid #000000;
+  border-top: none;
+  display: block;
+  font-size: 16px;
+  padding: 1px 8px;
+  text-align: left;
+  width: 120px;
+}
+
+.dropdown-content button:hover {
+  background-color: #a0a0a0;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .button__perfil {
+  background-color: #a0a0a0;
+}
+
+.buttons{
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  margin-top: 350px;
+  width: 400px;
+}

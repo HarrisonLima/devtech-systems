@@ -56,7 +56,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  
+
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -69,7 +69,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                
+
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -78,16 +78,17 @@
               </div>
             </div>
             <div>
+              <button type="button">Estoque</button>
+              <div class="submenu__bottom--elements">
+                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+              </div>
+            </div>
+            <div>
               <button type="button">Movimentações</button>
               <div class="submenu__bottom--elements">
-                <a href="./movimentacao__emitirOrcamento.html"
-                  >Emitir Orçamento</a
+                <a href="./movimentacao__manutencao.html">Ordem manutenção</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
-                ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -97,7 +98,6 @@
       <div class="relatorio">
         <div class="relatorio__search--content">
           <div class="just__line">
-            
             <div>
               <i class="fa-solid fa-square-poll-vertical"></i>
               Listagem de serviços
@@ -106,10 +106,7 @@
               <form class="form__search">
                 <div>
                   <h3>Filtrar por</h3>
-                  <div
-                    id="dropdownSearch__Servico"
-                    class="dropdown__relatorio"
-                  >
+                  <div id="dropdownSearch__Servico" class="dropdown__relatorio">
                     <input
                       type="text"
                       id="dropdown__textBox--Servico"
@@ -118,14 +115,10 @@
                       readonly
                     />
                     <div id="dropdownOption" class="dropdown__option">
-                      <div
-                        onclick="dropdownSelect__SearchServico('Serviço')"
-                      >
+                      <div onclick="dropdownSelect__SearchServico('Serviço')">
                         Serviço
                       </div>
-                      <div
-                        onclick="dropdownSelect__SearchServico('Descrição')"
-                      >
+                      <div onclick="dropdownSelect__SearchServico('Descrição')">
                         Descrição
                       </div>
                     </div>
@@ -149,22 +142,14 @@
                     placeholder="Digite a descrição do serviço"
                   />
                 </div>
-                <div class="buttons">
-                  <button
-                    id="button__pesquisar--servico"
-                    class="button__search"
-                  >
-                    Pesquisar
-                  </button>
               </form>
-            </div>
           </div>
         </div>
       </div>
       <div class="relatorio__search--results">
         <div>
           <table id="tabela__servicos">
-              <thead id="header"></thead>
+            <thead id="header"></thead>
             <tbody>
               <tr id="content"></tr>
             </tbody>
@@ -173,17 +158,15 @@
       </div>
       <div>
         <button id="button__exportar--pdf" class="button__export--pdf" disabled>
-            Exportar PDF
+          Exportar PDF
         </button>
-    </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
-    <script src="../js/button/exportar__pdf/exportar__servico.js"></script>
-    <script src="../js/button/pesquisar/pesquisar__servico.js"></script>
-    <script src="../js/components/dropdown__search--servico.js"></script>
-  
-  </main>
-  <footer></footer>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+      <script src="../js/button/exportar__pdf/exportar__servico.js"></script>
+      <script src="../js/button/pesquisar/pesquisar__servico.js"></script>
+      <script src="../js/components/dropdown__search--servico.js"></script>
+    </main>
+    <footer></footer>
   </body>
 </html>

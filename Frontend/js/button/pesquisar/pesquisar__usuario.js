@@ -1,20 +1,41 @@
-const buttonPesquisarUsuarios = document.getElementById(
-  "button__pesquisar--usuario"
-);
-const buttonExportar = document.getElementById("button__exportar--pdf");
+var inputUsuario = document.getElementById("usuario");
+var inputPerfil = document.getElementById("perfil");
 
-buttonExportar.style.display = 'none';
+inputUsuario.addEventListener("input", () => {
+  filter = inputUsuario.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
 
-buttonPesquisarUsuarios.addEventListener("click", (event) => {
-  event.preventDefault();
-  updateRegistros();
-  statusButtonExportar();
-});
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
 
-function statusButtonExportar() {
-  buttonExportar.disabled = false;
-  buttonExportar.style.display = 'block';
-}
+inputPerfil.addEventListener("input", () => {
+  filter = inputPerfil.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
 
 function getUsuarios(url) {
   let request = new XMLHttpRequest();
@@ -71,3 +92,5 @@ function updateRegistros() {
     tabela.appendChild(linha);
   });
 }
+
+updateRegistros();

@@ -1,19 +1,60 @@
-const buttonPesquisarPecas = document.getElementById(
-  "button__pesquisar--peca"
-);
-const buttonExportar = document.getElementById("button__exportar--pdf");
-buttonExportar.style.display = 'none';
+var inputPeca = document.getElementById("peca");
+var inputMarca = document.getElementById("marca");
+var inputDescricao = document.getElementById("descricao");
 
-buttonPesquisarPecas.addEventListener("click", (event) => {
-  event.preventDefault();
-  updateRegistros();
-  statusButtonExportar();
-});
+inputPeca.addEventListener("input", () => {
+  filter = inputPeca.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
 
-function statusButtonExportar() {
-  buttonExportar.disabled = false;
-  buttonExportar.style.display = 'block';
-}
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
+
+inputMarca.addEventListener("input", () => {
+  filter = inputMarca.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
+
+inputDescricao.addEventListener("input", () => {
+  filter = inputDescricao.value.toUpperCase();
+  table = document.getElementById("tabela__usuarios");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+})
 
 function getPecas(url) {
   let request = new XMLHttpRequest();
@@ -76,3 +117,5 @@ function updateRegistros() {
     tabela.appendChild(linha);
   });
 }
+
+updateRegistros();

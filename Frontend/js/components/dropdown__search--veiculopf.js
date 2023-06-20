@@ -16,7 +16,6 @@ proprietario__search.style.display = "none";
 dropdownOption.style.display = "none";
 
 function dropdownSelect__SearchVeiculopf(anything) {
-  console.log(1)
   dropdown__textBox.value = anything;
 
   if (dropdown__textBox.value == "Cor") {

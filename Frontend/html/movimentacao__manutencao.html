@@ -19,10 +19,8 @@
     <link rel="stylesheet" href="../css/default/default__movimentacao.css" />
     <link
       rel="stylesheet"
-      href="../css/movimentacao/movimentacao__emitirOrcamento.css"
+      href="../css/movimentacao/movimentacao__manutencao.css"
     />
-    <link href="../css/movimentacao/movimentacao__emitirOrcamento.css"/>
-
 
     <title>Garage 817</title>
   </head>
@@ -60,7 +58,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                 
+
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -73,7 +71,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                
+
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -82,16 +80,17 @@
               </div>
             </div>
             <div>
+              <button type="button">Estoque</button>
+              <div class="submenu__bottom--elements">
+                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+              </div>
+            </div>
+            <div>
               <button type="button">Movimentações</button>
               <div class="submenu__bottom--elements">
-                <a href="./movimentacao__emitirOrcamento.html"
-                  >Emitir Orçamento</a
+                <a href="./movimentacao__manutencao.html">Ordem manutenção</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
-                ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -99,42 +98,21 @@
         </div>
       </div>
       <div class="movimentacao">
-        <div class="movimentacao__content">
+        <div class="movimentacao__search--content">
           <div class="titlePage">
             <div>
               <i class="fa-solid fa-file"></i>
             </div>
-            <div>
-              Emissão de Orçamento
-            </div>
-          </div>
-          <div class="radio__tipoCliente">
-            <input
-              type="radio"
-              id="radio__clientepf"
-              name="radio"
-              title="radio_clientepf"
-              value="pf"
-              checked
-            />
-            <label for="radio__passeio">Pessoa Física</label>
-            <input
-              type="radio"
-              id="radio__clientepj"
-              name="radio"
-              title="radio_clientepj"
-              value="pj"
-            />
-            <label for="radio__utilitario">Pessoa Jurídica</label>
+            <div>Ordem manutenção</div>
           </div>
           <form>
-            <div class="form__cliente--informacoes">
-              <div>
-                <h2>Cliente</h2>
+            <div class="form__search">
+            <div>
+              <h2>Cliente</h2>
                 <input
                   type="text"
                   id="pesquisarCliente"
-                  class="movimentacao__input--xbig"
+                  class="input__big"
                   placeholder="Buscar cliente"
                 />
                 <i
@@ -143,24 +121,24 @@
                 ></i>
               </div>
             </div>
-          </form>
-          <div class="title__listagemItens">
-            <h2>Listagem de itens</h2>
-            <div class="form__pesquisar--item">
-              <input
-                type="text"
-                id="pesquisarItem"
-                class="movimentacao__input--xbig"
-                placeholder="Buscar item"
-              />
-              <div class="icon__search">
-                <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <div class="icon__check">
-                <i id="icon__check" class="fa-solid fa-circle-check"></i>
+            <div>
+              <h2>Listagem de itens</h2>
+              <div class="form__search">
+                <input
+                  type="text"
+                  id="pesquisarItem"
+                  class="input__big"
+                  placeholder="Buscar item"
+                />
+                <div class="icon__search">
+                  <i id="icon__search" class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="icon__check">
+                  <i id="icon__check" class="fa-solid fa-circle-check"></i>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
           <form>
             <div id="form__Itens" class="form__itens">
               <div>
@@ -168,52 +146,40 @@
                 <input
                   type="number"
                   id="quantidadeproduto"
-                  class="movimentacao__input--small"
+                  class="input__xsmall"
                   placeholder="1"
                 />
               </div>
               <div>
                 <h3>Item</h3>
-                <input
-                  type="text"
-                  id="item"
-                  class="movimentacao__input--big"
-                />
+                <input type="text" id="item" class="input__big" />
               </div>
               <div>
                 <h3>UN</h3>
                 <input
                   type="text"
                   id="unidademedida"
-                  class="movimentacao__input--small"
+                  class="input__xsmall"
                   placeholder="un"
                 />
               </div>
               <div>
                 <h3>Marca</h3>
-                <input
-                  type="text"
-                  id="marca"
-                  class="movimentacao__input"
-                />
+                <input type="text" id="marca" class="input__medium" />
               </div>
               <div>
                 <h3>Valor</h3>
                 <input
                   type="number"
                   id="valorproduto"
-                  class="movimentacao__input"
+                  class="input__medium"
                   placeholder="1,00"
                   step="0.01"
                 />
               </div>
               <div>
                 <h3>Descrição</h3>
-                <input
-                  type="text"
-                  id="descricao"
-                  class="movimentacao__input--xbig"
-                />
+                <input type="text" id="descricao" class="input__big" />
               </div>
               <div class="movimentacao__button">
                 <i id="button__adicionar" class="fa-solid fa-circle-check"></i>
@@ -269,9 +235,7 @@
               </div>
               <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
             </div>
-            <p>
-              Clique duas vezes no item que deseja adicionar no carrinho.
-            </p>
+            <p>Clique duas vezes no item que deseja adicionar no carrinho.</p>
             <div class="radio__tipoPeca">
               <input
                 type="radio"
@@ -346,9 +310,7 @@
               </div>
               <i id="icon__xmark--selectCliente" class="fa-solid fa-xmark"></i>
             </div>
-            <p>
-              Clique duas vezes no cliente para quem emitirá o orçamento.
-            </p>
+            <p>Clique duas vezes no cliente para quem emitirá a ordem de manutenção.</p>
             <table id="tabela__clientespf">
               <thead id="header__clientespf"></thead>
               <tbody>
@@ -369,7 +331,6 @@
 
     <script src="../js/validacao/input__produto.js"></script>
     <script src="../js/button/button__cancelar.js"></script>
-    <script src="../js/button/button__adicionar--orcamento.js"></script>
-    <script src="../js/components/radio__cliente--orcamento.js"></script>
+    <script src="../js/button/button__adicionar--manutencao.js"></script>
   </body>
 </html>

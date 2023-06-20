@@ -57,7 +57,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  
+                 
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -79,16 +79,18 @@
               </div>
             </div>
             <div>
+              <button type="button">Estoque</button>
+              <div class="submenu__bottom--elements">
+                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+              </div>
+            </div>
+            <div>
               <button type="button">Movimentações</button>
               <div class="submenu__bottom--elements">
-                <a href="./movimentacao__emitirOrcamento.html"
-                  >Emitir Orçamento</a
+                <a href="./movimentacao__manutencao.html"
+                  >Ordem manutenção</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
-                ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -149,14 +151,6 @@
                     placeholder="Digite o perfil de acesso"
                   />
                 </div>
-                <div class="buttons">
-                  <button
-                    id="button__pesquisar--usuario"
-                    class="button__search"
-                  >
-                    Pesquisar
-                  </button>
-                </div>
               </form> 
               </div>
           </div>
@@ -177,8 +171,6 @@
           </button>
       </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js" integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
       <script src="../js/button/exportar__pdf/exportar__usuario.js"></script>
       <script src="../js/button/pesquisar/pesquisar__usuario.js"></script>

@@ -17,12 +17,9 @@ function event__buttonCadastrar__CadastraVeiculopf() {
     "quantidadePassageirosVeiculo"
   );
   var inputModelo = document.getElementById("modeloVeiculo");
-  var inputRenavam = document.getElementById("renavamVeiculo");
-  var inputFabricante = document.getElementById("fabricanteVeiculo");
   var inputPlacaVeiculo = document.getElementById("placaVeiculo");
   var inputNome = document.getElementById("nomeProprietario");
   var inputCpf = document.getElementById("cpf");
-  var inputCnh = document.getElementById("cnhProprietario");
 
   if (
     radioButtonPasseio.checked == false ||
@@ -31,12 +28,9 @@ function event__buttonCadastrar__CadastraVeiculopf() {
     inputMarca.value == "" ||
     inputQuantidadePassageiros.value == "" ||
     inputModelo.value == "" ||
-    inputRenavam.value == "" ||
-    inputFabricante.value == "" ||
     inputPlacaVeiculo.value == "" ||
     inputNome.value == "" ||
-    inputCpf.value == "" ||
-    inputCnh.value == ""
+    inputCpf.value == ""
   ) {
     alert(
       "Não foi possível realizar o cadastro! Verifique novamente se todos os campos foram preenchidos corretamente!"
@@ -50,12 +44,9 @@ function event__buttonCadastrar__CadastraVeiculopf() {
         cor: inputCor.value,
         numeropassageiro: inputQuantidadePassageiros.value,
         modelo: inputModelo.value,
-        renavam: inputRenavam.value,
-        fabricante: inputFabricante.value,
         placa: inputPlacaVeiculo.value,
         nomeproprietario: inputNome.value,
         cpf: inputCpf.value,
-        cnh: inputCnh.value,
       };
 
       fetch("http://localhost:3000/api/cadastro/veiculopf", {
@@ -75,12 +66,9 @@ function event__buttonCadastrar__CadastraVeiculopf() {
         cor: inputCor.value,
         numeropassageiro: inputQuantidadePassageiros.value,
         modelo: inputModelo.value,
-        renavam: inputRenavam.value,
-        fabricante: inputFabricante.value,
         placa: inputPlacaVeiculo.value,
         nomeproprietario: inputNome.value,
         cpf: inputCpf.value,
-        cnh: inputCnh.value,
       };
 
       fetch("http://localhost:3000/api/cadastro/veiculopf", {

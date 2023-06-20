@@ -56,7 +56,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                  
+                 
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -78,16 +78,18 @@
               </div>
             </div>
             <div>
+              <button type="button">Estoque</button>
+              <div class="submenu__bottom--elements">
+                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+              </div>
+            </div>
+            <div>
               <button type="button">Movimentações</button>
               <div class="submenu__bottom--elements">
-                <a href="./movimentacao__emitirOrcamento.html"
-                  >Emitir Orçamento</a
+                <a href="./movimentacao__manutencao.html"
+                  >Ordem manutenção</a
                 ><br />
-                <a href="./movimentacao__emitirPedido.html"
-                  >Emitir pedido</a
-                ><br />
-                <a href="./movimentacao__vendaProduto.html"
-                  >Venda Produto</a
+                <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
               </div>
             </div>
@@ -174,7 +176,7 @@
                   <h3>Modelo</h3>
                   <input
                     type="text"
-                    id="cliente"
+                    id="modelo"
                     class="input__big"
                     placeholder="Digite o modelo do veículo"
                   />
@@ -183,6 +185,7 @@
                   <h3>Marca</h3>
                   <input
                     type="text"
+                    id="marca"
                     class="input__big"
                     placeholder="Digite a marca do veículo"
                   />
@@ -198,7 +201,7 @@
                 </div>
                 <div id="placa__search">
                   <h3>Placa</h3>
-                  <input type="text" id="placa" class="input__big" placeholder="Placa" maxlength="9"/>
+                  <input type="text" id="placa" class="input__big" placeholder="Digite a palca do veículo" maxlength="9"/>
                 </div>
               <div id="proprietario__search">
                 <h3>Proprietário</h3>
@@ -218,14 +221,6 @@
                   placeholder="00.000.000/0000-00"
                   maxlength="18"
                 />
-              </div>
-              <div class="buttons">
-                <button
-                  id="button__pesquisar--veiculopj"
-                  class="button__search"
-                >
-                  Pesquisar
-                </button>
               </div>
             </form>
           </div>
@@ -249,7 +244,6 @@
       </div>
       </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
     <script src="../js/button/exportar__pdf/exportar__veiculopj.js"></script>
     <script src="../js/mascara__relatorio/mascara__cnpj.js"></script>

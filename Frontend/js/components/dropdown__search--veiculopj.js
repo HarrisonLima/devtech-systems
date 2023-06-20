@@ -15,17 +15,9 @@ placa__search.style.display = "none";
 proprietario__search.style.display = "none";
 dropdownOption.style.display = "none";
 
-let dropdownSearch__Veiculopj = document.getElementById("dropdownSearch__Veiculopj");
+function dropdownSelect__SearchVeiculopj(anything) {
+  dropdown__textBox.value = anything;
 
-dropdownSearch__Veiculopj.onclick = function () {
-  if (dropdownOption.style.display == "none") {
-    dropdownOption.style.display = "block";
-  } else if (dropdownOption.style.display == "block") {
-    dropdownOption.style.display = "none";
-  }
-};
-
-dropdown__textBox.addEventListener("change", function () {
   if (dropdown__textBox.value == "Cor") {
     cnpj__search.style.display = "none";
     cor__search.style.display = "block";
@@ -69,5 +61,17 @@ dropdown__textBox.addEventListener("change", function () {
     placa__search.style.display = "none";
     proprietario__search.style.display = "none";
   }
-});
+}
+
+  let dropdownSearch__Veiculopj = document.getElementById(
+    "dropdownSearch__Veiculopj"
+  );
+  
+  dropdownSearch__Veiculopj.onclick = function () {
+    if (dropdownOption.style.display == "none") {
+      dropdownOption.style.display = "block";
+    } else if (dropdownOption.style.display == "block") {
+      dropdownOption.style.display = "none";
+    }
+  };
 

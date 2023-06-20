@@ -1,0 +1,26 @@
+.form__produto--informacoes{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 850px;
+}
+
+.cadastro__input--produto {
+  font-size: 16px;
+  width: 200px;
+}
+
+.cadastro__input--marca {
+  font-size: 16px;
+  width: 200px;
+}
+
+.cadastro__input--descricao {
+  font-size: 16px;
+  width: 350px;
+}
+
+.cadastro__input--un {
+  font-size: 16px;
+  width: 40px;
+}

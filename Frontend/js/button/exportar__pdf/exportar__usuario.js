@@ -21,7 +21,7 @@ function generate() {
   };
   var y = 20;
   doc.setLineWidth(2);
-  doc.text(200, (y = y + 30), "Lista de Produtos");
+  doc.text(200, (y = y + 30), "Lista de Usuários");
   doc.autoTable({
     html: "#tabela__usuarios",
     startY: 70,
@@ -39,6 +39,7 @@ function generate() {
     },
     styles: {
       minCellHeight: 10,
+
     },
   });
   doc.save("listagem_usuarios.pdf");

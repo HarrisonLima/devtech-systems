@@ -1,50 +1,3 @@
-.radio__tipoCliente {
-  font-size: 15px;
-  margin-top: 10px;
-}
-.titlePage{
-  display: flex;
-  font-size: 20px;
-  width: 400px;
-}
-
-#titlePage{
-  font-size: 30px;
-}
-
-.form__fornecedor--informacoes {
-  display: flex;
-  justify-content: space-between;
-  width: 415px;
-}
-
-.form__pesquisar--produto {
-  display: flex;
-  justify-content: space-between;
-  width: 415px;
-}
-
-.title__listagemProdutos {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.title__listagemProdutos i {
-  color: #036316;
-  cursor: pointer;
-  font-size: 25px;
-  justify-content: center;
-  margin-top: 5px;
-}
-
-#icon__search, #icon__searchCliente {
-  color: #090909;
-  cursor: pointer;
-  font-size: 25px;
-  justify-content: center;
-  margin-top: 5px;
-}
-
 #cliente{
   height: 32px;
 }
@@ -64,42 +17,6 @@
 .form__itens input:disabled::placeholder {
   color: transparent;
 } 
-
-.movimentacao__input--xbig {
-  font-size: 16px;
-  width: 350px;
-}
-
-.movimentacao__input--big {
-  font-size: 16px;
-  width: 225px;
-}
-
-.movimentacao__input {
-  font-size: 16px;
-  width: 150px;
-}
-
-.movimentacao__input--small {
-  font-size: 16px;
-  width: 40px;
-}
-
-.movimentacao__input--Estoque {
-  font-size: 16px;
-  text-align: center;
-  width: 55px;
-}
-
-.movimentacao__input--cpf {
-  font-size: 16px;
-  width: 200px;
-}
-
-.movimentacao__input--cnpj {
-  font-size: 16px;
-  width: 200px;
-}
 
 .movimentacao__button {
   align-items: center;
@@ -294,8 +211,11 @@
   display: flex;
 }
 
-.input__estoque{
-  height: 31px;
-  margin-left: 20px;
-  margin-top: 32.5px;
+.input__estoque {
+  margin-left: 55px;
+}
+
+#estoque{
+  height: 30px;
+  width: 50px;
 }

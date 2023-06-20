@@ -17,14 +17,11 @@
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__relatorio.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
-    
+
     <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
-    <link
-      rel="stylesheet"
-      href="../css/dropdown/relatorio__dropdown.css"
-    />
+    <link rel="stylesheet" href="../css/dropdown/relatorio__dropdown.css" />
     <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
-    
+
     <title>Garage 817</title>
   </head>
 
@@ -83,12 +80,15 @@
               </div>
             </div>
             <div>
+              <button type="button">Estoque</button>
+              <div class="submenu__bottom--elements">
+                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+              </div>
+            </div>
+            <div>
               <button type="button">Movimentações</button>
               <div class="submenu__bottom--elements">
-                <a href="./movimentacao__emitirOrcamento.html"
-                  >Emitir Orçamento</a
-                ><br />
-                <a href="./movimentacao__emitirPedido.html">Emitir pedido</a
+                <a href="./movimentacao__manutencao.html">Ordem manutenção</a
                 ><br />
                 <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
@@ -183,14 +183,6 @@
                     maxlength="18"
                   />
                 </div>
-                <div class="buttons">
-                  <button
-                    id="button__pesquisar--clientepj"
-                    class="button__search"
-                  >
-                    Pesquisar
-                  </button>
-                </div>
               </form>
             </div>
           </div>
@@ -216,7 +208,6 @@
         </div>
       </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
       <script src="../js/button/exportar__pdf/exportar__clientepj.js"></script>
       <script src="../js/components/radio__cliente--relatorio.js"></script>

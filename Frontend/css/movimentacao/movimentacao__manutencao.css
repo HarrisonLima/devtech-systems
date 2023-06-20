@@ -1,37 +1,3 @@
-.form__fornecedor--informacoes {
-  margin-top: -12.5px;
-  display: flex;
-  justify-content: space-between;
-  width: 575px;
-}
-
-.form__pesquisar--produto {
-  display: flex;
-  justify-content: space-between;
-  width: 415px;
-}
-
-.title__listagemProdutos {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.title__listagemProdutos i {
-  color: #036316;
-  cursor: pointer;
-  font-size: 25px;
-  justify-content: center;
-  margin-top: 5px;
-}
-
-#icon__search {
-  color: #090909;
-  cursor: pointer;
-  font-size: 25px;
-  justify-content: center;
-  margin-top: 5px;
-}
-
 .form__itens {
   margin-top: 10px;
   display: flex;
@@ -46,36 +12,6 @@
 
 .form__itens input:disabled::placeholder {
   color: transparent;
-}
-
-.movimentacao__input--xbig {
-  font-size: 16px;
-  width: 350px;
-}
-
-.movimentacao__input--big {
-  font-size: 16px;
-  width: 225px;
-}
-
-.movimentacao__input {
-  font-size: 16px;
-  width: 150px;
-}
-
-.movimentacao__input--small {
-  font-size: 16px;
-  width: 40px;
-}
-
-.movimentacao__input--cpf {
-  font-size: 16px;
-  width: 200px;
-}
-
-.movimentacao__input--cnpj {
-  font-size: 16px;
-  width: 200px;
 }
 
 .movimentacao__button {
@@ -115,7 +51,7 @@
   width: 265px;
 }
 
-.button__form--finalizarVenda {
+.button__form--emitirOrcamento {
   background-color: #1d4350;
   border: 0.5px solid #1d4350;
   border-radius: 6px;
@@ -125,7 +61,7 @@
   width: 125px;
 }
 
-#modal__SelectProduct {
+#modal__SelectItem, #modal__SelectCliente {
   background-color: #fff;
   border: 0.3px solid #ccc;
   border-radius: 10px;
@@ -140,26 +76,19 @@
   z-index: 9999;
 }
 
-#icon__modal--SelectProduct {
+#icon__modal--SelectItem, #icon__modal--SelectCliente {
   color: #ffac1c;
   font-size: 25px;
   margin-top: 18px;
 }
 
-#modal__SelectProduct h2 {
+#modal__SelectItem, #modal__SelectCliente, #modal__CleartTable h2 {
   font-size: 25px;
   margin-left: 8px;
 }
 
-.button__modal--selecionar {
-  background-color: #dbdbdb;
-  border: 0.5px solid #dbdbdb;
-  border-radius: 6px;
-  color: #000000;
-  cursor: pointer;
-  height: 35px;
-  font-weight: 500;
-  width: 125px;
+#modal__SelectItem, #modal__SelectCliente, #modal__CleartTable p {
+  font-size: 16px;
 }
 
 #modal__ClearTable {
@@ -175,6 +104,7 @@
   width: 465px;
   z-index: 9999;
 }
+
 .modal__header {
   display: flex;
   justify-content: space-between;
@@ -185,7 +115,7 @@
 }
 
 #icon__xmark,
-#icon__xmark--select {
+#icon__xmark--select, #icon__xmark--selectCliente {
   color: #db1414;
   cursor: pointer;
   font-size: 25px;
@@ -195,11 +125,6 @@
   color: #ffac1c;
   font-size: 25px;
   margin-top: 18px;
-}
-
-#modal__ClearTable h2 {
-  font-size: 25px;
-  margin-left: 8px;
 }
 
 .buttons__modal {
@@ -230,19 +155,19 @@
   width: 125px;
 }
 
-#tabela__produtos {
+#tabela__produtos, #tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos {
   align-items: center;
   display: flexbox;
   justify-content: center;
   justify-items: center;
 }
 
-#tabela__produtos thead {
+#tabela__produtos, #tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos thead {
   font-size: 16px;
   width: 100%;
 }
 
-#tabela__produtos td {
+#tabela__pecas, #tabela__servicos, #tabela__clientespj, #tabela__clientespf td {
   font-size: 14px;
 }
 
@@ -250,15 +175,21 @@
   background: #fff;
 }
 
-#tabela__produtos > tr:not(:first-child):hover {
+#tabela__produtos> tr:not(:first-child):hover {
   background: #ffcc74;
   cursor: pointer;
 }
 
-#pesquisarProduto {
+#tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos > tr:not(:first-child):hover {
+  background: #ffcc74;
   cursor: pointer;
 }
 
-#subtotal, #valorproduto{
+#pesquisarProduto, #pesquisarCliente {
+  cursor: pointer;
+  height: 32px;
+}
+
+#subtotal, #valor{
   text-align: right;
 }

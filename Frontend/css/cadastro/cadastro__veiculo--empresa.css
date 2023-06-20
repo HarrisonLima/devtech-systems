@@ -1,0 +1,14 @@
+.radio__tipoVeiculo{
+  align-items: center;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 450px;
+}
+
+.radio__tipoVeiculo h3 {
+  font-size: 16px;
+}
+
+#sectionOwner{
+  margin-top: 20px;
+}
