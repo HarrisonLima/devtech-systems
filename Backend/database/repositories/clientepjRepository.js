@@ -4,35 +4,27 @@ async function cadastrarClientepjRepository(
   razaosocial,
   nomefantasia,
   cnpj,
-  inscricaoestadual,
-  inscricaomunicipal,
   cep,
   numero,
-  complemento,
   cidade,
   uf,
   logradouro,
   email,
-  ddd,
   telefone
 ) {
   try {
     const query =
-      "INSERT INTO clientepj (razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *";
+      "INSERT INTO clientepj (razaosocial, nomefantasia, cnpj, cep, numero, cidade, uf, logradouro, email, telefone) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *";
     const values = [
       razaosocial,
       nomefantasia,
       cnpj,
-      inscricaoestadual,
-      inscricaomunicipal,
       cep,
       numero,
-      complemento,
       cidade,
       uf,
       logradouro,
       email,
-      ddd,
       telefone
     ];
 
@@ -56,16 +48,12 @@ async function buscarClientespjRepository() {
           razaosocial: cliente.razaosocial,
           nomefantasia: cliente.nomefantasia,
           cnpj: cliente.cnpj,
-          inscricaoestadual: cliente.inscricaoestadual,
-          inscricaomunicipal: cliente.inscricaomunicipal,
           cep: cliente.cep,
           numero: cliente.numero,
-          complemento: cliente.complemento,
           cidade: cliente.cidade,
           uf: cliente.uf,
           logradouro: cliente.logradouro,
           email: cliente.email,
-          ddd: cliente.ddd,
           telefone: cliente.telefone
         };
       });

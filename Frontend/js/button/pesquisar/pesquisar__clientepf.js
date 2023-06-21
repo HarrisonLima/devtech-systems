@@ -1,9 +1,9 @@
 var inputCliente = document.getElementById("cliente");
-var inputCpf= document.getElementById("cpf");
+var inputCpf = document.getElementById("cpf");
 
 inputCliente.addEventListener("input", () => {
   filter = inputCliente.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__clientespf");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
@@ -17,25 +17,27 @@ inputCliente.addEventListener("input", () => {
       }
     }
   }
-})
+});
 
 inputCpf.addEventListener("input", () => {
-  filter = inputCpf.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
-  tr = table.getElementsByTagName("tr");
+  if (cpf__search.style.display == "block") {
+    filter = inputCpf.value.toUpperCase();
+    table = document.getElementById("tabela__clientespf");
+    tr = table.getElementsByTagName("tr");
 
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
       }
     }
   }
-})
+});
 
 function getClientespf(url) {
   let request = new XMLHttpRequest();
@@ -75,7 +77,6 @@ function adicionaLinha(cliente) {
   linha.appendChild(tdUf);
   linha.appendChild(tdLogradouro);
   linha.appendChild(tdEmail);
-  linha.appendChild(tdDDD);
   linha.appendChild(tdTelefone);
 
   return linha;
@@ -117,12 +118,12 @@ function updateRegistros() {
   tabela.innerHTML = "";
   header.innerHTML = "";
   criaColunas();
-    let data = getClientespf("http://localhost:3000/api/clientespf");
-    let clientes = JSON.parse(data);
-    clientes.forEach((element) => {
-      let linha = adicionaLinha(element);
-      tabela.appendChild(linha);
-    });
-  }
+  let data = getClientespf("http://localhost:3000/api/clientespf");
+  let clientes = JSON.parse(data);
+  clientes.forEach((element) => {
+    let linha = adicionaLinha(element);
+    tabela.appendChild(linha);
+  });
+}
 
-  updateRegistros();
+updateRegistros();

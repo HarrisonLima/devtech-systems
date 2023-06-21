@@ -7,7 +7,6 @@ const { cadastrarProduto, buscarProdutos, atualizarProdutos } = require("./servi
 const { cadastrarServico, buscarServicos } = require("./services/servicoService")
 const { cadastrarClientepf, buscarClientespf }= require("./services/clientepfService")
 const { cadastrarClientepj, buscarClientespj } = require("./services/clientepjService")
-const { cadastrarFornecedor, buscarFornecedores } = require("./services/fornecedorService")
 const { cadastrarVeiculopf, buscarVeiculospf } = require("./services/veiculopfService")
 const { cadastrarVeiculopj, buscarVeiculospj } = require("./services/veiculopjService")
 
@@ -59,10 +58,11 @@ app.post("/api/cadastro/produto", (req, res) => {
   console.log(req.body);
   const produto = req.body.produto
   const un = req.body.un
+  const valor = req.body.valor
   const marca = req.body.marca
   const descricao = req.body.descricao
 
-  return cadastrarProduto(produto, un, marca, descricao)
+  return cadastrarProduto(produto, un, valor, marca, descricao)
     .then((data) => {
       res.status(200)
       return res.send(data)
@@ -92,20 +92,15 @@ app.post("/api/cadastro/clientepf", (req, res) => {
   console.log(req.body);
   const nome = req.body.nome
   const cpf = req.body.cpf
-  const genero = req.body.genero
-  const nascimento = req.body.nascimento
-  const estadocivil = req.body.estadocivil
   const cep = req.body.cep
   const numero = req.body.numero
-  const complemento = req.body.complemento
   const cidade = req.body.cidade
   const uf = req.body.uf
   const logradouro = req.body.logradouro
   const email = req.body.email
-  const ddd = req.body.ddd
   const telefone = req.body.telefone
 
-  return cadastrarClientepf(nome, cpf, genero, nascimento, estadocivil, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone)
+  return cadastrarClientepf(nome, cpf, cep, numero, cidade, uf, logradouro, email, telefone)
     .then((data) => {
       res.status(200)
       return res.send(data)
@@ -117,49 +112,18 @@ app.post("/api/cadastro/clientepf", (req, res) => {
 
 app.post("/api/cadastro/clientepj", (req, res) => {
   console.log(req.body);
-  const razaoSocial = req.body.razaoSocial
-  const nomeFantasia = req.body.nomeFantasia
-  const cnpj = req.body.cnpj
-  const inscricaoEstadual = req.body.inscricaoEstadual
-  const inscricaoMunicipal = req.body.inscricaoMunicipal
-  const cep = req.body.cep
-  const numero = req.body.numero
-  const complemento = req.body.complemento
-  const cidade = req.body.cidade
-  const uf = req.body.uf
-  const logradouro = req.body.logradouro
-  const email = req.body.email
-  const ddd = req.body.ddd
-  const telefone = req.body.telefone
-
-  return cadastrarClientepj(razaoSocial, nomeFantasia, cnpj, inscricaoEstadual, inscricaoMunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone)
-    .then((data) => {
-      res.status(200)
-      return res.send(data)
-    })
-    .catch(() => {
-      return res.status(500)
-    })
-})
-
-app.post("/api/cadastro/fornecedor", (req, res) => {
-  console.log(req.body);
   const razaosocial = req.body.razaosocial
   const nomefantasia = req.body.nomefantasia
   const cnpj = req.body.cnpj
-  const inscricaoestadual = req.body.inscricaoestadual
-  const inscricaomunicipal = req.body.inscricaomunicipal
   const cep = req.body.cep
   const numero = req.body.numero
-  const complemento = req.body.complemento
   const cidade = req.body.cidade
   const uf = req.body.uf
   const logradouro = req.body.logradouro
   const email = req.body.email
-  const ddd = req.body.ddd
   const telefone = req.body.telefone
 
-  return cadastrarFornecedor(razaosocial, nomefantasia, cnpj, inscricaoestadual, inscricaomunicipal, cep, numero, complemento, cidade, uf, logradouro, email, ddd, telefone)
+  return cadastrarClientepj(razaosocial, nomefantasia, cnpj, cep, numero, cidade, uf, logradouro, email, telefone)
     .then((data) => {
       res.status(200)
       return res.send(data)
@@ -177,14 +141,11 @@ app.post("/api/cadastro/veiculopf", (req, res) => {
   const cor = req.body.cor
   const numeropassageiro = req.body.numeropassageiro
   const modelo = req.body.modelo
-  const renavam = req.body.renavam
-  const fabricante = req.body.fabricante
   const placa = req.body.placa
   const nomeproprietario = req.body.nomeproprietario
   const cpf = req.body.cpf
-  const cnh = req.body.cnh
 
-  return cadastrarVeiculopf(tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cpf, cnh)
+  return cadastrarVeiculopf(tipo, marca, anofabricacao, cor, numeropassageiro, modelo, placa, nomeproprietario, cpf)
     .then((data) => {
       res.status(200)
       return res.send(data)
@@ -202,13 +163,11 @@ app.post("/api/cadastro/veiculopj", (req, res) => {
   const cor = req.body.cor
   const numeropassageiro = req.body.numeropassageiro
   const modelo = req.body.modelo
-  const renavam = req.body.renavam
-  const fabricante = req.body.fabricante
   const placa = req.body.placa
   const nomeproprietario = req.body.nomeproprietario
   const cnpj = req.body.cnpj
 
-  return cadastrarVeiculopj(tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cnpj)
+  return cadastrarVeiculopj(tipo, marca, anofabricacao, cor, numeropassageiro, modelo, placa, nomeproprietario, cnpj)
     .then((data) => {
       res.status(200)
       return res.send(data)

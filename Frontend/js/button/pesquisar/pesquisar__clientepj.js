@@ -4,7 +4,7 @@ var inputCnpj = document.getElementById("cnpj");
 
 inputRazaoSocial.addEventListener("input", () => {
   filter = inputRazaoSocial.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__clientespj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
@@ -22,7 +22,7 @@ inputRazaoSocial.addEventListener("input", () => {
 
 inputNomeFantasia.addEventListener("input", () => {
   filter = inputNomeFantasia.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__clientespj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {

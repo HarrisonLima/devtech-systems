@@ -1,17 +1,17 @@
-var inputCnpj = document.getElementById("cnpj");
+var inputCpf = document.getElementById("cnpj");
 var inputModelo = document.getElementById("modelo");
 var inputMarca = document.getElementById("marca");
 var inputColor = document.getElementById("color");
 var inputPlaca = document.getElementById("placa");
 var inputProprietario = document.getElementById("proprietario");
 
-inputCnpj.addEventListener("input", () => {
-  filter = inputCnpj.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+inputCpf.addEventListener("input", () => {
+  filter = inputCpf.value.toUpperCase();
+  table = document.getElementById("tabela__veiculospj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
+    td = tr[i].getElementsByTagName("td")[9];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -25,11 +25,11 @@ inputCnpj.addEventListener("input", () => {
 
 inputModelo.addEventListener("input", () => {
   filter = inputModelo.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__veiculospj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[6];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -43,7 +43,7 @@ inputModelo.addEventListener("input", () => {
 
 inputMarca.addEventListener("input", () => {
   filter = inputMarca.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__veiculospj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
@@ -61,11 +61,11 @@ inputMarca.addEventListener("input", () => {
 
 inputColor.addEventListener("input", () => {
   filter = inputColor.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__veiculospj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[4];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -78,11 +78,11 @@ inputColor.addEventListener("input", () => {
 })
 inputPlaca.addEventListener("input", () => {
   filter = inputPlaca.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__veiculospj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[7];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -95,11 +95,11 @@ inputPlaca.addEventListener("input", () => {
 })
 inputProprietario.addEventListener("input", () => {
   filter = inputProprietario.value.toUpperCase();
-  table = document.getElementById("tabela__usuarios");
+  table = document.getElementById("tabela__veiculospj");
   tr = table.getElementsByTagName("tr");
 
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[8];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {

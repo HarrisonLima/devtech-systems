@@ -7,15 +7,13 @@ async function cadastrarVeiculopjRepository(
   cor,
   numeropassageiro,
   modelo,
-  renavam,
-  fabricante,
   placa,
   nomeproprietario,
   cnpj
 ) {
   try {
     const query =
-      "INSERT INTO veiculopj (tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cnpj) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *";
+      "INSERT INTO veiculopj (tipo, marca, anofabricacao, cor, numeropassageiro, modelo, placa, nomeproprietario, cnpj) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *";
     const values = [
       tipo,
       marca,
@@ -23,8 +21,6 @@ async function cadastrarVeiculopjRepository(
       cor,
       numeropassageiro,
       modelo,
-      renavam,
-      fabricante,
       placa,
       nomeproprietario,
       cnpj
@@ -53,8 +49,6 @@ async function buscarVeiculospjRepository() {
           cor: veiculo.cor,
           numeropassageiro: veiculo.numeropassageiro,
           modelo: veiculo.modelo,
-          renavam: veiculo.renavam,
-          fabricante: veiculo.fabricante,
           placa: veiculo.placa,
           nomeproprietario: veiculo.nomeproprietario,
           cnpj: veiculo.cnpj

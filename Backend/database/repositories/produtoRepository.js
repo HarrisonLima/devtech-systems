@@ -1,10 +1,10 @@
 const db = require("../postgres");
 
-async function cadastrarProdutoRepository(produto, un, marca, descricao) {
+async function cadastrarProdutoRepository(produto, un, valor, marca, descricao) {
   try {
     const query =
-      "INSERT INTO produto (produto, un, marca, descricao, estoque) VALUES($1, $2, $3, $4, $5) RETURNING *";
-    const values = [produto, un, marca, descricao, 0];
+      "INSERT INTO produto (produto, un, marca, valor, descricao, estoque) VALUES($1, $2, $3, $4, $5, $6) RETURNING *";
+    const values = [produto, un, marca, valor, descricao, 0];
 
     return db.query(query, values).then((res) => {
       return res.rows[0];
@@ -25,6 +25,7 @@ async function buscarProdutosRepository() {
           id: produto.id,
           produto: produto.produto,
           un: produto.un,
+          valor: produto.valor,
           marca: produto.marca,
           descricao: produto.descricao,
           estoque: produto.estoque,

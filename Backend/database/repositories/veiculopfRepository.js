@@ -7,16 +7,13 @@ async function cadastrarVeiculopfRepository(
   cor,
   numeropassageiro,
   modelo,
-  renavam,
-  fabricante,
   placa,
   nomeproprietario,
-  cpf,
-  cnh
+  cpf
 ) {
   try {
     const query =
-      "INSERT INTO veiculopf (tipo, marca, anofabricacao, cor, numeropassageiro, modelo, renavam, fabricante, placa, nomeproprietario, cpf, cnh) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *";
+      "INSERT INTO veiculopf (tipo, marca, anofabricacao, cor, numeropassageiro, modelo, placa, nomeproprietario, cpf) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *";
     const values = [
       tipo,
       marca,
@@ -24,12 +21,9 @@ async function cadastrarVeiculopfRepository(
       cor,
       numeropassageiro,
       modelo,
-      renavam,
-      fabricante,
       placa,
       nomeproprietario,
-      cpf,
-      cnh,
+      cpf
     ];
 
     return db
@@ -59,12 +53,9 @@ async function buscarVeiculospfRepository() {
           cor: veiculo.cor,
           numeropassageiro: veiculo.numeropassageiro,
           modelo: veiculo.modelo,
-          renavam: veiculo.renavam,
-          fabricante: veiculo.fabricante,
           placa: veiculo.placa,
           nomeproprietario: veiculo.nomeproprietario,
           cpf: veiculo.cpf,
-          cnh: veiculo.cnh,
         };
       });
     });
