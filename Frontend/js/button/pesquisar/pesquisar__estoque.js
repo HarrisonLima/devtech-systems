@@ -56,6 +56,7 @@ inputDescricao.addEventListener("input", () => {
   }
 })
 
+
 function getProdutos(url) {
   let request = new XMLHttpRequest();
   request.open("GET", url, false);
@@ -64,18 +65,18 @@ function getProdutos(url) {
 }
 
 const tabela = document.getElementById("tabela__produtos");
-const content = document.getElementById("content");
 const header = document.getElementById("header");
 
 function adicionaLinha(produto) {
-  linha = document.createElement("tr");
-  tdId = document.createElement("td");
-  tdProduto = document.createElement("td");
-  tdUn = document.createElement("td");
-  tdValor = document.createElement("td");
-  tdMarca = document.createElement("td");
-  tdEstoque = document.createElement("td");
-  tdDescricao = document.createElement("td");
+  let linha = document.createElement("tr");
+  let tdId = document.createElement("td");
+  let tdProduto = document.createElement("td");
+  let tdUn = document.createElement("td");
+  let tdValor = document.createElement("td");
+  let tdMarca = document.createElement("td");
+  let tdEstoque = document.createElement("td");
+  let tdDescricao = document.createElement("td");
+  let tdIcons = document.createElement("td");
 
   tdId.innerHTML = produto.id;
   tdProduto.innerHTML = produto.produto;
@@ -85,6 +86,21 @@ function adicionaLinha(produto) {
   tdEstoque.innerHTML = produto.estoque;
   tdDescricao.innerHTML = produto.descricao;
 
+  let editIcon = document.createElement("span");
+  editIcon.classList.add(
+    "fa-solid",
+    "fa-pen",
+    "table__edit-icon",
+    "table__align"
+  );
+  tdEstoque.classList.add("editable");
+  tdEstoque.removeAttribute("disabled");
+  editIcon.onclick = enableEdit;
+
+  editIcon.style.cursor = "pointer";
+
+  tdIcons.appendChild(editIcon);
+
   linha.appendChild(tdId);
   linha.appendChild(tdProduto);
   linha.appendChild(tdUn);
@@ -92,6 +108,7 @@ function adicionaLinha(produto) {
   linha.appendChild(tdMarca);
   linha.appendChild(tdEstoque);
   linha.appendChild(tdDescricao);
+  linha.appendChild(tdIcons);
 
   return linha;
 }
@@ -105,6 +122,7 @@ function criaColunas(Column) {
   const elementColumnMarca = document.createElement("th");
   const elementColumnEstoque = document.createElement("th");
   const elementColumnDescricao = document.createElement("th");
+  const elementColumnAcoes = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
   elementColumnProduto.innerHTML = "Produto";
@@ -112,7 +130,8 @@ function criaColunas(Column) {
   elementColumnValor.innerHTML = "Valor";
   elementColumnMarca.innerHTML = "Marca";
   elementColumnEstoque.innerHTML = "Estoque";
-  elementColumnDescricao.innerHTML = "Descricao";
+  elementColumnDescricao.innerHTML = "Descrição";
+  elementColumnAcoes.innerHTML = "Ações";
 
   elementRow.appendChild(elementColumnId);
   elementRow.appendChild(elementColumnProduto);
@@ -121,6 +140,8 @@ function criaColunas(Column) {
   elementRow.appendChild(elementColumnMarca);
   elementRow.appendChild(elementColumnEstoque);
   elementRow.appendChild(elementColumnDescricao);
+  elementRow.appendChild(elementColumnAcoes);
+
   header.appendChild(elementRow);
   tabela.appendChild(header);
 }
@@ -135,6 +156,22 @@ function updateRegistros() {
     let linha = adicionaLinha(element);
     tabela.appendChild(linha);
   });
+}
+
+function enableEdit() {
+  var tdEstoqueElement = this.parentNode.parentNode.querySelector(".editable"); // Ajustar a seleção do tdEstoqueElement
+  if (tdEstoqueElement) {
+    tdEstoqueElement.contentEditable = true;
+    tdEstoqueElement.focus();
+    tdEstoqueElement.addEventListener("keydown", function (e) {
+      if (isNaN(Number(e.key)) && e.key !== "Backspace" && e.key !== "Delete") {
+        e.preventDefault();
+      }
+    });
+    tdEstoqueElement.addEventListener("blur", function () {
+      tdEstoqueElement.contentEditable = false;
+    });
+  }
 }
 
 updateRegistros();

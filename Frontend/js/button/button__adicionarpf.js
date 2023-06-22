@@ -140,16 +140,14 @@ button__clear.addEventListener("click", () => {
 });
 
 button__check.addEventListener("click", () => {
-  if (inputEstoque > 0) {
+  if (inputEstoque.value > 0) {
     inputQtde.disabled = false;
-    inputValorProduto.disabled = false;
 
     inputQtde.value = 1;
-    const valorDefault = 1.0;
-    inputValorProduto.value = valorDefault.toFixed(2);
 
     inputProduto.value = produto.textContent;
     inputUn.value = un.textContent;
+    inputValorProduto.value = valor.textContent;
     inputMarca.value = marca.textContent;
     inputDescricaoProduto.value = descricao.textContent;
 
@@ -281,7 +279,6 @@ function createTable() {
     var rowData = basket[rowIndex - 1];
 
     inputQtde.disabled = false;
-    inputValorProduto.disabled = false;
 
     inputQtde.value = rowData.qtde;
     inputProduto.value = rowData.produto;
@@ -406,12 +403,14 @@ function adicionaLinhaProduto(produto) {
   tdId = document.createElement("td");
   tdProduto = document.createElement("td");
   tdUn = document.createElement("td");
+  tdValor = document.createElement("td");
   tdMarca = document.createElement("td");
   tdEstoque = document.createElement("td");
   tdDescricao = document.createElement("td");
   tdId.innerHTML = produto.id;
   tdProduto.innerHTML = produto.produto;
   tdUn.innerHTML = produto.un;
+  tdValor.innerHTML = produto.valor;
   tdMarca.innerHTML = produto.marca;
   tdEstoque.innerHTML = produto.estoque;
   tdDescricao.innerHTML = produto.descricao;
@@ -419,6 +418,7 @@ function adicionaLinhaProduto(produto) {
   linha.appendChild(tdId);
   linha.appendChild(tdProduto);
   linha.appendChild(tdUn);
+  linha.appendChild(tdValor);
   linha.appendChild(tdMarca);
   linha.appendChild(tdEstoque);
   linha.appendChild(tdDescricao);
@@ -431,6 +431,7 @@ function criaColunasProduto(Column) {
   const elementColumnId = document.createElement("th");
   const elementColumnProduto = document.createElement("th");
   const elementColumnUn = document.createElement("th");
+  const elementColumnValor = document.createElement("th");
   const elementColumnMarca = document.createElement("th");
   const elementColumnEstoque = document.createElement("th");
   const elementColumnDescricao = document.createElement("th");
@@ -438,6 +439,7 @@ function criaColunasProduto(Column) {
   elementColumnId.innerHTML = "ID";
   elementColumnProduto.innerHTML = "Produto";
   elementColumnUn.innerHTML = "Un";
+  elementColumnValor.innerHTML = "Valor";
   elementColumnMarca.innerHTML = "Marca";
   elementColumnEstoque.innerHTML = "Estoque";
   elementColumnDescricao.innerHTML = "Descricao";
@@ -445,6 +447,7 @@ function criaColunasProduto(Column) {
   elementRow.appendChild(elementColumnId);
   elementRow.appendChild(elementColumnProduto);
   elementRow.appendChild(elementColumnUn);
+  elementRow.appendChild(elementColumnValor);
   elementRow.appendChild(elementColumnMarca);
   elementRow.appendChild(elementColumnEstoque);
   elementRow.appendChild(elementColumnDescricao);
@@ -462,22 +465,24 @@ function updateRegistrosProduto() {
   function selectionProduct() {
     var nomeProduto = this.querySelector("td:nth-child(2)");
     var unProduto = this.querySelector("td:nth-child(3)");
-    var marcaProduto = this.querySelector("td:nth-child(4)");
-    var estoqueItem = this.querySelector("td:nth-child(5)");
-    var descricaoProduto = this.querySelector("td:nth-child(6)");
+    var valorProduto = this.querySelector("td:nth-child(4)");
+    var marcaProduto = this.querySelector("td:nth-child(5)");
+    var estoqueItem = this.querySelector("td:nth-child(6)");
+    var descricaoProduto = this.querySelector("td:nth-child(7)");
 
     produto = nomeProduto;
     un = unProduto;
+    valor = valorProduto;
     marca = marcaProduto;
     qtdeEstoque = estoqueItem;
     descricao = descricaoProduto;
 
     inputBuscar.value = produto.textContent;
-    inputEstoque.value = parseFloat(qtdeEstoque.textContent).toFixed(2);
+    inputEstoque.value = parseFloat(qtdeEstoque.textContent).toFixed(0);
 
     if (inputEstoque.value == 0) {
       inputEstoque.style.color = "#FF0000";
-      inputEstoque.style.fontWeight = "500";
+      inputEstoque.style.fontWeight = "400";
     }
 
     button__check.style.display = "block";

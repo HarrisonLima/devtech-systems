@@ -11,9 +11,8 @@ async function buscarProdutos() {
     return buscarProdutosRepository();
 }
 
-async function atualizarProdutos() {
-
+async function atualizarProduto() {
     return atualizarProdutoRepository();
 }
 
-module.exports = { cadastrarProduto, buscarProdutos, atualizarProdutos };
+module.exports = { cadastrarProduto, buscarProdutos, atualizarProduto };

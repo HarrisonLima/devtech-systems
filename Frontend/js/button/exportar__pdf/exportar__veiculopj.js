@@ -74,11 +74,15 @@ function generate() {
   };
   var y = 20;
   doc.setLineWidth(2);
-  doc.text(200, (y = y + 30), "Lista de Veículos");
+  doc.setFontSize(12);
+  doc.text(45, (y = y + 20), filterActivate);
+  doc.setFontSize(18);
+  doc.text(200, (y = y + 25), "Lista de Veículos");
+  doc.pageNumber = currentPage;
   doc.autoTable({
     html: "#tabela__veiculospj",
-    startY: 70,
-    theme: "grid",
+    startY: 80,
+    theme: "plain",
     columnStyles: {
       0: {
         cellWidth: 30,

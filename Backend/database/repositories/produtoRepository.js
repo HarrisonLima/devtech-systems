@@ -1,16 +1,25 @@
 const db = require("../postgres");
 
-async function cadastrarProdutoRepository(produto, un, valor, marca, descricao) {
+async function cadastrarProdutoRepository(
+  produto,
+  un,
+  valor,
+  marca,
+  descricao
+) {
   try {
     const query =
       "INSERT INTO produto (produto, un, marca, valor, descricao, estoque) VALUES($1, $2, $3, $4, $5, $6) RETURNING *";
     const values = [produto, un, marca, valor, descricao, 0];
 
-    return db.query(query, values).then((res) => {
-      return res.rows[0];
-    }).catch( error => {
-      console.log(error)
-    })
+    return db
+      .query(query, values)
+      .then((res) => {
+        return res.rows[0];
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   } catch (error) {
     console.log(error);
   }
@@ -25,10 +34,10 @@ async function buscarProdutosRepository() {
           id: produto.id,
           produto: produto.produto,
           un: produto.un,
-          valor: produto.valor,
           marca: produto.marca,
           descricao: produto.descricao,
           estoque: produto.estoque,
+          valor: produto.valor,
         };
       });
     });
@@ -37,17 +46,17 @@ async function buscarProdutosRepository() {
   }
 }
 
-async function atualizarProdutoRepository(id, produto, un, marca, descricao, estoque) {
+async function atualizarProdutoRepository(
+  estoque,
+  id
+) {
   try {
-    const query =
-      "UPDATE produto SET produto = $1, un = $2, marca = $3, descricao = $4 , estoque = $5 WHERE id = $6 RETURNING *";
-    const values = [produto, un, marca, descricao, estoque, id];
+    const query = "UPDATE produto SET estoque = $1 WHERE id = $2";
+    const values = [estoque, id];
 
-    return db.query(query, values).then((res) => {
-      return res.rows[0];
-    }).catch((error) => {
-      console.log(error);
-    });
+    return db
+      .query(query, values)
+
   } catch (error) {
     console.log(error);
   }
