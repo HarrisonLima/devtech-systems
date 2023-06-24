@@ -174,4 +174,33 @@ function enableEdit() {
   }
 }
 
-updateRegistros();
+function ordenarTabela() {
+  updateRegistros();
+  let registros = Array.from(tabela.getElementsByTagName("tr"));
+
+  let cabecalho = registros.shift(); 
+  let linhasDados = registros.sort(function(a, b) {
+    let valorA = parseInt(a.cells[0].textContent);
+    let valorB = parseInt(b.cells[0].textContent);
+    return valorA - valorB;
+  });
+
+  while (tabela.firstChild) {
+    tabela.removeChild(tabela.firstChild);
+  }
+
+  tabela.appendChild(cabecalho);
+  linhasDados.forEach(function(registros) {
+    tabela.appendChild(registros);
+  });
+
+  function personalizarCabecalho() {
+    let primeiraLinha = tabela.rows[0];
+  
+    primeiraLinha.style.backgroundColor = "#a5a5a5";
+  }
+
+  personalizarCabecalho();
+}
+
+ordenarTabela();

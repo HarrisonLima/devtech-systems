@@ -51,7 +51,7 @@
   width: 265px;
 }
 
-.button__form--emitirOrcamento {
+.button__form--criarManutencao {
   background-color: #1d4350;
   border: 0.5px solid #1d4350;
   border-radius: 6px;
@@ -61,7 +61,7 @@
   width: 125px;
 }
 
-#modal__SelectItem, #modal__SelectCliente {
+#modal__SelectItem, #modal__SelectCliente, #modal__SelectVeiculo {
   background-color: #fff;
   border: 0.3px solid #ccc;
   border-radius: 10px;
@@ -76,18 +76,18 @@
   z-index: 9999;
 }
 
-#icon__modal--SelectItem, #icon__modal--SelectCliente {
+#icon__modal--SelectItem, #icon__modal--SelectCliente, #icon__modal--SelectVeiculo  {
   color: #ffac1c;
   font-size: 25px;
   margin-top: 18px;
 }
 
-#modal__SelectItem, #modal__SelectCliente, #modal__CleartTable h2 {
+#modal__SelectItem, #modal__SelectCliente, #modal__SelectVeiculo, #modal__CleartTable h2 {
   font-size: 25px;
   margin-left: 8px;
 }
 
-#modal__SelectItem, #modal__SelectCliente, #modal__CleartTable p {
+#modal__SelectItem, #modal__SelectCliente, #modal__SelectVeiculo, #modal__CleartTable p {
   font-size: 16px;
 }
 
@@ -115,7 +115,7 @@
 }
 
 #icon__xmark,
-#icon__xmark--select, #icon__xmark--selectCliente {
+#icon__xmark--select, #icon__xmark--selectCliente, #icon__xmark--selectVeiculo {
   color: #db1414;
   cursor: pointer;
   font-size: 25px;
@@ -155,19 +155,19 @@
   width: 125px;
 }
 
-#tabela__produtos, #tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos {
+#tabela__produtos, #tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos, #tabela__veiculos {
   align-items: center;
   display: flexbox;
   justify-content: center;
   justify-items: center;
 }
 
-#tabela__produtos, #tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos thead {
+#tabela__produtos, #tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos, #tabela__veiculos thead {
   font-size: 16px;
   width: 100%;
 }
 
-#tabela__pecas, #tabela__servicos, #tabela__clientespj, #tabela__clientespf td {
+#tabela__pecas, #tabela__servicos, #tabela__clientespj, #tabela__clientespf, #tabela__veiculos td {
   font-size: 14px;
 }
 
@@ -180,12 +180,12 @@
   cursor: pointer;
 }
 
-#tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos > tr:not(:first-child):hover {
+#tabela__clientespj, #tabela__clientespf, #tabela__pecas, #tabela__servicos, #tabela__veiculos > tr:not(:first-child):hover {
   background: #ffcc74;
   cursor: pointer;
 }
 
-#pesquisarProduto, #pesquisarCliente {
+#pesquisarProduto, #pesquisarCliente, #pesquisarVliente {
   cursor: pointer;
   height: 32px;
 }

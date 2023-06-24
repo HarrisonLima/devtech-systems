@@ -21,7 +21,17 @@
 }
 
 .dashboard__content i {
-  font-size: 18px;
+  font-size: 25px;
+}
+
+.dashboard__header {
+  display: inline-flex;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-left: 12px;
 }
 
 .dasboard__paineis {
@@ -34,19 +44,31 @@
 }
 
 .dashboard__paineis--default {
-  background-color: #1d4350;
+  border-radius: 12px;
   color: #fff;
   padding: 30px;
   margin-right: 5px;
   height: 125px;
-  width: 325px;
+  width: 275px;
 }
 
-.dashboard__paineis--default h3{
-  font-size: 18px;
+#dashAberto {
+  background-color: #cecb06;
 }
 
-.dashboard__chart--graph{
+#dashAndamento {
+  background-color: #237f46;
+}
+
+#dashRealizada {
+  background-color: #000000;
+}
+
+.dashboard__paineis--default h3 {
+  font-size: 15px;
+}
+
+.dashboard__chart--graph {
   max-width: 500px;
 }
 
@@ -58,7 +80,7 @@
   margin-left: 50px;
   width: 1000px;
 }
-.dashboard__chart--graph{
+.dashboard__chart--graph {
   background-color: #fff;
   border: 7px solid #dedede;
   border-width: 1px;

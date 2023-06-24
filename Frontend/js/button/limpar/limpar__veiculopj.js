@@ -12,8 +12,6 @@ function event__buttonLimpar__CadastraVeiculopj() {
   var inputAnoFabricacao = document.getElementById("anoFabricacaoVeiculo");
   var inputQuantidadePassageiros = document.getElementById("quantidadePassageirosVeiculo");
   var inputModelo = document.getElementById("modeloVeiculo");
-  var inputRenavam = document.getElementById("renavamVeiculo");
-  var inputFabricante = document.getElementById("fabricanteVeiculo");
   var inputPlacaVeiculo = document.getElementById("placaVeiculo");
   var inputNomeFantasia = document.getElementById("nomeFantasiaVeiculo");
   var inputCnpj= document.getElementById("cnpj");
@@ -28,8 +26,6 @@ function event__buttonLimpar__CadastraVeiculopj() {
   inputAnoFabricacao.value = "";
   inputQuantidadePassageiros.value = "";
   inputModelo.value = "";
-  inputRenavam.value = "";
-  inputFabricante.value = "";
   inputPlacaVeiculo.value = "";
   inputNomeFantasia.value = "";
   inputCnpj.value = "";

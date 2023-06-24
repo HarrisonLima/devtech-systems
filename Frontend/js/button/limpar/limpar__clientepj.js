@@ -9,8 +9,6 @@ function event__buttonLimpar__CadastraClientepj(){
   var inputRazaoSocial = document.getElementById("razaoSocial");
   var inputNomeFantasia = document.getElementById("nomeFantasia");
   var inputCnpj = document.getElementById("cnpj");
-  var inputInscricaoEstadual = document.getElementById("inscricaoEstadual");
-  var inputInscricaoMunicipal = document.getElementById("inscricaoMunicipal");
   var inputCep = document.getElementById("cep");
   var inputNumeroEndereco = document.getElementById("numeroEndereco");
   var inputComplementoEndereco = document.getElementById("complementoEndereco");
@@ -18,14 +16,11 @@ function event__buttonLimpar__CadastraClientepj(){
   var inputUf = document.getElementById("uf");
   var inputLogradouro = document.getElementById("logradouro");
   var inputEmail = document.getElementById("email");
-  var inputDdd = document.getElementById("ddd");
   var inputTelefone = document.getElementById("telefone");
 
   inputRazaoSocial.value = "";
   inputNomeFantasia.value = "";
   inputCnpj.value = "";
-  inputInscricaoEstadual.value = "";
-  inputInscricaoMunicipal.value = "";
   inputCep.value = "";
   inputNumeroEndereco.value = "";
   inputComplementoEndereco.value = "";
@@ -33,7 +28,6 @@ function event__buttonLimpar__CadastraClientepj(){
   inputUf.value = "";
   inputLogradouro.value = "";
   inputEmail.value = "";
-  inputDdd.value = "";
   inputTelefone.value = "";
 
   reset__Cnpj();

@@ -106,25 +106,6 @@
             </div>
             <div>Venda de produto</div>
           </div>
-          <div class="radio__tipoCliente">
-            <input
-              type="radio"
-              id="radio__clientepfVenda"
-              name="radio"
-              title="radio_clientepf"
-              value="pf"
-              checked
-            />
-            <label for="radio__passeio">Pessoa Física</label>
-            <input
-              type="radio"
-              id="radio__clientepjVenda"
-              name="radio"
-              title="radio_clientepj"
-              value="pj"
-            />
-            <label for="radio__utilitario">Pessoa Jurídica</label>
-          </div>
           <form>
             <div class="form__search">
               <div>
@@ -187,7 +168,7 @@
                 <input
                   type="text"
                   id="produto"
-                  class="input__big"
+                  class="input__medium"
                   placeholder="Digite o nome do produto"
                 />
               </div>
@@ -260,7 +241,7 @@
 
           <div id="div__subtotal" class="subtotal">
             <h3>Subtotal</h3>
-            <input type="number" id="subtotal" placeholder="0.00" step="0.01" />
+            <input type="number" id="subtotal" placeholder="0.00" class="input__medium" step="0.01" />
             <i id="trash-icon" class="fa-solid fa-trash"></i>
           </div>
 
@@ -350,7 +331,6 @@
 
     <script src="../js/validacao/input__produto.js"></script>
     <script src="../js/button/button__cancelar.js"></script>
-    <script src="../js/button/button__adicionarpf.js"></script>
-    <script src="../js/components/radio__cliente--movimentacao.js"></script>
+    <script src="../js/button/button__adicionar.js"></script>
   </body>
 </html>

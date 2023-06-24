@@ -7,7 +7,6 @@ buttonCadastrarServico.addEventListener('click', (event) => {
 
 function event__buttonCadastrar__CadastraServico() {
   var inputServico = document.getElementById("servico");
-  var inputValorServico = document.getElementById("valorServico");
   var inputDescricaoServico = document.getElementById("descricaoServico");
 
   if (inputServico.value == "" || inputValorServico.value == "") {
@@ -17,7 +16,6 @@ function event__buttonCadastrar__CadastraServico() {
   } else {
     const payload = {
       servico: inputServico.value,
-      valor: inputValorServico.value,
       descricao: inputDescricaoServico.value
     }
 

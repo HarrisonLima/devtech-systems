@@ -75,9 +75,6 @@ function generate() {
         cellWidth: 140,
       },
       2: {
-        cellWidth: 60,
-      },
-      3: {
         cellWidth: 250,
       },
     },

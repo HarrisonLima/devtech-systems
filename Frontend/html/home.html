@@ -16,12 +16,12 @@
     <link rel="stylesheet" href="../css/home/dashboard.css" />
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
+    <link rel="stylesheet" href="../css/home/dashboard.css  " />
     <title>Garage 817</title>
   </head>
-  <body> 
+  <body>
     <div class="loader close-loader">
-      <span>
-      </span>
+      <span> </span>
     </div>
     <header class="topbar">
       GARAGE 817
@@ -32,7 +32,7 @@
       <div class="menu">
         <div class="menu__top">
           <div>
-            <img title="roxy-profile" src="../img/roxy-profile.webp"/>
+            <img title="roxy-profile" src="../img/roxy-profile.webp" />
           </div>
           <div>
             <h2>Bem vindo(a), <strong>Roxy</strong></h2>
@@ -53,7 +53,7 @@
                 <button type="button">Cadastros</button>
                 <div class="submenu__bottom--elements">
                   <a href="./cadastro__cliente.html">Cliente</a><br />
-                 
+
                   <a href="./cadastro__peca.html">Peça</a><br />
                   <a href="./cadastro__produto.html">Produto</a><br />
                   <a href="./cadastro__usuario.html">Usuário</a><br />
@@ -66,7 +66,7 @@
               <button type="button">Relatórios</button>
               <div class="submenu__bottom--elements">
                 <a href="./relatorio__cliente.html">Cliente</a><br />
-                
+
                 <a href="./relatorio__peca.html">Peça</a><br />
                 <a href="./relatorio__produto.html">Produto</a><br />
                 <a href="./relatorio__usuario.html">Usuário</a><br />
@@ -83,8 +83,7 @@
             <div>
               <button type="button">Movimentações</button>
               <div class="submenu__bottom--elements">
-                <a href="./movimentacao__manutencao.html"
-                  >Ordem manutenção</a
+                <a href="./movimentacao__manutencao.html">Ordem manutenção</a
                 ><br />
                 <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
@@ -94,7 +93,34 @@
         </div>
       </div>
       <div class="dashboard">
-        <img title="logo" class="logo" src="../img/picwish.png" />
+        <div class="dashboard">
+          <div class="dashboard__content">
+            <div>
+              My Dashboard
+              <i class="fa-solid fa-square-poll-vertical"></i>
+            </div>
+            <div class="dasboard__paineis">
+              <div id="dashAberto" class="dashboard__paineis--default">
+                <div class="dashboard__header">
+                  <i class="fa-sharp fa-solid fa-gear"></i>
+                  <h4>99</h4>
+                </div>
+                <h3>Manutenções em aberto</h3>
+              </div>
+              <div id="dashAndamento" class="dashboard__paineis--default">
+                <i class="fa-sharp fa-solid fa-gear"></i>
+                99<br />
+                <h3>Manutenções em andamento</h3>
+              </div>
+              <div id="dashRealizada" class="dashboard__paineis--default">
+                <i class="fa-sharp fa-solid fa-gear"></i>
+                99<br />
+                <h3>Manutenções realizadas</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <img title="logo" class="logo" src="../img/picwish.png" /> -->
       </div>
     </main>
     <footer></footer>

@@ -8,9 +8,6 @@ buttonLimparClientepf.addEventListener('click', (event) => {
 function event__buttonLimpar__CadastraClientepf(){
   var inputNome = document.getElementById("nome");
   var inputCpf = document.getElementById("cpf");
-  var inputGenero = document.getElementById("dropdown__textBox--Genero");
-  var inputNascimento = document.getElementById("dataNascimento");
-  var inputCivil = document.getElementById("dropdown__textBox--EstadoCivil");
   var inputCep = document.getElementById("cep");
   var inputNumeroEndereco = document.getElementById("numeroEndereco");
   var inputComplementoEndereco = document.getElementById("complementoEndereco");
@@ -18,14 +15,10 @@ function event__buttonLimpar__CadastraClientepf(){
   var inputUf = document.getElementById("uf");
   var inputLogradouro = document.getElementById("logradouro");
   var inputEmail = document.getElementById("email");
-  var inputDdd = document.getElementById("ddd");
   var inputTelefone = document.getElementById("telefone");
 
   inputNome.value = "";
   inputCpf.value = "";
-  inputGenero.value = "";
-  inputNascimento.value = "";
-  inputCivil.value = "";
   inputCep.value = "";
   inputNumeroEndereco.value = "";
   inputComplementoEndereco.value = "";
@@ -33,7 +26,6 @@ function event__buttonLimpar__CadastraClientepf(){
   inputUf.value = "";
   inputLogradouro.value = "";
   inputEmail.value = "";
-  inputDdd.value = "";
   inputTelefone.value = "";
 
   reset__Cpf();

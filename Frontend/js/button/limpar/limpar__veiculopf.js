@@ -12,12 +12,9 @@ function event__buttonLimpar__CadastraVeiculopf() {
   var inputAnoFabricacao = document.getElementById("anoFabricacaoVeiculo");
   var inputQuantidadePassageiros = document.getElementById("quantidadePassageirosVeiculo");
   var inputModelo = document.getElementById("modeloVeiculo");
-  var inputRenavam = document.getElementById("renavamVeiculo");
-  var inputFabricante = document.getElementById("fabricanteVeiculo");
   var inputPlacaVeiculo = document.getElementById("placaVeiculo");
   var inputNome = document.getElementById("nomeProprietario");
   var inputCpf= document.getElementById("cpf");
-  var inputCnh= document.getElementById("cnhProprietario");
   
   if(radioButtonPasseio.checked == true){
       radioButtonPasseio.checked = false;
@@ -29,12 +26,9 @@ function event__buttonLimpar__CadastraVeiculopf() {
   inputAnoFabricacao.value = "";
   inputQuantidadePassageiros.value = "";
   inputModelo.value = "";
-  inputRenavam.value = "";
-  inputFabricante.value = "";
   inputPlacaVeiculo.value = "";
   inputNome.value = "";
   inputCpf.value = "";
-  inputCnh.value = "";
 
   reset__Cpf();
 }

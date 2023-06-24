@@ -22,7 +22,7 @@ var modal__SelectProduct = document.getElementById("modal__SelectProduct");
 var modal__SelectCliente = document.getElementById("modal__SelectCliente");
 var tableProdutos = document.getElementById("table__produtos");
 var rowsTableProdutos = tableProdutos.getElementsByTagName("tr");
-var tableClientes = document.getElementById("tabela__clientespj");
+var tableClientes = document.getElementById("tabela__clientespf");
 var rowsTableClientes = tableClientes.getElementsByTagName("tr");
 
 button__adicionar.style.display = "none";
@@ -54,8 +54,7 @@ var valorProduto;
 var descricao;
 var valortotalproduto;
 
-var razaoSocial;
-var qtdeEstoque;
+var cliente;
 
 inputQtde.disabled = true;
 inputProduto.disabled = true;
@@ -66,6 +65,7 @@ inputDescricaoProduto.disabled = true;
 
 inputEstoque.readOnly = true;
 inputBuscar.readOnly = true;
+inputBuscarCliente.readOnly = true;
 inputSubtotal.readOnly = true;
 
 inputValorProduto.addEventListener("blur", function () {
@@ -108,17 +108,23 @@ inputBuscarCliente.addEventListener("dblclick", (event) => {
 });
 
 button__adicionar.addEventListener("click", () => {
-  push__basket();
+  if (inputQtde.value > inputEstoque.value) {
+    alert("A quantidade da venda não pode ser maior que a presente no estoque!")
+  } else {
+    push__basket();
 
-  inputQtde.disabled = true;
-  inputProduto.disabled = true;
-  inputUn.disabled = true;
-  inputMarca.disabled = true;
-  inputValorProduto.disabled = true;
-  inputDescricaoProduto.disabled = true;
+    inputQtde.disabled = true;
+    inputProduto.disabled = true;
+    inputUn.disabled = true;
+    inputMarca.disabled = true;
+    inputValorProduto.disabled = true;
+    inputDescricaoProduto.disabled = true;
 
-  button__adicionar.style.display = "none";
-  button__retirar.style.display = "none";
+    button__adicionar.style.display = "none";
+    button__retirar.style.display = "none";
+    
+    inputEstoque.value = "";
+  }
 });
 
 button__retirar.addEventListener("click", () => {
@@ -140,32 +146,38 @@ button__clear.addEventListener("click", () => {
 });
 
 button__check.addEventListener("click", () => {
-  if (toParseFloat(inputEstoque.value) > 0) {
-    inputQtde.disabled = false;
+  var itemExistente = verificarItemExistente(produto.textContent);
+  if (itemExistente) {
+    alert("O item já está presente na tabela.");
+  } else {
+    console.log("O item não foi encontrado na tabela.");
 
-    inputQtde.value = 1;
+    if (inputEstoque.value > 0) {
+      inputQtde.disabled = false;
 
-    inputProduto.value = produto.textContent;
-    inputUn.value = un.textContent;
-    inputValorProduto.value = valor.textContent;
-    inputMarca.value = marca.textContent;
-    inputDescricaoProduto.value = descricao.textContent;
+      inputQtde.value = 1;
 
-    inputBuscar.value = "";
+      inputProduto.value = produto.textContent;
+      inputUn.value = un.textContent;
+      inputValorProduto.value = valor.textContent;
+      inputMarca.value = marca.textContent;
+      inputDescricaoProduto.value = descricao.textContent;
 
-    button__adicionar.style.display = "block";
-    button__retirar.style.display = "block";
-    button__check.style.display = "none";
-    button__pesquisarCliente.style.marginLeft = "15px";
-  } 
-  else {
-    inputEstoque.style.border = "solid 2px #FF0000 ";
+      inputBuscar.value = "";
 
-    alert("Sem estoque do item selecionado!");
+      button__adicionar.style.display = "block";
+      button__retirar.style.display = "block";
+      button__check.style.display = "none";
+      button__pesquisarCliente.style.marginLeft = "15px";
+    } else {
+      inputEstoque.style.border = "solid 2px #FF0000 ";
 
-    setTimeout(function () {
-      inputEstoque.style.border = "";
-    }, 1500);
+      alert("Sem estoque do item selecionado!");
+
+      setTimeout(function () {
+        inputEstoque.style.border = "";
+      }, 1500);
+    }
   }
 });
 
@@ -175,7 +187,7 @@ function push__basket() {
     inputProduto.value != "" &&
     inputUn.value != "" &&
     inputMarca.value != "" &&
-    inputValorProduto.value != ""
+    inputValorProduto.value > 0
   ) {
     document.getElementById("table__produtos").style.display = "table";
     createTable();
@@ -314,6 +326,19 @@ function createTable() {
   }
 
   rowIndex++;
+}
+
+function verificarItemExistente(item) {
+  for (var i = 1; i < tableProdutos.rows.length; i++) {
+    var celula = tableProdutos.rows[i].cells[1];
+    var valorCelula = celula.textContent;
+
+    if (valorCelula === item) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function reset__inputs() {
@@ -518,37 +543,34 @@ function addIndexCliente() {
   }
 }
 
-function getClientespj(url) {
+function getClientespf(url) {
   let request = new XMLHttpRequest();
   request.open("GET", url, false);
   request.send();
   return request.responseText;
 }
 
-const tabelaCliente = document.getElementById("tabela__clientespj");
-const contentCliente = document.getElementById("content__clientespj");
-const headerCliente = document.getElementById("header__clientespj");
+const tabelaCliente = document.getElementById("tabela__clientespf");
+const contentCliente = document.getElementById("content__clientespf");
+const headerCliente = document.getElementById("header__clientespf");
 
 function adicionaLinhaCliente(cliente) {
   var linha = document.createElement("tr");
   var tdId = document.createElement("td");
-  var tdRazaoSocial = document.createElement("td");
-  var tdNomeFantasia = document.createElement("td");
-  var tdCnpj = document.createElement("td");
+  var tdNome = document.createElement("td");
+  var tdCpf = document.createElement("td");
   var tdCidade = document.createElement("td");
   var tdUf = document.createElement("td");
 
   tdId.innerHTML = cliente.id;
-  tdRazaoSocial.innerHTML = cliente.razaosocial;
-  tdNomeFantasia.innerHTML = cliente.nomefantasia;
-  tdCnpj.innerHTML = cliente.cnpj;
+  tdNome.innerHTML = cliente.nome;
+  tdCpf.innerHTML = cliente.cpf;
   tdCidade.innerHTML = cliente.cidade;
   tdUf.innerHTML = cliente.uf;
 
   linha.appendChild(tdId);
-  linha.appendChild(tdRazaoSocial);
-  linha.appendChild(tdNomeFantasia);
-  linha.appendChild(tdCnpj);
+  linha.appendChild(tdNome);
+  linha.appendChild(tdCpf);
   linha.appendChild(tdCidade);
   linha.appendChild(tdUf);
 
@@ -558,23 +580,20 @@ function adicionaLinhaCliente(cliente) {
 function criaColunasCliente(Column) {
   const elementRow = document.createElement("tr");
   const elementColumnId = document.createElement("th");
-  const elementColumnRazaoSocial = document.createElement("th");
-  const elementColumnNomeFantasia = document.createElement("th");
-  const elementColumnCnpj = document.createElement("th");
+  const elementColumnNome = document.createElement("th");
+  const elementColumnCpf = document.createElement("th");
   const elementColumnCidade = document.createElement("th");
   const elementColumnUf = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
-  elementColumnRazaoSocial.innerHTML = "Razão Social";
-  elementColumnNomeFantasia.innerHTML = "Nome Fantasia";
-  elementColumnCnpj.innerHTML = "CNPJ";
+  elementColumnNome.innerHTML = "Nome";
+  elementColumnCpf.innerHTML = "CPF";
   elementColumnCidade.innerHTML = "Cidade";
   elementColumnUf.innerHTML = "UF";
 
   elementRow.appendChild(elementColumnId);
-  elementRow.appendChild(elementColumnRazaoSocial);
-  elementRow.appendChild(elementColumnNomeFantasia);
-  elementRow.appendChild(elementColumnCnpj);
+  elementRow.appendChild(elementColumnNome);
+  elementRow.appendChild(elementColumnCpf);
   elementRow.appendChild(elementColumnCidade);
   elementRow.appendChild(elementColumnUf);
 
@@ -586,16 +605,16 @@ function updateRegistrosCliente() {
   tabelaCliente.innerHTML = "";
   headerCliente.innerHTML = "";
   criaColunasCliente();
-  let data = getClientespj("http://localhost:3000/api/clientespj");
+  let data = getClientespf("http://localhost:3000/api/clientespf");
   let clientes = JSON.parse(data);
 
   function selectionCliente() {
-    var razaoCliente = this.querySelector("td:nth-child(2)");
+    var nomeCliente = this.querySelector("td:nth-child(2)");
 
-    razaoSocial = razaoCliente;
+    cliente = nomeCliente;
 
     inputBuscarCliente.readOnly = false;
-    inputBuscarCliente.value = razaoSocial.textContent;
+    inputBuscarCliente.value = cliente.textContent;
     inputBuscarCliente.readOnly = true;
 
     modal__SelectCliente.style.display = "none";

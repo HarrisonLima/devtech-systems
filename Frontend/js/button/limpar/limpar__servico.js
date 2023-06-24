@@ -7,10 +7,8 @@ buttonLimparServico.addEventListener('click', (event) => {
 
 function event__buttonLimpar__CadastraServico(){
   var inputServico = document.getElementById("servico");
-  var inputValor = document.getElementById("valorServico");
   var inputDescricao = document.getElementById("descricaoServico");
 
   inputServico.value = "";
-  inputValor.value = "";
   inputDescricao.value = "";
 };

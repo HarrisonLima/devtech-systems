@@ -10,7 +10,7 @@
   width: 66.66666%;
 }
 
-#icon__searchCliente{
+#icon__searchCliente, #icon__searchVeiculo {
   font-size: 20px;
 }
 
@@ -103,8 +103,10 @@
 .basket__table {
   align-items: center;
   display: flex;
+  font-size: 14px;
   justify-content: center;
   margin-top: 50px;
+  text-align: center;
 }
 
 .basket__table > div {
@@ -114,20 +116,18 @@
 .basket__table > div > table {
   table-layout: fixed;
   width: 100%;
-  border: 1px solid #1d4350;
-  text-align: center;
 }
 .basket__table > div > table > tr {
+  background-color: #f1f1f1;
   text-align: center;
 }
 .basket__table > div > table > thead {
-  background-color: #02201f;
-  color: #ffffff;
+  background-color: #a5a5a5;
+  color: #000000;
+  font-weight: 200;
+  width: 100%;
 }
 
-.basket__table > div > table > tr:nth-child(even) {
-  background-color: #d1d4d4;
-}
 .basket__table > div > table > tr > td {
   padding: 5px;
   word-wrap: break-word;
@@ -137,6 +137,7 @@
   color: rgb(241, 86, 86);
   cursor: pointer;
 }
+
 .basket__table--edit-icon {
   color: #1d4350;
   cursor: pointer;

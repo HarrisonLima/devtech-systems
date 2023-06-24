@@ -106,22 +106,28 @@
             <div>Ordem manutenção</div>
           </div>
           <form>
-            <div class="form__search">
-            <div>
-              <h2>Cliente</h2>
+            <div class="form__search" style="width: 615px;">
+              <div>
+                <h2>Veículo</h2>
                 <input
                   type="text"
-                  id="pesquisarCliente"
+                  id="pesquisarVeiculo"
                   class="input__big"
-                  placeholder="Buscar cliente"
+                  placeholder="Buscar veículo"
                 />
                 <i
-                  id="icon__searchCliente"
+                  id="icon__searchVeiculo"
                   class="fa-solid fa-magnifying-glass"
                 ></i>
               </div>
+              <div>
+                <h2>Data de Início</h2>
+                <input type="date" id="inputData" class="input__medium">
+              </div>
             </div>
-            <div>
+          </form>
+          <div class="section__produto">
+            <div class="title__listagemProdutos">
               <h2>Listagem de itens</h2>
               <div class="form__search">
                 <input
@@ -137,41 +143,33 @@
                   <i id="icon__check" class="fa-solid fa-circle-check"></i>
                 </div>
               </div>
-            </div>
-          </form>
+            </div>  
+          </div>
           <form>
-            <div id="form__Itens" class="form__itens">
+            <div id="form__Itens" class="form__itens" style="width: 650px;">
               <div>
                 <h3>Qtde</h3>
                 <input
                   type="number"
-                  id="quantidadeproduto"
+                  id="quantidadeitem"
                   class="input__xsmall"
                   placeholder="1"
                 />
               </div>
               <div>
                 <h3>Item</h3>
-                <input type="text" id="item" class="input__big" />
-              </div>
-              <div>
-                <h3>UN</h3>
                 <input
                   type="text"
-                  id="unidademedida"
-                  class="input__xsmall"
-                  placeholder="un"
+                  id="item"
+                  class="input__medium"
+                  placeholder="Digite o nome do item"
                 />
-              </div>
-              <div>
-                <h3>Marca</h3>
-                <input type="text" id="marca" class="input__medium" />
               </div>
               <div>
                 <h3>Valor</h3>
                 <input
                   type="number"
-                  id="valorproduto"
+                  id="valoritem"
                   class="input__medium"
                   placeholder="1,00"
                   step="0.01"
@@ -179,7 +177,12 @@
               </div>
               <div>
                 <h3>Descrição</h3>
-                <input type="text" id="descricao" class="input__big" />
+                <input
+                  type="text"
+                  id="descricaoitem"
+                  class="input__medium"
+                  placeholder="Digite a descrição"
+                />
               </div>
               <div class="movimentacao__button">
                 <i id="button__adicionar" class="fa-solid fa-circle-check"></i>
@@ -195,11 +198,10 @@
 
           <div class="basket__table">
             <div>
-              <table id="table__produtos">
+              <table id="table__itens">
                 <thead>
                   <th>Qtde</th>
-                  <th>Item</th>
-                  <th>UN</th>
+                  <th>Produto</th>
                   <th>Valor</th>
                   <th>Total</th>
                   <th>Descrição</th>
@@ -212,59 +214,36 @@
 
           <div id="div__subtotal" class="subtotal">
             <h3>Subtotal</h3>
-            <input type="number" id="subtotal" placeholder="0.00" step="0.01" />
+            <input type="number" id="subtotal" placeholder="0.00" class="input__medium" step="0.01" />
             <i id="trash-icon" class="fa-solid fa-trash"></i>
           </div>
 
           <div class="buttons">
-            <button id="button__emitir" class="button__form--emitirOrcamento">
-              Emitir
+            <button id="button__finalizar" class="button__form--criarManutencao">
+              Finalizar
             </button>
             <button id="button__cancelar" class="button__form--cancelar">
               Cancelar
             </button>
           </div>
-          <div id="modal__SelectItem">
+          <div id="modal__SelectProduct" class="modal__SelectItem">
             <div class="modal__header">
               <div>
                 <i
-                  id="icon__modal--SelectItem"
+                  id="icon__modal--SelectProduct"
                   class="fa-solid fa-magnifying-glass"
                 ></i>
-                <h2>Listagem de itens</h2>
+                <h2>Listagem produtos</h2>
               </div>
               <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
             </div>
-            <p>Clique duas vezes no item que deseja adicionar no carrinho.</p>
-            <div class="radio__tipoPeca">
-              <input
-                type="radio"
-                id="radio__peca"
-                name="radio"
-                title="radio_peca"
-                value="peca"
-                checked
-              />
-              <label for="radio__peca">Peça</label>
-              <input
-                type="radio"
-                id="radio__servico"
-                name="radio"
-                title="radio_servico"
-                value="servico"
-              />
-              <label for="radio__servico">Serviço</label>
-            </div>
+            <p>
+              Clique duas vezes no item que deseja adicionar no carrinho.
+            </p>
             <table id="tabela__pecas">
-              <thead id="header__pecas"></thead>
+              <thead id="header"></thead>
               <tbody>
-                <tr id="content__pecas"></tr>
-              </tbody>
-            </table>
-            <table id="tabela__servicos">
-              <thead id="header__servicos"></thead>
-              <tbody>
-                <tr id="content__servicos"></tr>
+                <tr id="content"></tr>
               </tbody>
             </table>
           </div>
@@ -299,28 +278,22 @@
               </button>
             </div>
           </div>
-          <div id="modal__SelectCliente">
+          <div id="modal__SelectVeiculo">
             <div class="modal__header">
               <div>
                 <i
-                  id="icon__modal--SelectCliente"
+                  id="icon__modal--SelectVeiculo"
                   class="fa-solid fa-magnifying-glass"
                 ></i>
                 <h2>Listagem de clientes</h2>
               </div>
-              <i id="icon__xmark--selectCliente" class="fa-solid fa-xmark"></i>
+              <i id="icon__xmark--selectVeiculo" class="fa-solid fa-xmark"></i>
             </div>
-            <p>Clique duas vezes no cliente para quem emitirá a ordem de manutenção.</p>
+            <p>Clique duas vezes no cliente para quem emitirá a venda.</p>
             <table id="tabela__clientespf">
               <thead id="header__clientespf"></thead>
               <tbody>
                 <tr id="content__clientespf"></tr>
-              </tbody>
-            </table>
-            <table id="tabela__clientespj">
-              <thead id="header__clientespj"></thead>
-              <tbody>
-                <tr id="content__clientespj"></tr>
               </tbody>
             </table>
           </div>
@@ -329,8 +302,7 @@
     </main>
     <footer></footer>
 
-    <script src="../js/validacao/input__produto.js"></script>
     <script src="../js/button/button__cancelar.js"></script>
-    <script src="../js/button/button__adicionar--manutencao.js"></script>
+    <script src="../js/button/button__criar--manutencao.js"></script>
   </body>
 </html>
