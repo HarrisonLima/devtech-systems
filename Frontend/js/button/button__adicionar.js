@@ -4,7 +4,7 @@ var button__adicionar = document.getElementById("button__adicionar");
 var button__cancelar = document.getElementById("button__cancelar");
 var button__check = document.getElementById("icon__check");
 var button__clear = document.getElementById("trash-icon");
-var button__finalizar = document.getElementById("button__finalizar");
+var button__finalizar = document.getElementById("button__finalizarVenda");
 var button__pesquisar = document.getElementById("icon__search");
 var button__pesquisarCliente = document.getElementById("icon__searchCliente");
 var button__closeModal = document.getElementById("icon__xmark");
@@ -53,6 +53,8 @@ var marca;
 var valorProduto;
 var descricao;
 var valortotalproduto;
+var idItem;
+var saldo;
 
 var cliente;
 
@@ -233,6 +235,7 @@ function createTable() {
   descricao = inputDescricaoProduto.value;
   valortotalproduto = parseFloat(qtde) * parseFloat(valorProduto);
   valortotalproduto = valortotalproduto.toFixed(2);
+  saldo = inputEstoque.value - qtde;
 
   var basketTable = document.getElementById("basket__table__tbody");
   var rowIndex = basketTable.rows.length;
@@ -247,6 +250,8 @@ function createTable() {
   var cell6 = row.insertCell(5);
   var cell7 = row.insertCell(6);
   var cellRemoveRow = row.insertCell(7);
+  var cell9 = row.insertCell(8);
+  var cell10 = row.insertCell(9);
 
   cell1.innerHTML = qtde;
   cell2.innerHTML = produto;
@@ -255,6 +260,8 @@ function createTable() {
   cell5.innerHTML = valorProduto;
   cell6.innerHTML = valortotalproduto;
   cell7.innerHTML = descricao;
+  cell9.innerHTML = idItem;
+  cell10.innerHTML = saldo;
 
   var trashIcon = document.createElement("span");
   trashIcon.classList.add(
@@ -489,6 +496,7 @@ function updateRegistrosProduto() {
   let produtos = JSON.parse(data);
 
   function selectionProduct() {
+    var idProduto = this.querySelector("td:nth-child(1)");
     var nomeProduto = this.querySelector("td:nth-child(2)");
     var unProduto = this.querySelector("td:nth-child(3)");
     var valorProduto = this.querySelector("td:nth-child(4)");
@@ -496,6 +504,7 @@ function updateRegistrosProduto() {
     var estoqueItem = this.querySelector("td:nth-child(6)");
     var descricaoProduto = this.querySelector("td:nth-child(7)");
 
+    idItem = idProduto.textContent;
     produto = nomeProduto;
     un = unProduto;
     valor = valorProduto;

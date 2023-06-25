@@ -3,6 +3,7 @@
   float: left;
   font-size: 20px;
   justify-content: center;
+  margin-left: 40px;
   width: 66.66666%;
 }
 
@@ -17,6 +18,7 @@
   padding-top: 25px;
   padding-left: 50px;
   padding-right: 50px;
+
   border-bottom: 1px solid #dedede;
 }
 
@@ -25,7 +27,11 @@
 }
 
 .dashboard__header {
-  display: inline-flex;
+  align-items: center;
+  display: flex;
+  height: 40px;
+  justify-content: left;
+  text-align: center;
 }
 
 h4 {
@@ -65,7 +71,9 @@ h4 {
 }
 
 .dashboard__paineis--default h3 {
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 20px;
 }
 
 .dashboard__chart--graph {
