@@ -297,9 +297,8 @@ function createTable() {
   editIcon.onclick = function () {
     var rowIndex = this.parentNode.parentNode.rowIndex;
     var rowData = basket[rowIndex - 1];
-
     inputQtde.disabled = false;
-
+    
     inputQtde.value = rowData.qtde;
     inputProduto.value = rowData.produto;
     inputUn.value = rowData.un;

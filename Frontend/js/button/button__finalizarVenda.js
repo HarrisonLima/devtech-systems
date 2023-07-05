@@ -20,10 +20,7 @@ button__finalizar.addEventListener("click", () => {
       if (response.ok) {
         console.log("Estoque do produto atualizado com sucesso!");
       } else {
-        console.error(
-          "Erro ao atualizar o estoque do produto:",
-          response.statusText
-        );
+        window.location.href = "../html/msgbox__vendaRealizada.html";
       }
     } catch (error) {
       console.error("Erro ao fazer a requisição:", error);
