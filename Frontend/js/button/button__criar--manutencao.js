@@ -17,12 +17,12 @@ var divsubtotal = document.getElementById("div__subtotal");
 var inputBuscar = document.getElementById("pesquisarItem");
 var inputBuscarVeiculo = document.getElementById("pesquisarVeiculo");
 var modal__ClearTable = document.getElementById("modal__ClearTable");
-var modal__SelectProduct = document.getElementById("modal__SelectProduct");
+var modal__SelectItem = document.getElementById("modal__SelectItem");
 var modal__SelectVeiculo = document.getElementById("modal__SelectVeiculo");
 var tableItens = document.getElementById("table__itens");
 var rowsTableItens = tableItens.getElementsByTagName("tr");
-var tableClientes = document.getElementById("tabela__clientespf");
-var rowsTableClientes = tableClientes.getElementsByTagName("tr");
+var tableVeiculos = document.getElementById("tabela__veiculospf");
+var rowsTableVeiculos = tableVeiculos.getElementsByTagName("tr");
 
 button__adicionar.style.display = "none";
 button__cancelar.style.display = "none";
@@ -32,7 +32,7 @@ button__finalizar.style.display = "none";
 button__retirar.style.display = "none";
 divsubtotal.style.display = "none";
 modal__ClearTable.style.display = "none";
-modal__SelectProduct.style.display = "none";
+modal__SelectItem.style.display = "none";
 modal__SelectVeiculo.style.display = "none";
 tableItens.style.display = "none";
 button__pesquisarVeiculo.style.marginLeft = "15px";
@@ -42,6 +42,9 @@ var inputItem = document.getElementById("item");
 var inputValorItem = document.getElementById("valoritem");
 var inputDescricaoItem = document.getElementById("descricaoitem");
 var inputSubtotal = document.getElementById("subtotal");
+var inputnomeProprietario = document.getElementById("nomeProprietario");
+var inputDocumentoProprietario = document.getElementById("documentoProprietario");
+var inputData = document.getElementById("inputData");
 
 var qtde;
 var item;
@@ -50,13 +53,18 @@ var descricao;
 var valortotalitem;
 
 var veiculo;
+var documento;
 
 inputQtde.disabled = true;
 inputItem.disabled = true;
 inputValorItem.disabled = true;
 inputDescricaoItem.disabled = true;
+inputnomeProprietario.disabled = true;
+inputDocumentoProprietario.disabled = true;
 
 inputBuscar.readOnly = true;
+inputDocumentoProprietario.readOnly = true;
+inputnomeProprietario.readOnly = true;
 inputBuscarVeiculo.readOnly = true;
 inputSubtotal.readOnly = true;
 
@@ -72,7 +80,7 @@ button__closeModal.addEventListener("click", (event) => {
 });
 
 button__closeModalSelect.addEventListener("click", (event) => {
-  modal__SelectProduct.style.display = "none";
+  modal__SelectItem.style.display = "none";
 });
 
 button__closeModalSelectVeiculo.addEventListener("click", (event) => {
@@ -81,22 +89,22 @@ button__closeModalSelectVeiculo.addEventListener("click", (event) => {
 
 button__pesquisar.addEventListener("click", (event) => {
   event.preventDefault();
-  selectProduct();
+  selectItem();
 });
 
 inputBuscar.addEventListener("dblclick", (event) => {
   event.preventDefault();
-  selectProduct();
+  selectItem();
 });
 
 button__pesquisarVeiculo.addEventListener("click", (event) => {
   event.preventDefault();
-  selectCliente();
+  selectVeiculo();
 });
 
 inputBuscarVeiculo.addEventListener("dblclick", (event) => {
   event.preventDefault();
-  selectCliente();
+  selectVeiculo();
 });
 
 button__adicionar.addEventListener("click", () => {
@@ -166,7 +174,7 @@ function push__basket() {
     tableItens.style.display = "table";
 
     qtde = inputQtde.value;
-    produto = inputItem.value;
+    item = inputItem.value;
     valorItem = inputValorItem.value;
     descricao = inputDescricaoItem.value;
     valortotalitem = parseFloat(qtde) * parseFloat(valorItem);
@@ -256,7 +264,7 @@ function createTable() {
     inputQtde.value = rowData.qtde;
     inputItem.value = rowData.item;
     inputValorItem.value = rowData.valorItem;
-    inputDescricaoItem.value = rowData.descricaoItem;
+    inputDescricaoItem.value = rowData.descricao;
 
     basket.splice(rowIndex - 1, 1);
     this.parentNode.parentNode.remove();
@@ -357,78 +365,65 @@ function clear__basket() {
   button__finalizar.style.display = "none";
 }
 
-function selectProduct() {
-  modal__SelectProduct.style.display = "block";
-  updateRegistrosPeca();
-  addIndex();
+function selectItem() {
+  modal__SelectItem.style.display = "block";
+  updateRegistros();
 }
 
-function addIndex() {
-  for (var i = 1; i < rowsTableItens.length; i++) {
-    rowsTableItens[i].setAttribute("data-index", i - 1);
-  }
-}
-
-function getPecas(url) {
+function getServicos(url) {
   let request = new XMLHttpRequest();
   request.open("GET", url, false);
   request.send();
   return request.responseText;
 }
 
-const tabelaPeca = document.getElementById("tabela__pecas");
-const contentPeca = document.getElementById("content");
-const headerPeca = document.getElementById("header");
+const tabelaServicos = document.getElementById("tabela__itens");
+const contentSerivicos = document.getElementById("content");
+const headerServicos = document.getElementById("header");
 
-function adicionaLinhaPeca(peca) {
+function adicionaLinha(servico) {
   linha = document.createElement("tr");
   tdId = document.createElement("td");
-  tdPeca = document.createElement("td");
-  tdMarca = document.createElement("td");
+  tdServico = document.createElement("td");
   tdDescricao = document.createElement("td");
-  tdId.innerHTML = peca.id;
-  tdPeca.innerHTML = peca.peca;
-  tdMarca.innerHTML = peca.marca;
-  tdDescricao.innerHTML = peca.descricao;
+  tdId.innerHTML = servico.id;
+  tdServico.innerHTML = servico.servico;
+  tdDescricao.innerHTML = servico.descricao;
 
   linha.appendChild(tdId);
-  linha.appendChild(tdPeca);
-  linha.appendChild(tdMarca);
+  linha.appendChild(tdServico);
   linha.appendChild(tdDescricao);
 
   return linha;
 }
 
-function criaColunasPeca(Column) {
+function criaColunas(Column) {
   const elementRow = document.createElement("tr");
   const elementColumnId = document.createElement("th");
-  const elementColumnPeca = document.createElement("th");
-  const elementColumnMarca = document.createElement("th");
+  const elementColumnServico = document.createElement("th");
   const elementColumnDescricao = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
-  elementColumnPeca.innerHTML = "Peça";
-  elementColumnMarca.innerHTML = "Marca";
+  elementColumnServico.innerHTML = "Serviço";
   elementColumnDescricao.innerHTML = "Descricao";
 
   elementRow.appendChild(elementColumnId);
-  elementRow.appendChild(elementColumnPeca);
-  elementRow.appendChild(elementColumnMarca);
+  elementRow.appendChild(elementColumnServico);
   elementRow.appendChild(elementColumnDescricao);
-  headerPeca.appendChild(elementRow);
-  tabelaPeca.appendChild(headerPeca);
+  headerServicos.appendChild(elementRow);
+  tabelaServicos.appendChild(headerServicos);
 }
 
-function updateRegistrosPeca() {
-  tabelaPeca.innerHTML = "";
-  headerPeca.innerHTML = "";
-  criaColunasPeca();
-  let data = getPecas("http://localhost:3000/api/pecas");
-  let pecas = JSON.parse(data);
+function updateRegistros() {
+  tabelaServicos.innerHTML = "";
+  headerServicos.innerHTML = "";
+  criaColunas();
+  let data = getServicos("http://localhost:3000/api/servicos");
+  let servicos = JSON.parse(data);
 
-  function selectionPeca() {
+  function selectionServico() {
     var nomeItem = this.querySelector("td:nth-child(2)");
-    var descricaoItem = this.querySelector("td:nth-child(4)");
+    var descricaoItem = this.querySelector("td:nth-child(3)");
 
     item = nomeItem;
     descricao = descricaoItem;
@@ -437,125 +432,134 @@ function updateRegistrosPeca() {
 
     button__check.style.display = "block";
     button__pesquisarVeiculo.style.marginLeft = "-0.1px";
-    modal__SelectProduct.style.display = "none";
+    modal__SelectItem.style.display = "none";
   }
 
   function paintRow() {
-    for (var i = 0, row; (row = tabelaPeca.rows[i]); i++) {
-      tabelaPeca.rows[i].removeAttribute("style");
+    for (var i = 0, row; (row = tabelaServicos.rows[i]); i++) {
+      tabelaServicos.rows[i].removeAttribute("style");
     }
     this.style.backgroundColor = "#ffac1c";
   }
 
-  pecas.forEach((element) => {
-    var linha = adicionaLinhaPeca(element);
-    linha.addEventListener("dblclick", selectionPeca);
+  servicos.forEach((element) => {
+    var linha = adicionaLinha(element);
+    linha.addEventListener("dblclick", selectionServico);
     linha.addEventListener("click", paintRow);
-    tabelaPeca.appendChild(linha);
+    tabelaServicos.appendChild(linha);
   });
 }
 
-function selectCliente() {
+function selectVeiculo() {
   modal__SelectVeiculo.style.display = "block";
-  updateRegistrosCliente();
-  addIndexCliente();
+  updateRegistrosVeiculo();
 }
 
-function addIndexCliente() {
-  for (var i = 1; i < rowsTableClientes.length; i++) {
-    rowsTableClientes[i].setAttribute("data-index", i - 1);
-  }
-}
-
-function getClientespf(url) {
+function getVeiculospf(url) {
   let request = new XMLHttpRequest();
   request.open("GET", url, false);
   request.send();
   return request.responseText;
 }
 
-const tabelaCliente = document.getElementById("tabela__clientespf");
-const contentCliente = document.getElementById("content__clientespf");
-const headerCliente = document.getElementById("header__clientespf");
+const tabelaVeiculo = document.getElementById("tabela__veiculospf");
+const contentVeiculo = document.getElementById("content__veiculospf");
+const headerVeiculo = document.getElementById("header__veiculospf");
 
-function adicionaLinhaCliente(cliente) {
+function adicionaLinhaVeiculo(veiculo) {
   var linha = document.createElement("tr");
   var tdId = document.createElement("td");
-  var tdNome = document.createElement("td");
+  var tdMarca = document.createElement("td");
+  var tdCor = document.createElement("td");
+  var tdModelo = document.createElement("td");
+  var tdPlaca = document.createElement("td");
+  var tdProprietario = document.createElement("td");
   var tdCpf = document.createElement("td");
-  var tdCidade = document.createElement("td");
-  var tdUf = document.createElement("td");
 
-  tdId.innerHTML = cliente.id;
-  tdNome.innerHTML = cliente.nome;
-  tdCpf.innerHTML = cliente.cpf;
-  tdCidade.innerHTML = cliente.cidade;
-  tdUf.innerHTML = cliente.uf;
+  tdId.innerHTML = veiculo.id;
+  tdMarca.innerHTML = veiculo.marca;
+  tdCor.innerHTML = veiculo.cor;
+  tdModelo.innerHTML = veiculo.modelo;
+  tdPlaca.innerHTML = veiculo.placa;
+  tdProprietario.innerHTML = veiculo.nomeproprietario;
+  tdCpf.innerHTML = veiculo.cpf;
 
   linha.appendChild(tdId);
-  linha.appendChild(tdNome);
+  linha.appendChild(tdMarca);
+  linha.appendChild(tdCor);
+  linha.appendChild(tdModelo);
+  linha.appendChild(tdPlaca);
+  linha.appendChild(tdProprietario);
   linha.appendChild(tdCpf);
-  linha.appendChild(tdCidade);
-  linha.appendChild(tdUf);
 
   return linha;
 }
 
-function criaColunasCliente(Column) {
+function criaColunasVeiculo(Column) {
   const elementRow = document.createElement("tr");
   const elementColumnId = document.createElement("th");
-  const elementColumnNome = document.createElement("th");
+  const elementColumnMarca = document.createElement("th");
+  const elementColumnCor = document.createElement("th");
+  const elementColumnModelo = document.createElement("th");
+  const elementColumnPlaca = document.createElement("th");
+  const elementColumnProprietario = document.createElement("th");
   const elementColumnCpf = document.createElement("th");
-  const elementColumnCidade = document.createElement("th");
-  const elementColumnUf = document.createElement("th");
 
   elementColumnId.innerHTML = "ID";
-  elementColumnNome.innerHTML = "Nome";
+  elementColumnMarca.innerHTML = "Marca";
+  elementColumnCor.innerHTML = "Cor";
+  elementColumnModelo.innerHTML = "Modelo";
+  elementColumnPlaca.innerHTML = "Placa";
+  elementColumnProprietario.innerHTML = "Proprietário";
   elementColumnCpf.innerHTML = "CPF";
-  elementColumnCidade.innerHTML = "Cidade";
-  elementColumnUf.innerHTML = "UF";
 
   elementRow.appendChild(elementColumnId);
-  elementRow.appendChild(elementColumnNome);
+  elementRow.appendChild(elementColumnMarca);
+  elementRow.appendChild(elementColumnCor);
+  elementRow.appendChild(elementColumnModelo);
+  elementRow.appendChild(elementColumnPlaca);
+  elementRow.appendChild(elementColumnProprietario);
   elementRow.appendChild(elementColumnCpf);
-  elementRow.appendChild(elementColumnCidade);
-  elementRow.appendChild(elementColumnUf);
 
-  headerCliente.appendChild(elementRow);
-  tabelaCliente.appendChild(headerCliente);
+  headerVeiculo.appendChild(elementRow);
+  tabelaVeiculo.appendChild(headerVeiculo);
 }
 
-function updateRegistrosCliente() {
-  tabelaCliente.innerHTML = "";
-  headerCliente.innerHTML = "";
-  criaColunasCliente();
-  let data = getClientespf("http://localhost:3000/api/clientespf");
-  let clientes = JSON.parse(data);
+function updateRegistrosVeiculo() {
+  tabelaVeiculo.innerHTML = "";
+  headerVeiculo.innerHTML = "";
+  criaColunasVeiculo();
+  let data = getVeiculospf("http://localhost:3000/api/veiculospf");
+  let veiculo = JSON.parse(data);
 
-  function selectionCliente() {
-    var nomeCliente = this.querySelector("td:nth-child(2)");
+  function selectionVeiculo() {
+    var veiculoModelo = this.querySelector("td:nth-child(4)");
+    var nomeProprietario = this.querySelector("td:nth-child(6)");
+    var documentoProprietario = this.querySelector("td:nth-child(7)");
 
-    veiculo = nomeCliente;
+    veiculo = veiculoModelo;
+    proprietario = nomeProprietario;
+    documento = documentoProprietario;
 
-    inputBuscarVeiculo.readOnly = false;
     inputBuscarVeiculo.value = veiculo.textContent;
-    inputBuscarVeiculo.readOnly = true;
+    inputDocumentoProprietario.value = documento.textContent;
+    inputnomeProprietario.value = proprietario.textContent;
 
     modal__SelectVeiculo.style.display = "none";
   }
 
-  var rowCliente;
-  function paintRowCliente() {
-    for (var i = 0; (rowCliente = tabelaCliente.rows[i]); i++) {
-      tabelaCliente.rows[i].removeAttribute("style");
+  var rowVeiculo;
+  function paintRowVeiculo() {
+    for (var i = 0; (rowVeiculo = tabelaVeiculo.rows[i]); i++) {
+      tabelaVeiculo.rows[i].removeAttribute("style");
     }
     this.style.backgroundColor = "#ffac1c";
   }
 
-  clientes.forEach((element) => {
-    var linhaCliente = adicionaLinhaCliente(element);
-    linhaCliente.addEventListener("dblclick", selectionCliente);
-    linhaCliente.addEventListener("click", paintRowCliente);
-    tabelaCliente.appendChild(linhaCliente);
+  veiculo.forEach((element) => {
+    var linhaVeiculo = adicionaLinhaVeiculo(element);
+    linhaVeiculo.addEventListener("dblclick", selectionVeiculo);
+    linhaVeiculo.addEventListener("click", paintRowVeiculo);
+    tabelaVeiculo.appendChild(linhaVeiculo);
   });
 }

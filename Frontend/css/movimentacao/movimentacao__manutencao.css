@@ -5,7 +5,7 @@
   width: 950px;
 }
 
-.form__itens input:disabled {
+.form__itens input:disabled, #documentoProprietario, #nomeProprietario {
   background-color: #dedede;
   border: 0.1px solid #b4b4b4;
 }
@@ -82,12 +82,12 @@
   margin-top: 18px;
 }
 
-#modal__SelectItem, #modal__SelectCliente, #modal__SelectVeiculo, #modal__CleartTable h2 {
+#modal__SelectItem, #modal__SelectCliente, #modal__SelectVeiculo, #modal__CleartTable, #modal__ClearTable h2 {
   font-size: 25px;
   margin-left: 8px;
 }
 
-#modal__SelectItem, #modal__SelectCliente, #modal__SelectVeiculo, #modal__CleartTable p {
+#modal__SelectItem, #modal__SelectCliente, #modal__SelectVeiculo, #modal__CleartTable, #modal__ClearTable p {
   font-size: 16px;
 }
 

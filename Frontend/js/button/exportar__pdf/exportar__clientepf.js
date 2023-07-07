@@ -75,7 +75,7 @@ function generate() {
         cellWidth: 80,
       },
       2: {
-        cellWidth: 50,
+        cellWidth: 80,
       },
       3: {
         cellWidth: 50,
@@ -90,11 +90,9 @@ function generate() {
         cellWidth: 80,
       },
       7: {
-        cellWidth: 35,
+        cellWidth: 80,
       },
-      8: {
-        cellWidth: 70,
-      },
+
     },
     styles: {
       minCellHeight: 10,

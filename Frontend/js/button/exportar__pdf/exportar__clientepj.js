@@ -82,7 +82,7 @@ function generate() {
         cellWidth: 50,
       },
       3: {
-        cellWidth: 60,
+        cellWidth: 80,
       },
       4: {
         cellWidth: 45,
@@ -97,10 +97,7 @@ function generate() {
         cellWidth: 60,
       },
       8: {
-        cellWidth: 35,
-      },
-      9: {
-        cellWidth: 70,
+        cellWidth: 80,
       },
     },
     styles: {

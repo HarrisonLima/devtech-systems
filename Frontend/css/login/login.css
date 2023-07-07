@@ -9,8 +9,10 @@ body {
 
 .logo { 
     display: flex;
-    height: 250px;
-    width: 300px;
+    margin-left: -150px;
+    margin-right: 15px;
+    height: 450px;
+    width: 350px;
 }
 
 main {

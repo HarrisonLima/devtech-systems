@@ -3,13 +3,13 @@
   float: left;
   font-size: 20px;
   justify-content: center;
-  margin-left: 40px;
+  margin-left: 65px;
   width: 66.66666%;
 }
 
 .dashboard img {
   height: 400px;
-  margin-left: 150px;
+  margin-left: 50px;
   margin-top: 110px;
   position: absolute;
 }
@@ -59,15 +59,15 @@ h4 {
 }
 
 #dashAberto {
-  background-color: #cecb06;
+  background-color: #494949;
 }
 
 #dashAndamento {
-  background-color: #237f46;
+  background-color: #494949;
 }
 
 #dashRealizada {
-  background-color: #000000;
+  background-color: #494949;
 }
 
 .dashboard__paineis--default h3 {

@@ -40,7 +40,7 @@
 #tabela__pecas,
 #tabela__servicos,
 #tabela__usuarios, #tabela__veiculospf, #tabela__veiculospj,
-#table__produtos {
+#table__produtos, #tabela__manutencoes {
   align-items: center;
   display: flexbox;
   justify-content: center;

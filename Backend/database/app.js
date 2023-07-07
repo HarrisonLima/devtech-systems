@@ -31,6 +31,11 @@ const {
   cadastrarVeiculopj,
   buscarVeiculospj,
 } = require("./services/veiculopjService");
+const {
+  cadastrarManutencao,
+  buscarManutencoes,
+  atualizarManutencao
+} = require("./services/manutencaoService");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -239,6 +244,32 @@ app.post("/api/cadastro/veiculopj", (req, res) => {
     });
 });
 
+app.post("/api/cadastro/manutencao", (req, res) => {
+  console.log(req.body);
+  const cliente = req.body.cliente;
+  const veiculo = req.body.veiculo;
+  const valor = req.body.valor;
+  const descricao = req.body.descricao;
+  const situacao = req.body.situacao;
+  const datainicio = req.body.datainicio;
+
+  return cadastrarManutencao(
+    cliente,
+    veiculo,
+    valor,
+    descricao,
+    situacao,
+    datainicio
+  )
+    .then((data) => {
+      res.status(200);
+      return res.send(data);
+    })
+    .catch(() => {
+      return res.status(500);
+    });
+})
+
 //PUT
 
 app.put("/api/produto/:id", async (req, res) => {
@@ -247,6 +278,21 @@ app.put("/api/produto/:id", async (req, res) => {
   const { estoque } = req.body;
 
   return atualizarProduto(estoque, id)
+    .then((data) => {
+      res.status(200);
+      return res.send(data);
+    })
+    .catch(() => {
+      return res.status(500);
+    });
+});
+
+app.put("/api/manutencao/:id", async (req, res) => {
+  console.log(req.body);
+  const { id } = req.params;
+  const { situacao, dataprevisao, dataencerramento } = req.body;
+
+  return atualizarManutencao(situacao, dataprevisao, dataencerramento, id)
     .then((data) => {
       res.status(200);
       return res.send(data);
@@ -337,6 +383,17 @@ app.get("/api/veiculospf", (req, res) => {
 
 app.get("/api/veiculospj", (req, res) => {
   return buscarVeiculospj()
+    .then((data) => {
+      res.status(200);
+      return res.json(data);
+    })
+    .catch(() => {
+      return res.status(500);
+    });
+});
+
+app.get("/api/manutencoes", (req, res) => {
+  return buscarManutencoes()
     .then((data) => {
       res.status(200);
       return res.json(data);

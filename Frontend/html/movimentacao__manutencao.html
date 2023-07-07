@@ -68,21 +68,10 @@
               </div>
             </div>
             <div>
-              <button type="button">Relatórios</button>
+              <button type="button">Gerenciar</button>
               <div class="submenu__bottom--elements">
-                <a href="./relatorio__cliente.html">Cliente</a><br />
-
-                <a href="./relatorio__peca.html">Peça</a><br />
-                <a href="./relatorio__produto.html">Produto</a><br />
-                <a href="./relatorio__usuario.html">Usuário</a><br />
-                <a href="./relatorio__servico.html">Serviço</a><br />
-                <a href="./relatorio__veiculo.html">Veículo</a><br />
-              </div>
-            </div>
-            <div>
-              <button type="button">Estoque</button>
-              <div class="submenu__bottom--elements">
-                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+                <a href="./estoque__gerenciar.html">Estoque</a><br />
+                <a href="./dashboard__manutencao.html">Manutenções</a><br />
               </div>
             </div>
             <div>
@@ -92,6 +81,18 @@
                 ><br />
                 <a href="./movimentacao__vendaProduto.html">Venda Produto</a
                 ><br />
+              </div>
+            </div>
+            <div>
+              <button type="button">Relatórios</button>
+              <div class="submenu__bottom--elements">
+                <a href="./relatorio__cliente.html">Cliente</a><br />
+
+                <a href="./relatorio__peca.html">Peça</a><br />
+                <a href="./relatorio__produto.html">Produto</a><br />
+                <a href="./relatorio__usuario.html">Usuário</a><br />
+                <a href="./relatorio__servico.html">Serviço</a><br />
+                <a href="./relatorio__veiculo.html">Veículo</a><br />
               </div>
             </div>
           </div>
@@ -106,7 +107,7 @@
             <div>Ordem manutenção</div>
           </div>
           <form>
-            <div class="form__search" style="width: 615px;">
+            <div class="form__search" style="width: 850px;">
               <div>
                 <h2>Veículo</h2>
                 <input
@@ -119,6 +120,22 @@
                   id="icon__searchVeiculo"
                   class="fa-solid fa-magnifying-glass"
                 ></i>
+              </div>
+              <div>
+                <h2>Proprietário</h2>
+                <input
+                  type="text"
+                  id="nomeProprietario"
+                  class="input__medium"
+                />
+              </div>
+              <div>
+                <h2>Documento</h2>
+                <input
+                  type="text"
+                  id="documentoProprietario"
+                  class="input__medium"
+                />
               </div>
               <div>
                 <h2>Data de Início</h2>
@@ -201,7 +218,7 @@
               <table id="table__itens">
                 <thead>
                   <th>Qtde</th>
-                  <th>Produto</th>
+                  <th>Item</th>
                   <th>Valor</th>
                   <th>Total</th>
                   <th>Descrição</th>
@@ -226,13 +243,9 @@
               Cancelar
             </button>
           </div>
-          <div id="modal__SelectProduct" class="modal__SelectItem">
+          <div id="modal__SelectItem" class="modal__SelectItem">
             <div class="modal__header">
               <div>
-                <i
-                  id="icon__modal--SelectProduct"
-                  class="fa-solid fa-magnifying-glass"
-                ></i>
                 <h2>Listagem produtos</h2>
               </div>
               <i id="icon__xmark--select" class="fa-solid fa-xmark"></i>
@@ -240,7 +253,7 @@
             <p>
               Clique duas vezes no item que deseja adicionar no carrinho.
             </p>
-            <table id="tabela__pecas">
+            <table id="tabela__itens">
               <thead id="header"></thead>
               <tbody>
                 <tr id="content"></tr>
@@ -281,19 +294,15 @@
           <div id="modal__SelectVeiculo">
             <div class="modal__header">
               <div>
-                <i
-                  id="icon__modal--SelectVeiculo"
-                  class="fa-solid fa-magnifying-glass"
-                ></i>
-                <h2>Listagem de clientes</h2>
+                <h2>Listagem de veículos</h2>
               </div>
               <i id="icon__xmark--selectVeiculo" class="fa-solid fa-xmark"></i>
             </div>
-            <p>Clique duas vezes no cliente para quem emitirá a venda.</p>
-            <table id="tabela__clientespf">
-              <thead id="header__clientespf"></thead>
+            <p>Clique duas vezes no veículo que emitirá a ordem de manutenção.</p>
+            <table id="tabela__veiculospf">
+              <thead id="header__veiculospf"></thead>
               <tbody>
-                <tr id="content__clientespf"></tr>
+                <tr id="content__veiculospf"></tr>
               </tbody>
             </table>
           </div>
@@ -304,5 +313,6 @@
 
     <script src="../js/button/button__cancelar.js"></script>
     <script src="../js/button/button__criar--manutencao.js"></script>
+    <script src="../js/button/button__finalizarManutencao.js"></script>
   </body>
 </html>

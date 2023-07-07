@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="../css/home/dashboard.css" />
     <link rel="stylesheet" href="../css/default/default.css" />
     <link rel="stylesheet" href="../css/default/default__menu.css" />
-    <link rel="stylesheet" href="../css/home/dashboard.css  " />
+    <link rel="stylesheet" href="../css/home/dashboard.css" />
+    <link rel="stylesheet" href="../css/dropdown/relatorio__dropdown.css" />
+    <link rel="stylesheet" href="../css/default/default__relatorio.css" />
+    <link rel="stylesheet" href="../css/relatorio/relatorio__tabelas.css" />
+    <link rel="stylesheet" href="../css/default/default__gerenciarEstoque.css" />
     <title>Garage 817</title>
   </head>
   <body>
@@ -63,21 +67,10 @@
               </div>
             </div>
             <div>
-              <button type="button">Relatórios</button>
+              <button type="button">Gerenciar</button>
               <div class="submenu__bottom--elements">
-                <a href="./relatorio__cliente.html">Cliente</a><br />
-
-                <a href="./relatorio__peca.html">Peça</a><br />
-                <a href="./relatorio__produto.html">Produto</a><br />
-                <a href="./relatorio__usuario.html">Usuário</a><br />
-                <a href="./relatorio__servico.html">Serviço</a><br />
-                <a href="./relatorio__veiculo.html">Veículo</a><br />
-              </div>
-            </div>
-            <div>
-              <button type="button">Estoque</button>
-              <div class="submenu__bottom--elements">
-                <a href="./estoque__gerenciar.html">Gerenciar</a><br />
+                <a href="./estoque__gerenciar.html">Estoque</a><br />
+                <a href="./dashboard__manutencao.html">Manutenções</a><br />
               </div>
             </div>
             <div>
@@ -89,40 +82,69 @@
                 ><br />
               </div>
             </div>
+            <div>
+              <button type="button">Relatórios</button>
+              <div class="submenu__bottom--elements">
+                <a href="./relatorio__cliente.html">Cliente</a><br />
+
+                <a href="./relatorio__peca.html">Peça</a><br />
+                <a href="./relatorio__produto.html">Produto</a><br />
+                <a href="./relatorio__usuario.html">Usuário</a><br />
+                <a href="./relatorio__servico.html">Serviço</a><br />
+                <a href="./relatorio__veiculo.html">Veículo</a><br />
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="dashboard">
-          <div class="dashboard__content">
-            <div>
-              My Dashboard
-              <i class="fa-solid fa-square-poll-vertical"></i>
+        <div class="dashboard__content">
+          <div>
+            My Dashboard
+            <i class="fa-solid fa-square-poll-vertical"></i>
+          </div>
+          <div class="dasboard__paineis">
+            <div id="dashAberto" class="dashboard__paineis--default">
+              <div class="dashboard__header">
+                <i class="fa-sharp fa-solid fa-gear"></i>
+                <h4>99</h4>
+              </div>
+              <h3>Manutenções em aberto</h3>
             </div>
-            <div class="dasboard__paineis">
-              <div id="dashAberto" class="dashboard__paineis--default">
-                <div class="dashboard__header">
-                  <i class="fa-sharp fa-solid fa-gear"></i>
-                  <h4>99</h4>
-                </div>
-                <h3>Manutenções em aberto</h3>
+            <div id="dashAndamento" class="dashboard__paineis--default">
+              <div class="dashboard__header">
+                <i class="fa-sharp fa-solid fa-gear"></i>
+                <h4>99</h4>
               </div>
-              <div id="dashAndamento" class="dashboard__paineis--default">
-                <div class="dashboard__header">
-                  <i class="fa-sharp fa-solid fa-gear"></i>
-                  <h4>99</h4>
-                </div>
-                <h3>Manutenções em andamento</h3>
+              <h3>Manutenções em andamento</h3>
+            </div>
+            <div id="dashRealizada" class="dashboard__paineis--default">
+              <div class="dashboard__header">
+                <i class="fa-sharp fa-solid fa-gear"></i>
+                <h4>99</h4>
               </div>
-              <div id="dashRealizada" class="dashboard__paineis--default">
-                <div class="dashboard__header">
-                  <i class="fa-sharp fa-solid fa-gear"></i>
-                  <h4>99</h4>
-                </div>
-                <h3>Manutenções realizadas</h3>
-              </div>
+              <h3>Manutenções finalizada</h3>
             </div>
           </div>
+        </div>
       </div>
+      <div class="relatorio">
+        <div class="relatorio__search--results">
+          <div>
+            <table id="tabela__manutencoes" style="font-size: 16px;">
+              <thead id="header"></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="button__atualizar" class="button__form--atualizar">
+            Atualizar
+          </button>
+        </div>
+      </div>
+      <script src="../js/button/pesquisar/pesquisar__manutencao.js"></script>
+      <script src="../js/button/button__atualizarManutencao.js"></script>
     </main>
     <footer></footer>
   </body>
