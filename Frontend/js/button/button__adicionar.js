@@ -110,9 +110,6 @@ inputBuscarCliente.addEventListener("dblclick", (event) => {
 });
 
 button__adicionar.addEventListener("click", () => {
-  if (inputQtde.value > inputEstoque.value) {
-    alert("A quantidade da venda não pode ser maior que a presente no estoque!")
-  } else {
     push__basket();
 
     inputQtde.disabled = true;
@@ -126,7 +123,6 @@ button__adicionar.addEventListener("click", () => {
     button__retirar.style.display = "none";
     
     inputEstoque.value = "";
-  }
 });
 
 button__retirar.addEventListener("click", () => {

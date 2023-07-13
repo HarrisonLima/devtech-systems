@@ -67,4 +67,4 @@ async function atualizarManutencaoRepository(
   }
 }
 
-module.exports = { cadastrarManutencaoRepository, buscarManutencaoRepository };
+module.exports = { cadastrarManutencaoRepository, buscarManutencaoRepository, atualizarManutencaoRepository };

@@ -1,6 +1,5 @@
 const buttonAtualizar = document.getElementById("button__atualizar");
 var limite = (tabela.rows.length) - 1;
-
 buttonAtualizar.addEventListener("click", async () => {
 
   var contador = 1;
